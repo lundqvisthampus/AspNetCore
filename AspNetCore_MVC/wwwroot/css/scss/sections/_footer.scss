@@ -1,0 +1,25 @@
+footer {
+    .container {
+        max-width: 60%;
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+
+            i {
+                font-size: 2rem;
+                color: $gray-800;
+                text-decoration: none;
+            }
+        }
+
+        .footer-text {
+            text-align: center;
+            color: $gray-600;
+            margin-bottom: 3rem;
+        }
+    }
+}

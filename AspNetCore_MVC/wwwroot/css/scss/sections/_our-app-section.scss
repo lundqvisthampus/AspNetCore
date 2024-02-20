@@ -1,0 +1,74 @@
+main {
+    .download-our-app-section {
+        background-color: $gray-100;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
+        .container {
+            display: flex;
+            justify-content: center;
+            
+            @media (min-width: 1200px) {
+            padding-left: 7rem;
+            justify-content: start;
+            }
+
+            .app-img {
+                display: none;
+
+                @media (min-width: 1024px) {
+                    display: block;
+                }
+            }
+
+            .download-here {
+
+                @media (min-width: 1200px) {
+                    margin-left: 9rem;
+                    margin-top: 6rem;
+                }
+
+                
+                h2 {
+                    font-size: 2.5rem;
+                    font-weight: 800;
+                    color: $gray-900;
+                    margin-bottom: 3rem;
+                }
+
+                .app-places {
+                    margin-bottom: 2rem;
+                    .store-text {
+                        color: $gray-600;
+                        margin: 0 0 0.5rem 0;
+                    }
+
+                    .rating-image {
+                        margin-top: 1.5rem;
+
+                        @media (min-width: 575px) {
+                            display: flex;
+                        }
+
+                        .title-rating {
+                            h4 {
+                                font-size: 1.5rem;
+                                font-weight: 800;
+                                margin-bottom: 0.5rem;
+                            }
+
+                            .rating-text {
+                                color: $gray-700;
+                            }
+                        }
+
+                        a {
+                            margin-top: 0.35rem;
+                            margin-left: 4rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

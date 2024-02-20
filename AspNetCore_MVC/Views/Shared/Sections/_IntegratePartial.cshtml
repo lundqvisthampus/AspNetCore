@@ -1,0 +1,22 @@
+﻿@model IntegrateViewModel
+
+<section class="integrate-work-section">
+    <div class="container">
+        <div class="integrate-title">
+            <h2>@Model.Title</h2>
+            <p>@Model.Description</p>
+        </div>
+        <div class="other-apps">
+            @if (Model.Applications != null)
+            {
+                foreach(var app in Model.Applications)
+                {
+                    <a href="https://@app.Link" target="_blank" class="other-app">
+                        <img src="@app.Image.ImageUrl" alt="@app.Image.AltText">
+                        <p>@app.Text</p>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+</section>

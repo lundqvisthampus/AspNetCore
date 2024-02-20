@@ -1,0 +1,18 @@
+﻿@model ManageWorkViewModel
+
+<section class="manage-work-section">
+    <div class="container">
+        <img src="@Model.ImageViewModel.ImageUrl" alt="@Model.ImageViewModel.AltText">
+        <div class="manage-work">
+            <h2>@Model.Title</h2>
+            @if (Model.Features != null)
+            {
+                foreach (var feature in Model.Features)
+                {
+                    <p><i class="@feature.Icon" style="color: #6366F1;"></i>@feature.Text</p>
+                }
+            }
+            <a class="theme-btn" asp-controller="@Model.Link.ControllerName" asp-action="@Model.Link.ActionName">@Model.Link.Text <i class="@Model.Link.Icon"></i></a>
+        </div>
+    </div>
+</section>

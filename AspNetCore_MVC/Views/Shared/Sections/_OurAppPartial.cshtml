@@ -1,0 +1,27 @@
+﻿@model OurAppViewModel
+
+<section class="download-our-app-section">
+    <div class="container">
+        <img class="app-img" src="@Model.Image.ImageUrl" alt="@Model.Image.AltText">
+        <div class="download-here">
+            <h2>@Model.Title</h2>
+            @foreach (var item in Model.AppStoresList)
+            {
+                <div class="app-places">
+                    <p class="store-text">@item.Store</p>
+                    @for (int i = 0; i < item.StarsAmount; i++)
+                    {
+                        <i class="fa-solid fa-star" style="color: #FFBA08;"></i>
+                    }
+                    <div class="rating-image">
+                        <div class="title-rating">
+                            <h4>@item.AppTitle</h4>
+                            <p class="rating-text">@item.RatingText</p>
+                        </div>
+                        <a href="#"><img src="@item.StoreImage.ImageUrl" alt="@item.StoreImage.AltText"></a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+﻿@model ToolsViewModel
+
+<section class="tools-section">
+    <div class="container">
+        <div class="heading">
+            <h2>@Model.Title</h2>
+            <p>@Model.Description</p>
+        </div>
+        <div class="our-tools">
+            @if (Model.Tools != null)
+            {
+                foreach (var tool in Model.Tools)
+                {
+                    <a asp-controller="@tool.ControllerName" asp-action="@tool.ActionName" class="tool" id="@tool.Id">
+                        <i class="@tool.Icon" style="color: #6366F1;"></i>
+                        <h5>@tool.Title</h5>
+                        <p>@tool.Text</p>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,85 @@
+main {
+    .modeswitch-section {
+        background-image: linear-gradient(to right, $gray-900 0%, $gray-900 50%,
+        white 50%, white 100%);
+        max-width: 280px;
+
+        @media (min-width: 300px) {
+            max-width: 360px;
+        }
+
+        @media (min-width: 575px) {
+            max-width: 100%;
+        }
+
+        .mobile-container {
+            p {
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: $theme;
+                padding-top: 4rem;
+            }
+
+            img {
+                width: 80%;
+                margin-left: 2.3rem;
+                padding-bottom: 4rem;
+            }
+
+            @media (min-width: 575px) {
+                display: none;
+            }
+        }
+
+        .container {
+            justify-content: center;
+            position: relative;
+            align-items: center;
+            display: none;
+
+            .lefth3 {
+                padding-top: 7rem;
+                font-size: 36px;
+                font-weight: 800;
+                color: $white; 
+                margin-left: 1.5rem;
+                margin-bottom: -13rem;
+                z-index: 1;
+            }
+
+            .righth3 {
+                padding-top: 7rem;
+                font-size: 36px;
+                font-weight: 800;
+                color: $gray-900;
+                margin-left: 4rem;
+                margin-bottom: -13rem;
+                z-index: 1;
+            }
+
+            .macbook-img {
+                position: absolute;
+                margin-right: 5px;
+                margin-bottom: -10rem;
+                max-width: 100%;
+            }
+
+            .purpleline-svg {
+                z-index: 2;
+                left: 200px;
+            }
+
+            .arrowSvg {
+                top: 500px;
+                z-index: 1;
+                position: absolute;
+            }
+
+            @media (min-width: 575px) {
+                display: flex;
+            }
+        }
+        
+    }
+}

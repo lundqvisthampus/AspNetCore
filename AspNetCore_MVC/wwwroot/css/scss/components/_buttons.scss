@@ -1,0 +1,30 @@
+.theme-btn {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 500;
+    padding: 0.7rem 1.4rem;
+    background-color: $theme;
+    border-radius: 6px;
+    transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
+
+    &:hover {
+        background-color: #5c5ece;
+        box-shadow: 3px 3px 6px 1px rgba($color: black, $alpha: 0.3);
+    }
+}
+
+
+.gray-btn {
+    text-decoration: none;
+    color: $gray-800;
+    font-weight: 500;
+    padding: 0.7rem 1.4rem;
+    background-color: $gray-200;
+    border-radius: 6px;
+    transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
+
+    &:hover {
+        background-color: $gray-100;
+        box-shadow: 3px 3px 6px 1px rgba($color: black, $alpha: 0.3)
+    }
+}

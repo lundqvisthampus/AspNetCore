@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@import 'scss/components/_colors.scss';
+@import 'scss/components/_buttons.scss';
+@import 'scss/sections/_footer.scss';
+@import 'scss/sections/_header.scss';
+@import 'scss/sections/_showcase.scss';
+@import 'scss/sections/_tools-section.scss';
+@import 'scss/sections/_modeswitch-section.scss';
+@import 'scss/sections/_manage-work.scss';
+@import 'scss/sections/_our-app-section.scss';
+@import 'scss/sections/_integrate-work-section.scss';
+@import 'scss/sections/_newsletter-section.scss';
+
+
+.wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
