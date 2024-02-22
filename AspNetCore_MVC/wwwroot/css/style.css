@@ -1009,6 +1009,202 @@ main .signin-section .container .signin-form form .remember-me .forgot-password 
   font-weight: 600;
 }
 
+main .account-details-section {
+  margin-bottom: 10rem;
+}
+main .account-details-section .container {
+  gap: 7rem;
+}
+@media (min-width: 1200px) {
+  main .account-details-section .container {
+    display: flex;
+  }
+}
+main .account-details-section .container aside {
+  padding-top: 3rem;
+}
+main .account-details-section .container aside .profile {
+  text-align: center;
+}
+main .account-details-section .container aside .profile img {
+  margin-bottom: 1rem;
+}
+@media (min-width: 1200px) {
+  main .account-details-section .container aside {
+    padding-right: 1rem;
+    border-right: 2px solid #E2E5F1;
+  }
+}
+main .account-details-section .container aside .buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .account-details-section .container aside .buttons .theme-btn {
+  padding-right: 7rem;
+}
+main .account-details-section .container aside .buttons .theme-btn i {
+  margin-right: 0.5rem;
+}
+main .account-details-section .container aside .buttons .sign-out {
+  color: #33354D;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  transition: all ease-in-out 0.15s;
+}
+main .account-details-section .container aside .buttons .sign-out i {
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
+}
+main .account-details-section .container aside .buttons .sign-out:hover {
+  background-color: #D4D7E5;
+}
+main .account-details-section .container .details {
+  margin-top: 4.5rem;
+}
+main .account-details-section .container .details .header2 {
+  margin-bottom: 2rem;
+}
+main .account-details-section .container .details .basic-info .header5 {
+  color: #6366F1;
+}
+main .account-details-section .container .details .basic-info .basic-form p {
+  font-weight: 700;
+  margin: 0;
+  display: inline;
+}
+main .account-details-section .container .details .basic-info .basic-form span {
+  color: #9397AD;
+  font-weight: 400;
+}
+main .account-details-section .container .details .basic-info .basic-form .error-span {
+  color: #EF4444;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+main .account-details-section .container .details .basic-info .basic-form .userinput, main .account-details-section .container .details .basic-info .basic-form .textarea {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #D4D7E5;
+  height: 2.5rem;
+  width: 25vw;
+  min-width: 100%;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  display: block;
+}
+main .account-details-section .container .details .basic-info .basic-form .userinput::placeholder, main .account-details-section .container .details .basic-info .basic-form .textarea::placeholder {
+  color: #B4B7C9;
+}
+main .account-details-section .container .details .basic-info .basic-form .textarea {
+  padding-top: 0.5rem;
+  padding-bottom: 5rem;
+  resize: none;
+}
+main .account-details-section .container .details .basic-info .basic-form .form-btns {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+main .account-details-section .container .details .basic-info .basic-form .form-btns button {
+  border: none;
+  margin-right: 1rem;
+}
+@media (min-width: 1024px) {
+  main .account-details-section .container .details .basic-info .basic-form .form-btns {
+    justify-content: start;
+  }
+}
+main .account-details-section .container .details .basic-info .basic-form .nameinputs, main .account-details-section .container .details .basic-info .basic-form .email-phone {
+  margin-top: 0.5rem;
+  gap: 2rem;
+}
+@media (min-width: 1400px) {
+  main .account-details-section .container .details .basic-info .basic-form .nameinputs, main .account-details-section .container .details .basic-info .basic-form .email-phone {
+    display: flex;
+    justify-content: space-between;
+  }
+  main .account-details-section .container .details .basic-info .basic-form .nameinputs input, main .account-details-section .container .details .basic-info .basic-form .email-phone input {
+    min-width: 10%;
+    width: 19vw;
+  }
+}
+main .account-details-section .container .details .address-info {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 2px solid #E2E5F1;
+}
+main .account-details-section .container .details .address-info .header5 {
+  color: #6366F1;
+}
+main .account-details-section .container .details .address-info .basic-form p {
+  font-weight: 700;
+  margin: 0;
+  display: inline;
+}
+main .account-details-section .container .details .address-info .basic-form span {
+  color: #9397AD;
+  font-weight: 400;
+}
+main .account-details-section .container .details .address-info .basic-form .error-span {
+  color: #EF4444;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+main .account-details-section .container .details .address-info .basic-form .userinput {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #D4D7E5;
+  height: 2.5rem;
+  width: 25vw;
+  min-width: 100%;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  display: block;
+}
+main .account-details-section .container .details .address-info .basic-form .userinput::placeholder {
+  color: #B4B7C9;
+}
+main .account-details-section .container .details .address-info .basic-form .postal-city {
+  display: flex;
+}
+main .account-details-section .container .details .address-info .basic-form .form-btns {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+main .account-details-section .container .details .address-info .basic-form .form-btns button {
+  border: none;
+  margin-right: 1rem;
+}
+@media (min-width: 1024px) {
+  main .account-details-section .container .details .address-info .basic-form .form-btns {
+    justify-content: start;
+  }
+}
+main .account-details-section .container .details .address-info .basic-form .postal-city {
+  margin-top: 0.5rem;
+  gap: 2rem;
+  display: block;
+}
+@media (min-width: 1400px) {
+  main .account-details-section .container .details .address-info .basic-form .postal-city {
+    display: flex;
+    justify-content: space-between;
+  }
+  main .account-details-section .container .details .address-info .basic-form .postal-city input {
+    min-width: 10%;
+    width: 19vw;
+  }
+}
+
 .wrapper {
   height: 100vh;
   display: grid;
