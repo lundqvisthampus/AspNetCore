@@ -15,9 +15,16 @@ main {
                     p {
                         font-weight: 700;
                         margin: 0;
+                        display: inline;
                     }
 
-                    .userinput {
+                    span {
+                        margin-left: 0.5rem;
+                        color: $danger;
+                        font-size: 14px;
+                    }
+
+                    .userinput, .userinput-error {
                         margin-top: 0.2rem;
                         margin-bottom: 1rem;
                         border-radius: 6px;
@@ -27,10 +34,16 @@ main {
                         min-width: 100%;
                         padding-left: 0.8rem;
                         padding-right: 0.8rem;
+                        display: block;
 
                         &::placeholder {
                             color: $gray-500;
                         }
+                    }
+
+                    .userinput-error {
+                        border: 1px solid $danger;
+                        background-color: rgba(255, 0, 0, 0.05);
                     }
 
                     .agreement-signup {
