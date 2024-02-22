@@ -1,12 +1,12 @@
 main {
-    .signup-section {
+    .signin-section {
         margin-top: 8rem;
 
         .container {
             display: flex;
             justify-content: center;
 
-            .signup-form {
+            .signin-form {
                 .sign-in {
                     color: $theme;
                 }
@@ -24,7 +24,7 @@ main {
                         font-size: 14px;
                     }
 
-                    .userinput, .userinput-error {
+                    .userinput {
                         margin-top: 0.2rem;
                         margin-bottom: 1rem;
                         border-radius: 6px;
@@ -41,12 +41,7 @@ main {
                         }
                     }
 
-                    .userinput-error {
-                        border: 1px solid $danger;
-                        background-color: rgba(255, 0, 0, 0.05);
-                    }
-
-                    .agreement-signup {
+                    .remember-me {
                         input {
                             accent-color: $theme;
                             margin-right: 0.5rem;
@@ -56,31 +51,24 @@ main {
                             display: inline;
                             font-weight: 400;
                             color: $gray-700;
-
-                            a {
-                                color: $theme;
-                            }
                         }
 
                         button {
                             margin-top: 1.5rem;
-                            margin-bottom: 4rem;
+                            margin-bottom: 1.5rem;
                             display: block;
                             width: 100%;
                             border: none;
                         }
-                    }
 
-                    .nameinputs {
-                        margin-top: 2rem;
-
-                        @media (min-width: 1400px) {
+                        .forgot-password {
                             display: flex;
-                            justify-content: space-between;
+                            justify-content: center;
 
-                            input {
-                                min-width: 30%;
-                                width: 12vw;
+                            a {
+                                text-decoration: none;
+                                color: $theme;
+                                font-weight: 600;
                             }
                         }
                     }

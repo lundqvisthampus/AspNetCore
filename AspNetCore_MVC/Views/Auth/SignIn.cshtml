@@ -1,0 +1,31 @@
+﻿@model AuthSignInViewModel
+
+<section class="signin-section">
+    <div class="container">
+        <div class="signin-form">
+            <h1 class="header1">Welcome Back</h1>
+            <p class="m-text">Don’t have an account yet? <a class="sign-in" asp-controller="Auth" asp-action="SignUp">Sign up here.</a></p>
+            <form method="post" novalidate asp-controller="Auth" asp-action="SignIn">
+                <div>
+                    @Model.ErrorMessage
+                </div>
+                <p>Email</p>
+                <span asp-validation-for="SignInModel.Email"></span>
+                <input asp-for="SignInModel.Email" class="userinput">
+
+                <p>Password</p>
+                <span asp-validation-for="SignInModel.Password"></span>
+                <input asp-for="SignInModel.Password" class="userinput">
+
+                <div class="remember-me">
+                    <input asp-for="SignInModel.RememberMe">
+                    <p>Remember me</p>
+                    <button type="submit" asp-controller="Auth" asp-action="SignIn" class="theme-btn">Sign in</button>
+                    <div class="forgot-password">
+                        <a asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

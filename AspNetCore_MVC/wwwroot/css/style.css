@@ -152,6 +152,7 @@ footer .container .footer-text {
 
 header .mobile-menu {
   display: flex;
+  display: none !important;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
@@ -888,8 +889,14 @@ main .signup-section .container .signup-form .sign-in {
 main .signup-section .container .signup-form form p {
   font-weight: 700;
   margin: 0;
+  display: inline;
 }
-main .signup-section .container .signup-form form .userinput {
+main .signup-section .container .signup-form form span {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-size: 14px;
+}
+main .signup-section .container .signup-form form .userinput, main .signup-section .container .signup-form form .userinput-error {
   margin-top: 0.2rem;
   margin-bottom: 1rem;
   border-radius: 6px;
@@ -899,9 +906,14 @@ main .signup-section .container .signup-form form .userinput {
   min-width: 100%;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
+  display: block;
 }
-main .signup-section .container .signup-form form .userinput::placeholder {
+main .signup-section .container .signup-form form .userinput::placeholder, main .signup-section .container .signup-form form .userinput-error::placeholder {
   color: #B4B7C9;
+}
+main .signup-section .container .signup-form form .userinput-error {
+  border: 1px solid #EF4444;
+  background-color: rgba(255, 0, 0, 0.05);
 }
 main .signup-section .container .signup-form form .agreement-signup input {
   accent-color: #6366F1;
@@ -934,6 +946,67 @@ main .signup-section .container .signup-form form .nameinputs {
     min-width: 30%;
     width: 12vw;
   }
+}
+
+main .signin-section {
+  margin-top: 8rem;
+}
+main .signin-section .container {
+  display: flex;
+  justify-content: center;
+}
+main .signin-section .container .signin-form .sign-in {
+  color: #6366F1;
+}
+main .signin-section .container .signin-form form p {
+  font-weight: 700;
+  margin: 0;
+  display: inline;
+}
+main .signin-section .container .signin-form form span {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-size: 14px;
+}
+main .signin-section .container .signin-form form .userinput {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #D4D7E5;
+  height: 2.5rem;
+  width: 25vw;
+  min-width: 100%;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  display: block;
+}
+main .signin-section .container .signin-form form .userinput::placeholder {
+  color: #B4B7C9;
+}
+main .signin-section .container .signin-form form .remember-me input {
+  accent-color: #6366F1;
+  margin-right: 0.5rem;
+}
+main .signin-section .container .signin-form form .remember-me p {
+  display: inline;
+  font-weight: 400;
+  color: #565973;
+}
+main .signin-section .container .signin-form form .remember-me button {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  width: 100%;
+  border: none;
+}
+main .signin-section .container .signin-form form .remember-me .forgot-password {
+  display: flex;
+  justify-content: center;
+}
+main .signin-section .container .signin-form form .remember-me .forgot-password a {
+  text-decoration: none;
+  color: #6366F1;
+  font-weight: 600;
 }
 
 .wrapper {
