@@ -1,0 +1,79 @@
+main {
+    .signin-section {
+        margin-top: 8rem;
+
+        .container {
+            display: flex;
+            justify-content: center;
+
+            .signin-form {
+                .sign-in {
+                    color: $theme;
+                }
+
+                form {
+                    p {
+                        font-weight: 700;
+                        margin: 0;
+                        display: inline;
+                    }
+
+                    span {
+                        margin-left: 0.5rem;
+                        color: $danger;
+                        font-size: 14px;
+                    }
+
+                    .userinput {
+                        margin-top: 0.2rem;
+                        margin-bottom: 1rem;
+                        border-radius: 6px;
+                        border: 1px solid $gray-400;
+                        height: 2.5rem;
+                        width: 25vw;
+                        min-width: 100%;
+                        padding-left: 0.8rem;
+                        padding-right: 0.8rem;
+                        display: block;
+
+                        &::placeholder {
+                            color: $gray-500;
+                        }
+                    }
+
+                    .remember-me {
+                        input {
+                            accent-color: $theme;
+                            margin-right: 0.5rem;
+                        }
+
+                        p {
+                            display: inline;
+                            font-weight: 400;
+                            color: $gray-700;
+                        }
+
+                        button {
+                            margin-top: 1.5rem;
+                            margin-bottom: 1.5rem;
+                            display: block;
+                            width: 100%;
+                            border: none;
+                        }
+
+                        .forgot-password {
+                            display: flex;
+                            justify-content: center;
+
+                            a {
+                                text-decoration: none;
+                                color: $theme;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

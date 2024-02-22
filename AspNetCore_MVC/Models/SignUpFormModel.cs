@@ -42,5 +42,4 @@ public class CheckboxRequired : ValidationAttribute
     {
         return value is bool b && b;
     }
-
 }
