@@ -27,6 +27,108 @@
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
 }
 
+.header1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.header2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.header3 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.header4 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.header5 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.header6 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.display1 {
+  font-size: 80px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.display2 {
+  font-size: 72px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.display3 {
+  font-size: 64px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.display4 {
+  font-size: 56px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.display5 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.display6 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0B0F19;
+}
+
+.xs-text {
+  font-size: 12px;
+  color: #565973;
+}
+
+.s-text {
+  font-size: 14px;
+  color: #565973;
+}
+
+.m-text {
+  font-size: 16px;
+  color: #565973;
+}
+
+.l-text {
+  font-size: 18px;
+  color: #565973;
+}
+
+.xl-text {
+  font-size: 20px;
+  color: #565973;
+}
+
+.lead-text {
+  font-size: 24px;
+  color: #565973;
+}
+
 footer .container {
   max-width: 60%;
 }
@@ -49,10 +151,13 @@ footer .container .footer-text {
 }
 
 header .mobile-menu {
-  display: none !important;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
+}
+header .mobile-menu a i {
+  margin-right: 0.5rem;
 }
 header .mobile-menu .link {
   text-decoration: none;
@@ -768,6 +873,67 @@ main .newsletter-section .container .agreement {
 }
 main .newsletter-section .container .agreement .star-span, main .newsletter-section .container .agreement a {
   color: #6366F1;
+}
+
+main .signup-section {
+  margin-top: 8rem;
+}
+main .signup-section .container {
+  display: flex;
+  justify-content: center;
+}
+main .signup-section .container .signup-form .sign-in {
+  color: #6366F1;
+}
+main .signup-section .container .signup-form form p {
+  font-weight: 700;
+  margin: 0;
+}
+main .signup-section .container .signup-form form .userinput {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #D4D7E5;
+  height: 2.5rem;
+  width: 25vw;
+  min-width: 100%;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+main .signup-section .container .signup-form form .userinput::placeholder {
+  color: #B4B7C9;
+}
+main .signup-section .container .signup-form form .agreement-signup input {
+  accent-color: #6366F1;
+  margin-right: 0.5rem;
+}
+main .signup-section .container .signup-form form .agreement-signup p {
+  display: inline;
+  font-weight: 400;
+  color: #565973;
+}
+main .signup-section .container .signup-form form .agreement-signup p a {
+  color: #6366F1;
+}
+main .signup-section .container .signup-form form .agreement-signup button {
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+  display: block;
+  width: 100%;
+  border: none;
+}
+main .signup-section .container .signup-form form .nameinputs {
+  margin-top: 2rem;
+}
+@media (min-width: 1400px) {
+  main .signup-section .container .signup-form form .nameinputs {
+    display: flex;
+    justify-content: space-between;
+  }
+  main .signup-section .container .signup-form form .nameinputs input {
+    min-width: 30%;
+    width: 12vw;
+  }
 }
 
 .wrapper {

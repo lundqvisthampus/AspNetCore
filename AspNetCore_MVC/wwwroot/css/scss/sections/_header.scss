@@ -1,10 +1,16 @@
 header {
     .mobile-menu {
-        // display: flex;
-        display: none !important;
+        display: flex;
+        // display: none !important;
         justify-content: center;
         flex-direction: column;
         gap: 20px;
+
+        a {
+            i {
+                margin-right: 0.5rem;
+            }
+        }
 
         .link {
             text-decoration: none;
@@ -17,11 +23,11 @@ header {
         margin-top: 0.5rem;
         display: flex;
         align-items: center;
-        
+
         @media (min-width: 648px) {
             justify-content: space-between;
         }
-            
+
         .left-navbar {
             display: flex;
 
@@ -33,6 +39,7 @@ header {
                 display: none;
                 margin-top: 0.6rem;
                 margin-left: 3rem;
+
                 a {
                     text-decoration: none;
                     color: $gray-800;
@@ -46,7 +53,7 @@ header {
             }
         }
 
-        .right-navbar {    
+        .right-navbar {
             display: flex;
             margin-top: 1rem;
 
@@ -66,13 +73,14 @@ header {
                 display: inline-block;
                 width: 45px;
                 height: 25.5px;
-                
+
                 input {
                     opacity: 0;
                     width: 0;
                     height: 0;
                 }
             }
+
             .slider {
                 display: none;
                 position: absolute;
@@ -101,11 +109,13 @@ header {
                     transition: .4s;
                 }
             }
+
             input {
                 &:checked {
                     + {
                         .slider {
                             background-color: $info;
+
                             &:before {
                                 -webkit-transform: translateX(19.5px);
                                 -ms-transform: translateX(19.5px);
@@ -115,12 +125,14 @@ header {
                     }
                 }
             }
+
             .slider.round {
                 border-radius: 34px;
+
                 &:before {
                     border-radius: 50%;
                 }
-            } 
+            }
 
             .navbar-buttons {
                 i {
