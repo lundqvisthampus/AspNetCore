@@ -1,16 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using AspNetCore_MVC.Helpers;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace AspNetCore_MVC.Models;
 
 public class SignUpFormModel
 {
+    [DataType(DataType.Text)]
     [Display(Name = "First name", Prompt = "Enter your first name", Order = 0)]
     [Required(ErrorMessage = "First name required")]
+    [MinLength(2, ErrorMessage = "First name required")]
     public string FirstName { get; set; } = null!;
 
+    [DataType(DataType.Text)]
     [Display(Name = "Last name", Prompt = "Enter your last name", Order = 1)]
     [Required(ErrorMessage = "Last name required")]
+    [MinLength(2, ErrorMessage = "Last name required")]
     public string LastName { get; set;} = null!;
 
     [Display(Name = "Email", Prompt = "Enter your email address", Order = 2)]
@@ -27,19 +32,11 @@ public class SignUpFormModel
 
     [Display(Name = "Confirm password", Prompt = "Confirm your password", Order = 4)]
     [DataType(DataType.Password)]
-    [Required(ErrorMessage = "Password must be confirmed")]
+    [Required(ErrorMessage = "Fields do not match")]
     [Compare(nameof(Password), ErrorMessage = "Fields do not match")]
     public string ConfirmPassword { get; set; } = null!;
 
     [Display(Name = "I agree to the Terms & Conditions", Order = 5)]
     [CheckboxRequired(ErrorMessage = "You must accept the Terms & Conditions")]
     public bool TermsAndConditions { get; set; } = false;
-}
-
-public class CheckboxRequired : ValidationAttribute
-{
-    public override bool IsValid(object? value)
-    {
-        return value is bool b && b;
-    }
 }

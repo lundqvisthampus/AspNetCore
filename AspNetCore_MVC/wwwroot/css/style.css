@@ -896,7 +896,7 @@ main .signup-section .container .signup-form form span {
   color: #EF4444;
   font-size: 14px;
 }
-main .signup-section .container .signup-form form .userinput, main .signup-section .container .signup-form form .userinput-error {
+main .signup-section .container .signup-form form .userinput {
   margin-top: 0.2rem;
   margin-bottom: 1rem;
   border-radius: 6px;
@@ -908,12 +908,15 @@ main .signup-section .container .signup-form form .userinput, main .signup-secti
   padding-right: 0.8rem;
   display: block;
 }
-main .signup-section .container .signup-form form .userinput::placeholder, main .signup-section .container .signup-form form .userinput-error::placeholder {
+main .signup-section .container .signup-form form .userinput::placeholder {
   color: #B4B7C9;
 }
-main .signup-section .container .signup-form form .userinput-error {
+main .signup-section .container .signup-form form .userinput.input-validation-error {
   border: 1px solid #EF4444;
   background-color: rgba(255, 0, 0, 0.05);
+}
+main .signup-section .container .signup-form form .userinput.input-validation-error::placeholder {
+  color: #EF4444;
 }
 main .signup-section .container .signup-form form .agreement-signup input {
   accent-color: #6366F1;
@@ -926,6 +929,9 @@ main .signup-section .container .signup-form form .agreement-signup p {
 }
 main .signup-section .container .signup-form form .agreement-signup p a {
   color: #6366F1;
+}
+main .signup-section .container .signup-form form .agreement-signup span {
+  display: block;
 }
 main .signup-section .container .signup-form form .agreement-signup button {
   margin-top: 1.5rem;
@@ -982,6 +988,13 @@ main .signin-section .container .signin-form form .userinput {
 }
 main .signin-section .container .signin-form form .userinput::placeholder {
   color: #B4B7C9;
+}
+main .signin-section .container .signin-form form .userinput.input-validation-error {
+  border: 1px solid #EF4444;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+main .signin-section .container .signin-form form .userinput.input-validation-error::placeholder {
+  color: #EF4444;
 }
 main .signin-section .container .signin-form form .remember-me input {
   accent-color: #6366F1;
@@ -1101,6 +1114,13 @@ main .account-details-section .container .details .basic-info .basic-form .useri
 main .account-details-section .container .details .basic-info .basic-form .userinput::placeholder, main .account-details-section .container .details .basic-info .basic-form .textarea::placeholder {
   color: #B4B7C9;
 }
+main .account-details-section .container .details .basic-info .basic-form .userinput.input-validation-error, main .account-details-section .container .details .basic-info .basic-form .textarea.input-validation-error {
+  border: 1px solid #EF4444;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+main .account-details-section .container .details .basic-info .basic-form .userinput.input-validation-error::placeholder, main .account-details-section .container .details .basic-info .basic-form .textarea.input-validation-error::placeholder {
+  color: #EF4444;
+}
 main .account-details-section .container .details .basic-info .basic-form .textarea {
   padding-top: 0.5rem;
   padding-bottom: 5rem;
@@ -1171,6 +1191,13 @@ main .account-details-section .container .details .address-info .basic-form .use
 }
 main .account-details-section .container .details .address-info .basic-form .userinput::placeholder {
   color: #B4B7C9;
+}
+main .account-details-section .container .details .address-info .basic-form .userinput.input-validation-error {
+  border: 1px solid #EF4444;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+main .account-details-section .container .details .address-info .basic-form .userinput.input-validation-error::placeholder {
+  color: #EF4444;
 }
 main .account-details-section .container .details .address-info .basic-form .postal-city {
   display: flex;
