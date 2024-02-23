@@ -9,11 +9,11 @@
                 <div>
                     @Model.ErrorMessage
                 </div>
-                <p>Email</p>
+                <label asp-for="SignInModel.Email"></label>
                 <span asp-validation-for="SignInModel.Email"></span>
                 <input asp-for="SignInModel.Email" class="userinput">
 
-                <p>Password</p>
+                <label asp-for="SignInModel.Password"></label>
                 <span asp-validation-for="SignInModel.Password"></span>
                 <input asp-for="SignInModel.Password" class="userinput">
 

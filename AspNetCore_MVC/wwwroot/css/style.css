@@ -886,7 +886,7 @@ main .signup-section .container {
 main .signup-section .container .signup-form .sign-in {
   color: #6366F1;
 }
-main .signup-section .container .signup-form form p {
+main .signup-section .container .signup-form form label {
   font-weight: 700;
   margin: 0;
   display: inline;
@@ -958,7 +958,7 @@ main .signin-section .container {
 main .signin-section .container .signin-form .sign-in {
   color: #6366F1;
 }
-main .signin-section .container .signin-form form p {
+main .signin-section .container .signin-form form label {
   font-weight: 700;
   margin: 0;
   display: inline;

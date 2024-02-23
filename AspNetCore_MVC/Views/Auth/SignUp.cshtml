@@ -8,25 +8,25 @@
             <form method="post" asp-controller="Auth" asp-action="SignUp" novalidate>
                 <div class="nameinputs">
                     <div class="firstname">
-                        <p>First name</p>
+                        <label asp-for="Form.FirstName"></label>
                         <span asp-validation-for="Form.FirstName"></span>
                         <input asp-for="Form.FirstName" class="userinput">
                     </div>
                     <div class="lastname">
-                        <p>Last name</p>
+                        <label asp-for="Form.LastName"></label>
                         <span asp-validation-for="Form.LastName"></span>
                         <input asp-for="Form.LastName" class="userinput">
                     </div>
                 </div>
-                <p>Email address</p>
+                <label asp-for="Form.Email"></label>
                 <span asp-validation-for="Form.Email"></span>
                 <input asp-for="Form.Email" class="userinput">
 
-                <p>Password</p>
+                <label asp-for="Form.Password"></label>
                 <span asp-validation-for="Form.Password"></span>
                 <input asp-for="Form.Password" class="userinput">
 
-                <p>Confirm Password</p>
+                <label asp-for="Form.ConfirmPassword"></label>
                 <span asp-validation-for="Form.ConfirmPassword"></span>
                 <input asp-for="Form.ConfirmPassword" class="userinput">
 
