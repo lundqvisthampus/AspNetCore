@@ -9,40 +9,43 @@
     <title>@ViewData["Title"] - Silicon</title>
 </head>
 <body>
-
     <div class="wrapper">
-        <header>
+                <header>
             <div class="container">
-                <div class="left-navbar">
-                    <a class="logo" asp-controller="Home" asp-action="Index">
-                        <img src="~/images/logotype.svg" alt="Silicon logotype">
+                <div class="left-nav">
+                    <a asp-controller="Home" asp-action="Index">
+                        <img src="/images/logotype.svg" alt="Silicon logotype">
                     </a>
-                    <div class="links">
-                        <a class="link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
-                        <a class="link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                        <a class="link" asp-controller="Contact" asp-action="Index">Contact</a>
+                    <div class="nav-links">
+                        <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                        <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                        <a class="navigate-link" asp-controller="Contact" asp-action="Index">Contact</a>
                     </div>
                 </div>
-                <div class="right-navbar">
-                    <p>Light</p>
-                    <label class="theme-switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                    <p>Dark</p>
-                    <div class="navbar-buttons">
-                        <a class="gray-btn" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
-                        <a class="theme-btn" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
-                        <i class="fa-solid fa-bars"></i>
+                <div class="right-nav">
+                    <div class="nav-btns">
+                        <p>Light</p>
+                        <label class="theme-switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p>Dark</p>
+                        <div class="navbar-buttons">
+                            <a class="gray-btn" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
+                            <a class="theme-btn" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
+                        </div>
                     </div>
+                    <button class="menu-burger">
+                        <i class="fa-regular fa-bars" style="color: #33354D;"></i>
+                    </button>
                 </div>
             </div>
             <div class="mobile-menu container">
-                <a class="gray-btn" href="#"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
-                <a class="theme-btn" href="#"><i class="fa-regular fa-user"></i>Sign Up</a>
-                <a class="link" href="#">Overview</a>
-                <a class="link" href="#">Features</a>
-                <a class="link" href="#">Contact</a>
+                <a class="gray-btn" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
+                <a class="theme-btn" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
+                <a class="link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                <a class="link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                <a class="link" asp-controller="Contact" asp-action="Index">Contact</a>
             </div>
         </header>
 
