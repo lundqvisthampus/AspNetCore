@@ -1,7 +1,11 @@
 header {
+
+    .hide {
+        display: none !important;
+    }
+
     .mobile-menu {
         display: flex;
-        display: none !important;
         justify-content: center;
         align-items: center;
         flex-direction: column;

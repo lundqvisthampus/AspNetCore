@@ -35,17 +35,17 @@
                             <a class="theme-btn" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
                         </div>
                     </div>
-                    <button class="menu-burger">
+                    <button onclick="toggleMenu()" class="menu-burger">
                         <i class="fa-regular fa-bars" style="color: #33354D;"></i>
                     </button>
                 </div>
             </div>
-            <div class="mobile-menu container">
-                <a class="gray-btn" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
-                <a class="theme-btn" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
-                <a class="link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
-                <a class="link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                <a class="link" asp-controller="Contact" asp-action="Index">Contact</a>
+            <div id="menu" class="mobile-menu container hide">
+                <a class="gray-btn" onclick="toggleMenu()" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
+                <a class="theme-btn" onclick="toggleMenu()" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
+                <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                <a class="link" onclick="toggleMenu()" asp-controller="Contact" asp-action="Index">Contact</a>
             </div>
         </header>
 
@@ -67,6 +67,6 @@
             </div>
         </footer>
     </div>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="/js/site.js" asp-append-version="true"></script>
 </body>
 </html>

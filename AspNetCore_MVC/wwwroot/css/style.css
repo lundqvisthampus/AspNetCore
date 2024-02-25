@@ -158,9 +158,11 @@ footer .container .footer-text span {
   }
 }
 
+header .hide {
+  display: none !important;
+}
 header .mobile-menu {
   display: flex;
-  display: none !important;
   justify-content: center;
   align-items: center;
   flex-direction: column;
