@@ -10,7 +10,7 @@ footer {
             margin-bottom: 2rem;
 
             i {
-                font-size: 2rem;
+                font-size: 1.75rem;
                 color: $gray-800;
                 text-decoration: none;
             }
@@ -20,6 +20,14 @@ footer {
             text-align: center;
             color: $gray-600;
             margin-bottom: 3rem;
+
+            span {
+                display: none;
+
+                @media (min-width: 992px) {
+                    display: inline;
+                }
+            }
         }
     }
 }

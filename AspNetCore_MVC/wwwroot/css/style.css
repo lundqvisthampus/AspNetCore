@@ -140,7 +140,7 @@ footer .container .social-media {
   margin-bottom: 2rem;
 }
 footer .container .social-media i {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: #33354D;
   text-decoration: none;
 }
@@ -148,6 +148,14 @@ footer .container .footer-text {
   text-align: center;
   color: #9397AD;
   margin-bottom: 3rem;
+}
+footer .container .footer-text span {
+  display: none;
+}
+@media (min-width: 992px) {
+  footer .container .footer-text span {
+    display: inline;
+  }
 }
 
 header .mobile-menu {
