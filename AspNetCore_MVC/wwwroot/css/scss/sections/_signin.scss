@@ -12,6 +12,11 @@ main {
                 }
 
                 form {
+                    .error-message {
+                        color: $danger;
+                        margin-bottom: 0.5rem;
+                    }
+
                     label {
                         font-weight: 700;
                         margin: 0;

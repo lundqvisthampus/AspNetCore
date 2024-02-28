@@ -958,6 +958,10 @@ main .signin-section .container {
 main .signin-section .container .signin-form .sign-in {
   color: #6366F1;
 }
+main .signin-section .container .signin-form form .error-message {
+  color: #EF4444;
+  margin-bottom: 0.5rem;
+}
 main .signin-section .container .signin-form form label {
   font-weight: 700;
   margin: 0;

@@ -6,7 +6,7 @@
             <div class="profile">
                 <img class="profile-avatar" src="@Model.BasicInfo.ProfileImage" alt="Profile image">
                 <h5 class="header5">@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")</h5>
-                <p class="m-text">@Model.BasicInfo.Email</p>
+                <p class="m-text">@User.Identity!.Name</p>
             </div>
             <div class="buttons">
                 <a class="theme-btn" asp-controller="Account" asp-action="Index"><i class="fa-light fa-gear-complex" style="color: #FFFFFF;"></i> Account Details</a>
