@@ -1,10 +1,9 @@
-﻿using AspNetCore_MVC.Helpers;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using Infrastructures.Helpers;
 using System.ComponentModel.DataAnnotations;
 
-namespace AspNetCore_MVC.Models;
+namespace Infrastructures.Models;
 
-public class SignUpFormModel
+public class SignUpModel
 {
     [DataType(DataType.Text)]
     [Display(Name = "First name", Prompt = "Enter your first name", Order = 0)]
@@ -16,7 +15,7 @@ public class SignUpFormModel
     [Display(Name = "Last name", Prompt = "Enter your last name", Order = 1)]
     [Required(ErrorMessage = "Last name required")]
     [MinLength(2, ErrorMessage = "Last name required")]
-    public string LastName { get; set;} = null!;
+    public string LastName { get; set; } = null!;
 
     [Display(Name = "Email", Prompt = "Enter your email address", Order = 2)]
     [DataType(DataType.EmailAddress)]

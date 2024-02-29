@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AspNetCore_MVC.Models;
+namespace Infrastructures.Models;
 
-public class SignInFormModel
+public class SignInModel
 {
-
     [Display(Name = "Email", Prompt = "Enter your email address", Order = 0)]
     [DataType(DataType.EmailAddress)]
     [Required(ErrorMessage = "Email required")]
