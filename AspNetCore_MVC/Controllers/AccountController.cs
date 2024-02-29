@@ -6,4 +6,23 @@ namespace AspNetCore_MVC.Controllers;
 
 public class AccountController : Controller
 {
+    [Authorize]
+    public IActionResult Index()
+    {
+        var model = new AccountIndexViewModel();
+        ViewData["Title"] = "Account Details";
+        return View(model);
+    }
+
+    [HttpPost]
+    public IActionResult BasicInfo(AccountIndexViewModel model)
+    {
+        return RedirectToAction("Index", "Account");
+    }
+
+    [HttpPost]
+    public IActionResult AddressInfo(AccountIndexViewModel model)
+    {
+        return RedirectToAction("Index", "Account");
+    }
 }
