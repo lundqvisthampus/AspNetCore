@@ -1,75 +1,77 @@
 ﻿using AspNetCore_MVC.Models.Views;
-using Infrastructure.Services;
+using Infrastructures.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace AspNetCore_MVC.Controllers;
 
-public class AuthController(UserService userService) : Controller
+public class AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) : Controller
 {
-    private readonly UserService _userService = userService;
+    private readonly UserManager<ApplicationUser> _userManager = userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
 
-    [HttpGet]
+
     [Route("/signup")]
-    public IActionResult SignUp ()
+    public IActionResult SignUp()
     {
-        var viewModel = new AuthSignUpViewModel();
-        return View(viewModel);
+        return View();
     }
 
     [HttpPost]
     [Route("/signup")]
-    public async Task<IActionResult> SignUp(AuthSignUpViewModel viewModel)
+    public async Task<IActionResult> SignUp(AuthSignUpViewModel model)
     {
         if (ModelState.IsValid)
         {
-            var result = await _userService.CreateUserAsync(viewModel.Form);
-            if (result.StatusCode == Infrastructure.Models.StatusCode.OK)
-                return RedirectToAction("SignIn", "Auth");
+            if (!await _userManager.Users.AnyAsync(x => x.Email == model.Form.Email))
+            {
+                var applicationUser = new ApplicationUser
+                {
+                    Email = model.Form.Email,
+                    FirstName = model.Form.FirstName,
+                    LastName = model.Form.LastName,
+                    UserName = model.Form.Email
+                };
+
+                var signUpResult = await _userManager.CreateAsync(applicationUser, model.Form.Password);
+                if (signUpResult.Succeeded)
+                {
+                    var signInResul = await _signInManager.PasswordSignInAsync(applicationUser, model.Form.Password, false, false);
+                    if (signInResul.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Account");
+                    }
+                }
+            }
         }
 
-        return View(viewModel);
+        return View(model);
     }
 
-    [HttpGet]
+
     [Route("/signin")]
     public IActionResult SignIn()
     {
-        var viewModel = new AuthSignInViewModel();
-        viewModel.ErrorMessage = "";
-        return View(viewModel);
+        return View();
     }
 
     [HttpPost]
     [Route("/signin")]
-    public async Task<IActionResult> SignIn(AuthSignInViewModel viewModel)
+    public async Task<IActionResult> SignIn(AuthSignInViewModel model)
     {
         if (ModelState.IsValid)
         {
-            var userModel = await _userService.SignInUserAsync(viewModel.SignInModel);
-            if (userModel != null)
+            var signInResul = await _signInManager.PasswordSignInAsync(model.SignInModel.Email, model.SignInModel.Password, false, false);
+            if (signInResul.Succeeded)
             {
-                var claims = new List<Claim>
-                {
-                    new (ClaimTypes.NameIdentifier, userModel.Id.ToString()),
-                    new (ClaimTypes.Name, userModel.Email),
-                    new (ClaimTypes.Email, userModel.Email)
-                };
-
-                await HttpContext.SignInAsync("AuthCookie", new ClaimsPrincipal(new ClaimsIdentity(claims, "AuthCookie")));
                 return RedirectToAction("Index", "Account");
             }
         }
 
-        viewModel.ErrorMessage = "Incorrect email or password";
-        return View(viewModel);
-    }
-
-    [HttpGet]
-    public new async Task<IActionResult> SignOut()
-    {
-        await HttpContext.SignOutAsync();
-        return RedirectToAction("Index", "Account");
+        ViewData["ErrorMessage"] = "Incorrect email or password";
+        return View(model);
     }
 }

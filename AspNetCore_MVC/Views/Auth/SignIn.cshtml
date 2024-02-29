@@ -10,7 +10,7 @@
             <p class="m-text">Don’t have an account yet? <a class="sign-in" asp-controller="Auth" asp-action="SignUp">Sign up here.</a></p>
             <form method="post" novalidate asp-controller="Auth" asp-action="SignIn">
                 <div class="error-message">
-                    @Model.ErrorMessage
+                    @ViewData["ErrorMessage"]
                 </div>
                 <label asp-for="SignInModel.Email"></label>
                 <span asp-validation-for="SignInModel.Email"></span>

@@ -1,4 +1,5 @@
-﻿using Infrastructure.Models;
+﻿
+using Infrastructures.Models;
 
 namespace AspNetCore_MVC.Models.Views;
 
