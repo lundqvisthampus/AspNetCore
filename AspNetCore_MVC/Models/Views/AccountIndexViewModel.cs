@@ -8,4 +8,6 @@ public class AccountIndexViewModel
         ProfileImage = "/images/profile-img.svg",
     };
     public AccountDetailsAddressInfoModel AddressInfo { get; set; } = new AccountDetailsAddressInfoModel();
+
+    public AccountSecurityPasswordModel SecurityPasswordModel { get; set; } = new AccountSecurityPasswordModel();
 }

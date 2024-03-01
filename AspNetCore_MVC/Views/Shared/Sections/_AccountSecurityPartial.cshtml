@@ -1,0 +1,30 @@
+﻿@model AccountSecurityPasswordModel
+
+<h1 class="header2">Security</h1>
+<div class="password-info">
+    <p class="header5">Password</p>
+    <form class="password-form" method="post">
+        <div class="currentPassword">
+            <label asp-for="@Model.currentPassword">Current password</label>
+            <span asp-validation-for="currentPassword"></span>
+            <input asp-for=currentPassword class="userinput" type="password" id="current-password">
+        </div>
+
+        <div class="new-password-div">
+            <div class="newPassword">
+                <label asp-for="newPassword">New password</label>
+                <span asp-validation-for="newPassword"></span>
+                <input asp-for="newPassword" class="userinput" type="password" id="new-password">
+            </div>
+            <div class="confirmPassword">
+                <label asp-for="confirmNewPassword">Confirm new password</label>
+                <span asp-validation-for="confirmNewPassword"></span>
+                <input asp-for="confirmNewPassword" class="userinput" type="password" id="confirm-new-password">
+            </div>
+        </div>
+        <div class="form-btns">
+            <button type="reset" class="gray-btn">Cancel</button>
+            <button type="submit" class="theme-btn">Change password</button>
+        </div>
+    </form>
+</div>
