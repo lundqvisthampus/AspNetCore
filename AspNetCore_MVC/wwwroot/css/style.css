@@ -877,6 +877,10 @@ main .signup-section .container {
   display: flex;
   justify-content: center;
 }
+main .signup-section .container .signup-form .already-exists-error {
+  color: #EF4444;
+  font-size: 14px;
+}
 main .signup-section .container .signup-form .sign-in {
   color: #6366F1;
 }

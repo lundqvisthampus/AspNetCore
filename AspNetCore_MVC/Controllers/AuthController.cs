@@ -17,6 +17,9 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
     [Route("/signup")]
     public IActionResult SignUp()
     {
+        if (_signInManager.IsSignedIn(User))
+            return RedirectToAction("Index", "Account");
+
         return View();
     }
 
@@ -46,6 +49,12 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
                     }
                 }
             }
+            else
+            {
+                ModelState.AddModelError("AlreadyExists", "Email address is already registered");
+                ViewData["ErrorMessage"] = "Email address is already registered";
+                return View(model);
+            }
         }
 
         return View(model);
@@ -55,6 +64,9 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
     [Route("/signin")]
     public IActionResult SignIn()
     {
+        if (_signInManager.IsSignedIn(User))
+            return RedirectToAction("Index", "Account");
+
         return View();
     }
 
@@ -64,7 +76,7 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
     {
         if (ModelState.IsValid)
         {
-            var signInResul = await _signInManager.PasswordSignInAsync(model.SignInModel.Email, model.SignInModel.Password, false, false);
+            var signInResul = await _signInManager.PasswordSignInAsync(model.SignInModel.Email, model.SignInModel.Password, model.SignInModel.RememberMe, false);
             if (signInResul.Succeeded)
             {
                 return RedirectToAction("Index", "Account");
@@ -78,7 +90,7 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
     [Route("/signout")]
     public new async Task<IActionResult> SignOut()
     {
-        await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
-        return RedirectToAction("SignIn", "Auth");
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
     }
 }
