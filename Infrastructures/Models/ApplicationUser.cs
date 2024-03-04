@@ -14,4 +14,8 @@ public class ApplicationUser : IdentityUser
     [Display(Name = "Last name")]
     [ProtectedPersonalData]
     public string LastName { get; set; } = null!;
+
+    public int? AddressId { get; set; }
+    public AddressModel? Address { get; set; }
+
 }
