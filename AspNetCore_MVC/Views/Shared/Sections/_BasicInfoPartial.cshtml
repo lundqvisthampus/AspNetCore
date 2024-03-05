@@ -3,7 +3,7 @@
 <h1 class="header2">Account Details</h1>
 <div class="basic-info">
     <p class="header5">Basic Info</p>
-    <form class="basic-form" method="post" asp-controller="Account" asp-action="BasicInfo">
+    <form class="basic-form" method="post" asp-controller="Account" asp-action="BasicInfo" novalidate>
         <div class="nameinputs">
             <div class="firstname">
                 <p>First name <span asp-validation-for="@Model.FirstName" class="error-span"></span></p>

@@ -15,7 +15,7 @@ public class ApplicationUser : IdentityUser
     [ProtectedPersonalData]
     public string LastName { get; set; } = null!;
 
-    public int? AddressId { get; set; }
-    public AddressModel? Address { get; set; }
-
+    [ProtectedPersonalData]
+    public string? Bio { get; set; }
+    public ICollection<AddressModel> Address { get; set; } = new List<AddressModel>();
 }

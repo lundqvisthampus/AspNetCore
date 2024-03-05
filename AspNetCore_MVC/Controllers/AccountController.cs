@@ -30,7 +30,7 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public IActionResult BasicInfo(AccountIndexViewModel model)
+    public async Task<IActionResult> BasicInfo(AccountIndexViewModel model)
     {
         return RedirectToAction("Index", "Account");
     }
