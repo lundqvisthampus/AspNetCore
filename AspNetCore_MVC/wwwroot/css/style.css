@@ -1093,6 +1093,12 @@ main .account-details-section .container .details .header2 {
 main .account-details-section .container .details .basic-info .header5 {
   color: #6366F1;
 }
+main .account-details-section .container .details .basic-info .basic-form .error-span {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-weight: 400;
+  font-size: 14px;
+}
 main .account-details-section .container .details .basic-info .basic-form p {
   font-weight: 700;
   margin: 0;
@@ -1155,6 +1161,12 @@ main .account-details-section .container .details .address-info {
 }
 main .account-details-section .container .details .address-info .header5 {
   color: #6366F1;
+}
+main .account-details-section .container .details .address-info .basic-form .error-span {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-weight: 400;
+  font-size: 14px;
 }
 main .account-details-section .container .details .address-info .basic-form p {
   font-weight: 700;

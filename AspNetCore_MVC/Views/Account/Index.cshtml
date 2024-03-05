@@ -2,7 +2,7 @@
 
 <div class="account-details-section">
     <div class="container">
-        @await Html.PartialAsync("~/Views/Shared/Sections/_AccountAsidePartial.cshtml", Model.BasicInfo)
+        @await Html.PartialAsync("~/Views/Shared/Sections/_AccountAsidePartial.cshtml", Model)
         <div class="details">
             @await Html.PartialAsync("~/Views/Shared/Sections/_BasicInfoPartial.cshtml", Model.BasicInfo)
             @await Html.PartialAsync("~/Views/Shared/Sections/_AddressInfoPartial.cshtml", Model.AddressInfo)

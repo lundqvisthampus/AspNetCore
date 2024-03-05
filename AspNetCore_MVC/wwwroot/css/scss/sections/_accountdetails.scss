@@ -78,6 +78,14 @@ main {
                     }
 
                     .basic-form {
+
+                        .error-span {
+                            margin-left: 0.5rem;
+                            color: $danger;
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+
                         p {
                             font-weight: 700;
                             margin: 0;
@@ -152,6 +160,14 @@ main {
                     }
 
                     .basic-form {
+
+                        .error-span {
+                            margin-left: 0.5rem;
+                            color: $danger;
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+
                         p {
                             font-weight: 700;
                             margin: 0;

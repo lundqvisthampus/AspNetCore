@@ -2,7 +2,7 @@
 
 <div class="address-info">
     <p class="header5">Address</p>
-    <form class="basic-form" method="post" asp-controller="Account" asp-action="AddressInfo">
+    <form class="basic-form" method="post" asp-controller="Account" asp-action="SaveAddressInfo">
         <div class="address">
             <p>Address line 1 <span asp-validation-for="@Model.Addressline_1" class="error-span"></span></p>
             <input asp-for="@Model.Addressline_1" class="userinput">

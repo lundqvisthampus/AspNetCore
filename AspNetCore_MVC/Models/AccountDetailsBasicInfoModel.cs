@@ -21,10 +21,9 @@ public class AccountDetailsBasicInfoModel
     [RegularExpression("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email address")]
     public string Email { get; set; } = null!;
 
-    [Display(Name = "Phone", Prompt = "Enter your phone", Order = 3)]
+    [Display(Name = "Phone", Prompt = "Enter your phone number", Order = 3)]
     [DataType(DataType.PhoneNumber)]
-    [Required(ErrorMessage = "Phone number required")]
-    public string Phone {  get; set; } = null!;
+    public string? Phone {  get; set; }
 
     [Display(Name = "Bio", Prompt = "Add a short bio...", Order = 4)]
     [DataType(DataType.MultilineText)]
