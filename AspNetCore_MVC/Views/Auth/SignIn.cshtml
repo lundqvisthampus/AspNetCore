@@ -8,7 +8,7 @@
         <div class="signin-form">
             <h1 class="header1">Welcome Back</h1>
             <p class="m-text">Don’t have an account yet? <a class="sign-in" asp-controller="Auth" asp-action="SignUp">Sign up here.</a></p>
-            <form method="post" novalidate asp-controller="Auth" asp-action="SignIn">
+            <form method="post" asp-controller="Auth" asp-action="SignIn" novalidate>
                 <div class="error-message">
                     @ViewData["ErrorMessage"]
                 </div>

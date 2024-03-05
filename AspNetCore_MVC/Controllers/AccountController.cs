@@ -6,16 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCore_MVC.Controllers;
 
+[Authorize]
 public class AccountController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
     {
         _userManager = userManager;
+        _signInManager = signInManager;
     }
 
-    [Authorize]
     public async Task<IActionResult> Index()
     {
         var user = await _userManager.GetUserAsync(User);
