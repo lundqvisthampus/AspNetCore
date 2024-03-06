@@ -12,7 +12,10 @@
 </head>
 <body>
     <div class="wrapper">
-        <header>
+        @{
+            var headerColor = HeaderColor();
+        }
+        <header class="@headerColor">
             <div class="container">
                 <div class="left-nav">
                     <a asp-controller="Home" asp-action="Index">
@@ -88,13 +91,26 @@
     bool ContentHidden()
     {
         var controller = ViewContext.RouteData.Values["controller"] as string;
-        var action = ViewContext.RouteData.Values["action"] as string;
 
-        if ((controller == "Auth" && action == "SignIn") || (controller == "Auth" && action == "SignUp"))
+        if (controller == "Auth")
         {
             return true; 
         }
 
         return false; 
+    }
+}
+
+@{
+    string HeaderColor()
+    {
+        var controller = ViewContext.RouteData.Values["controller"] as string;
+
+        if (controller == "Contact")
+        {
+            return "header-gray";
+        }
+
+        return "header-white";
     }
 }

@@ -1559,3 +1559,11 @@ main .contact-us-section .container .contact .contact-form .theme-btn {
 .hide {
   display: none;
 }
+
+.header-gray {
+  background-color: #F3F6FF;
+}
+
+.header-white {
+  background-color: #FFFFFF;
+}
