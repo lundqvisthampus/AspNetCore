@@ -23,7 +23,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Index()
     {
         var model = await PopulateBasicInfoAsync();
-
+        model.ProfileInfo = await PopulateProfileInfoAsync();
 
         ViewData["Title"] = "Account Details";
         return View(model);
@@ -33,7 +33,7 @@ public class AccountController : Controller
 
     #region SaveBasicInfo
     [HttpPost]
-    public IActionResult SaveBasicInfo(AccountDetailsBasicInfoModel basicInfoModel)
+    public async Task<IActionResult> SaveBasicInfo(AccountDetailsBasicInfoModel basicInfoModel)
     {
         if (TryValidateModel(basicInfoModel)) 
         {
@@ -41,6 +41,7 @@ public class AccountController : Controller
         }
 
         var newModel = new AccountIndexViewModel { BasicInfo = basicInfoModel };
+        newModel.ProfileInfo = await PopulateProfileInfoAsync();
         return View("Index", newModel);
     }
     #endregion
@@ -55,9 +56,11 @@ public class AccountController : Controller
             return RedirectToAction("Index", "Home");
         }
 
-        var populateModel = await PopulateBasicInfoAsync();
-        populateModel.AddressInfo = addressInfoModel;
-        return View("Index", populateModel);
+        var newModel = new AccountIndexViewModel { AddressInfo = addressInfoModel };
+        newModel.ProfileInfo = await PopulateProfileInfoAsync();
+        var infoModel = await PopulateBasicInfoAsync();
+        newModel.BasicInfo = infoModel.BasicInfo;
+        return View("Index", newModel);
     }
     #endregion
 
@@ -77,6 +80,20 @@ public class AccountController : Controller
     }
     #endregion
 
+
+    private async Task<ProfileInfoModel> PopulateProfileInfoAsync()
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        var profileInfo = new ProfileInfoModel
+        {
+            FirstName = user!.FirstName,
+            LastName = user.LastName,
+            Email = user.Email!,
+        };
+
+        return profileInfo;
+    }
 
     private async Task<AccountIndexViewModel> PopulateBasicInfoAsync()
     {
