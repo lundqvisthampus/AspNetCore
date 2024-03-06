@@ -168,6 +168,10 @@ header .mobile-menu {
   flex-direction: column;
   gap: 20px;
 }
+header .mobile-menu .profile-btn img {
+  width: 90px;
+  height: 90px;
+}
 header .mobile-menu .gray-btn i, header .mobile-menu .theme-btn i {
   margin-right: 0.5rem;
 }
@@ -234,6 +238,11 @@ header .container .right-nav .nav-btns {
 }
 header .container .right-nav .nav-btns .navbar-buttons {
   margin-left: 2rem;
+}
+header .container .right-nav .nav-btns .navbar-buttons .profile-btn img {
+  margin-top: -0.6rem;
+  width: 50px;
+  height: 50px;
 }
 header .container .right-nav .nav-btns .navbar-buttons i {
   margin-right: 0.5rem;
