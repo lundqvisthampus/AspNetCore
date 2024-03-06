@@ -1418,6 +1418,134 @@ main .account-security-section .container .details .account-deletion form .theme
   }
 }
 
+main .contact-us-section {
+  padding-top: 3rem;
+  background-color: #F3F6FF;
+}
+main .contact-us-section .container {
+  position: relative;
+}
+main .contact-us-section .container .breadcrumbs {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .breadcrumbs {
+    text-align: start;
+  }
+}
+main .contact-us-section .container .breadcrumbs a {
+  text-decoration: none;
+  color: #9397AD;
+}
+main .contact-us-section .container .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+main .contact-us-section .container .breadcrumbs .arrows {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  font-size: 0.8rem;
+}
+main .contact-us-section .container .header1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .header1 {
+    text-align: start;
+  }
+}
+main .contact-us-section .container .contact {
+  margin-bottom: 5rem;
+}
+main .contact-us-section .container .contact .contact-us {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .contact .contact-us {
+    display: block;
+  }
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option {
+  display: flex;
+  margin-bottom: 3rem;
+  max-width: 400px;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .icon {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-right: 1.5rem;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .text .contact-link {
+  text-decoration: none;
+  color: #6366F1;
+  font-weight: 500;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .text .contact-link:hover {
+  text-decoration: underline;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .text .fa-arrow-right {
+  margin-left: 0.5rem;
+}
+main .contact-us-section .container .contact .contact-form {
+  background-color: #FFFFFF;
+  padding: 3rem;
+  border-radius: 6px;
+  box-shadow: 1px 1px 6px 3px #E2E5F1;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .contact .contact-form {
+    position: absolute;
+    right: 0px;
+    top: 40px;
+    max-width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  main .contact-us-section .container .contact .contact-form {
+    max-width: 100%;
+  }
+}
+main .contact-us-section .container .contact .contact-form .header2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .contact .contact-form .header2 {
+    text-align: start;
+  }
+}
+main .contact-us-section .container .contact .contact-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+main .contact-us-section .container .contact .contact-form span {
+  color: #9397AD;
+}
+main .contact-us-section .container .contact .contact-form input, main .contact-us-section .container .contact .contact-form select, main .contact-us-section .container .contact .contact-form textarea {
+  display: block;
+  resize: none;
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #D4D7E5;
+  border-radius: 6px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+main .contact-us-section .container .contact .contact-form input::placeholder, main .contact-us-section .container .contact .contact-form select::placeholder, main .contact-us-section .container .contact .contact-form textarea::placeholder {
+  color: #B4B7C9;
+}
+main .contact-us-section .container .contact .contact-form textarea {
+  height: 10rem;
+}
+main .contact-us-section .container .contact .contact-form .theme-btn {
+  margin-top: 1rem;
+  border: none;
+}
+
 .wrapper {
   height: 100vh;
   display: grid;
