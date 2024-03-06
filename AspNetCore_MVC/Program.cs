@@ -24,6 +24,7 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
     x.ExpireTimeSpan = TimeSpan.FromMinutes(60);
     x.SlidingExpiration = true;
+    x.Cookie.IsEssential = true;
 });
 
 builder.Services.AddScoped<AddressManager>();

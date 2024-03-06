@@ -55,7 +55,10 @@
             <div id="menu" class="mobile-menu container hide">
                 @if (_signInManager.IsSignedIn(User))
                 {
-                    <a class="profile-btn" onclick="toggleMenu()" asp-controller="Account" asp-action="Index"><img src="~/images/profile-img.svg" alt="Profile Image link"/></a>
+                    if (ShowProfileBtn())
+                    {
+                        <a class="profile-btn" onclick="toggleMenu()" asp-controller="Account" asp-action="Index"><img src="~/images/profile-img.svg" alt="Profile Image link" /></a>
+                    }
                 }
                 else
                 {
@@ -118,5 +121,19 @@
         }
 
         return "header-white";
+    }
+}
+
+@{
+    bool ShowProfileBtn()
+    {
+        var controller = ViewContext.RouteData.Values["controller"] as string;
+
+        if (controller != "Account")
+        {
+            return true;
+        }
+
+        return false;
     }
 }
