@@ -25,7 +25,7 @@ public class HomeIndexViewModel
     public ToolsViewModel Features { get; set; } = new ToolsViewModel
     {
         Title = "What Do You Get With Our Tool?",
-        Description = "Make sure all your tasks are organized so you can set the priorities and focus <br> on important.",
+        Description = "Make sure all your tasks are organized so you can set the priorities and focus on important.",
         Tools = new List<ToolViewModel>
         {
             new ToolViewModel 
@@ -107,7 +107,7 @@ public class HomeIndexViewModel
 
     public OurAppViewModel OurApp { get; set; } = new OurAppViewModel
     {
-        Title = "Download Our App <br> for Any Devices:",
+        Title = "Download Our App for Any Devices:",
         Image = new ImageViewModel { ImageUrl = "images/AppImg.svg", AltText = "Image of application"},
         AppStoresList = new List<DownloadAppViewModel>
         {
