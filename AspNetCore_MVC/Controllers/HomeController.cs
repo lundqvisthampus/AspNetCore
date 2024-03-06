@@ -14,4 +14,11 @@ public class HomeController : Controller
         ViewData["Title"] = viewModel.Title;
         return View(viewModel);
     }
+
+    [Route("/error")]
+    public IActionResult Error()
+    {
+        ViewData["Title"] = "Error";
+        return View();
+    }
 }
