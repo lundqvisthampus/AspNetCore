@@ -1,6 +1,7 @@
 ﻿using AspNetCore_MVC.Models;
 using AspNetCore_MVC.Models.Views;
 using Infrastructures.Models;
+using Infrastructures.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,13 @@ public class AccountController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly AddressManager _addressManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AddressManager addressManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _addressManager = addressManager;
     }
 
     #region Index
@@ -24,6 +27,7 @@ public class AccountController : Controller
     {
         var model = await PopulateBasicInfoAsync();
         model.ProfileInfo = await PopulateProfileInfoAsync();
+        model.AddressInfo = await PopulateAddressInfoAsync();
 
         ViewData["Title"] = "Account Details";
         return View(model);
@@ -37,11 +41,25 @@ public class AccountController : Controller
     {
         if (TryValidateModel(basicInfoModel)) 
         {
-            return RedirectToAction("Index", "Home");
+            if (basicInfoModel != null)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    user.FirstName = basicInfoModel.FirstName;
+                    user.LastName = basicInfoModel.LastName;
+                    user.Email = basicInfoModel.Email;
+                    user.PhoneNumber = basicInfoModel.Phone;
+                    user.Bio = basicInfoModel.Biography;
+
+                    await _userManager.UpdateAsync(user);
+                }
+            }
         }
 
-        var newModel = new AccountIndexViewModel { BasicInfo = basicInfoModel };
+        var newModel = new AccountIndexViewModel { BasicInfo = basicInfoModel! };
         newModel.ProfileInfo = await PopulateProfileInfoAsync();
+        newModel.AddressInfo = await PopulateAddressInfoAsync();
         return View("Index", newModel);
     }
     #endregion
@@ -53,13 +71,41 @@ public class AccountController : Controller
     {
         if (TryValidateModel(addressInfoModel))
         {
-            return RedirectToAction("Index", "Home");
+            if (addressInfoModel != null)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    var address = await _addressManager.GetAddressAsync(user.Id);
+                    if (address != null)
+                    {
+                        address.AddressLine_1 = addressInfoModel.Addressline_1;
+                        address.AddressLine_2 = addressInfoModel.Addressline_2;
+                        address.PostalCode = addressInfoModel.PostalCode;
+                        address.City = addressInfoModel.City;
+                        await _addressManager.UpdateAddressAsync(address);
+                    }
+                    else
+                    {
+                        address = new AddressModel
+                        {
+                            UserId = user.Id,
+                            AddressLine_1 = addressInfoModel.Addressline_1,
+                            AddressLine_2 = addressInfoModel.Addressline_2,
+                            PostalCode = addressInfoModel.PostalCode,
+                            City = addressInfoModel.City,
+                        };
+                        await _addressManager.CreateAddressAsync(address);
+                    }
+                }
+            }
         }
 
-        var newModel = new AccountIndexViewModel { AddressInfo = addressInfoModel };
+        var newModel = new AccountIndexViewModel { AddressInfo = addressInfoModel! };
         newModel.ProfileInfo = await PopulateProfileInfoAsync();
         var infoModel = await PopulateBasicInfoAsync();
         newModel.BasicInfo = infoModel.BasicInfo;
+        newModel.AddressInfo = await PopulateAddressInfoAsync();
         return View("Index", newModel);
     }
     #endregion
@@ -111,22 +157,24 @@ public class AccountController : Controller
         return viewModel;
     }
 
-    //private async Task<AccountDetailsAddressInfoModel> PopulateAddressInfoAsync()
-    //{
-    //    var user = await _userManager.GetUserAsync(User);
-    //    var address = user!.Address.FirstOrDefault(x => x.UserId == user.Id);
-
-    //    if (address != null) 
-    //    {
-    //        var addressInfo = new AccountDetailsAddressInfoModel
-    //        {
-    //            Addressline_1 = address.AddressLine_1,
-    //            Addressline_2 = address.AddressLine_2,
-    //            City = address.City,
-    //            PostalCode = address.PostalCode
-    //        };
-
-    //    }
-    //    return null!;
-    //}
+    private async Task<AccountDetailsAddressInfoModel> PopulateAddressInfoAsync()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user != null)
+        {
+            var address = await _addressManager.GetAddressAsync(user!.Id);
+            if (address != null)
+            {
+                var addressInfo = new AccountDetailsAddressInfoModel
+                {
+                    Addressline_1 = address.AddressLine_1,
+                    Addressline_2 = address.AddressLine_2,
+                    PostalCode = address.PostalCode,
+                    City = address.City
+                };
+                return addressInfo;
+            }
+        }
+        return new AccountDetailsAddressInfoModel();
+    }
 }

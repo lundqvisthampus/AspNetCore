@@ -1,6 +1,7 @@
 using Infrastructures.Contexts;
 using Infrastructures.Helpers.Middlewares;
 using Infrastructures.Models;
+using Infrastructures.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,9 +24,9 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
     x.ExpireTimeSpan = TimeSpan.FromMinutes(60);
     x.SlidingExpiration = true;
-}); 
+});
 
-
+builder.Services.AddScoped<AddressManager>();
 
 var app = builder.Build();
 app.UseHsts();
