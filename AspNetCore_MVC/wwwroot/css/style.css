@@ -8,6 +8,11 @@
   border-radius: 6px;
   transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
 }
+.theme-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+}
 .theme-btn:hover {
   background-color: #5c5ece;
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
@@ -22,9 +27,35 @@
   border-radius: 6px;
   transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
 }
+.gray-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+}
 .gray-btn:hover {
-  background-color: #F3F6FF;
+  background-color: #c0c1f9;
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+}
+
+.transparent-btn {
+  text-decoration: none;
+  color: #33354D;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+.transparent-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+  color: #9397AD;
+}
+.transparent-btn:hover {
+  background-color: #c0c1f9;
+}
+.transparent-btn:active {
+  color: #6366F1;
 }
 
 .header1 {
@@ -1075,28 +1106,6 @@ main .account-details-section .container aside .buttons {
     width: 18rem;
   }
 }
-main .account-details-section .container aside .buttons .theme-btn {
-  padding-right: 7rem;
-}
-main .account-details-section .container aside .buttons .theme-btn i {
-  margin-right: 0.5rem;
-}
-main .account-details-section .container aside .buttons .sign-out {
-  color: #33354D;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 0.7rem 1rem;
-  border-radius: 6px;
-  transition: all ease-in-out 0.15s;
-}
-main .account-details-section .container aside .buttons .sign-out i {
-  margin-right: 0.5rem;
-  margin-left: 0.3rem;
-  font-size: 1rem;
-}
-main .account-details-section .container aside .buttons .sign-out:hover {
-  background-color: #D4D7E5;
-}
 main .account-details-section .container .details {
   width: 100%;
   margin-top: 4.5rem;
@@ -1273,24 +1282,6 @@ main .account-security-section .container aside .buttons {
   main .account-security-section .container aside .buttons {
     width: 18rem;
   }
-}
-main .account-security-section .container aside .buttons .theme-btn i {
-  margin-right: 0.5rem;
-}
-main .account-security-section .container aside .buttons .sign-out {
-  color: #33354D;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 0.7rem 1rem;
-  border-radius: 6px;
-  transition: all ease-in-out 0.15s;
-}
-main .account-security-section .container aside .buttons .sign-out i {
-  margin-right: 0.5rem;
-  font-size: 1.3rem;
-}
-main .account-security-section .container aside .buttons .sign-out:hover {
-  background-color: #D4D7E5;
 }
 main .account-security-section .container .details {
   margin-top: 4.5rem;

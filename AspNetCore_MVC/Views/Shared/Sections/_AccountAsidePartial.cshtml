@@ -7,9 +7,25 @@
         <p class="m-text">@Model.ProfileInfo.Email</p>
     </div>
     <div class="buttons">
-        <a class="theme-btn" asp-controller="Account" asp-action="Index"><i class="fa-light fa-gear-complex" style="color: #FFFFFF;"></i> Account Details</a>
-        <a class="sign-out" asp-controller="Account" asp-action="Security"><i class="fa-regular fa-lock" style="color: #9397AD;"></i> Security</a>
-        <a class="sign-out" asp-controller="Account" asp-action="SavedCourses"><i class="fa-regular fa-bookmark" style="color: #9397AD;"></i> Saved Courses</a>
-        <a class="sign-out" asp-controller="Auth" asp-action="SignOut"><i class="fa-regular fa-right-from-bracket" style="color: #9397AD;"></i>Sign Out</a>
+        <a id="aside-btn-1" class="@btnClass("Index")" asp-controller="Account" asp-action="Index"><i class="fa-light fa-gear-complex"></i> Account Details</a>
+        <a id="aside-btn-2" class="@btnClass("Security")" asp-controller="Account" asp-action="Security"><i class="fa-regular fa-lock"></i> Security</a>
+        <a id="aside-btn-3" class="@btnClass("SavedCourses")" asp-controller="Account" asp-action="SavedCourses"><i class="fa-regular fa-bookmark"></i> Saved Courses</a>
+        <a id="aside-btn-4" class="transparent-btn" asp-controller="Auth" asp-action="SignOut"><i class="fa-regular fa-right-from-bracket"></i>Sign Out</a>
     </div>
 </aside>
+
+@{
+    string btnClass(string actionName)
+    {
+        var action = ViewContext.RouteData.Values["action"] as string;
+
+        if (action == actionName)
+        {
+            return "theme-btn";
+        }
+        else
+        {
+            return "transparent-btn";
+        }
+    }
+}
