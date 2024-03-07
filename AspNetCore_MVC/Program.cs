@@ -29,6 +29,14 @@ builder.Services.ConfigureApplicationCookie(x =>
 
 builder.Services.AddScoped<AddressManager>();
 
+builder.Services.AddAuthentication().AddFacebook(x =>
+{
+    x.AppId = "386619490798238";
+    x.AppSecret = "adf4c1985472e7e4a7b472f097a4a93a";
+    x.Fields.Add("first_name");
+    x.Fields.Add("last_name");
+});
+
 var app = builder.Build();
 app.UseHsts();
 app.UseStatusCodePagesWithReExecute("/error", "?statusCode={0}");

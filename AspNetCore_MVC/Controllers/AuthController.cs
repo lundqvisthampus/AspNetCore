@@ -93,4 +93,59 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
+
+
+    [HttpGet]
+    public IActionResult Facebook()
+    {
+        var authProps = _signInManager.ConfigureExternalAuthenticationProperties("Facebook", Url.Action("FacebookCallback"));
+        return new ChallengeResult("Facebook", authProps);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> FacebookCallBack()
+    {
+        var info = await _signInManager.GetExternalLoginInfoAsync();
+        if (info != null)
+        {
+            var userModel = new ApplicationUser
+            {
+                FirstName = info.Principal.FindFirstValue(ClaimTypes.GivenName)!,
+                LastName = info.Principal.FindFirstValue(ClaimTypes.Surname)!,
+                Email = info.Principal.FindFirstValue(ClaimTypes.Email)!,
+                UserName = info.Principal.FindFirstValue(ClaimTypes.Email)!,
+            };
+
+            var user = await _userManager.FindByEmailAsync(userModel.Email);
+            if (user == null)
+            {
+                var result = await _userManager.CreateAsync(userModel);
+                if (result.Succeeded)
+                {
+                    user = await _userManager.FindByEmailAsync(userModel.Email);
+                }
+            }
+            
+            if (user != null) 
+            {
+                if (user.FirstName != userModel.FirstName || user.LastName != userModel.LastName || user.Email != userModel.Email)
+                {
+                    user.FirstName = userModel.FirstName;
+                    user.LastName = userModel.LastName;
+                    user.Email = userModel.Email;
+
+                    await _userManager.UpdateAsync(user);
+                }
+
+                await _signInManager.SignInAsync(user, isPersistent: false);
+
+                if (HttpContext.User != null)
+                {
+                    return RedirectToAction("Index", "Account");
+                }
+            }
+        }
+
+        return RedirectToAction("SignIn", "Auth");
+    }
 }

@@ -24,6 +24,9 @@
                     <input asp-for="SignInModel.RememberMe">
                     <p>Remember me</p>
                     <button type="submit" asp-controller="Auth" asp-action="SignIn" class="theme-btn">Sign in</button>
+
+                    <a class="theme-btn fb-btn" asp-controller="Auth" asp-action="Facebook">Sign in with Facebook</a>
+
                     <div class="forgot-password">
                         <a asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
                     </div>
