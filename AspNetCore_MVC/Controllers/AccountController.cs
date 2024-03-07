@@ -114,12 +114,8 @@ public class AccountController : Controller
     #region Security
     public async Task<IActionResult> Security()
     {
-        var user = await _userManager.GetUserAsync(User);
-
         var model = new AccountIndexViewModel();
-        model.BasicInfo.FirstName = user!.FirstName;
-        model.BasicInfo.LastName = user!.LastName;
-        model.BasicInfo.Email = user.Email!;
+        model.ProfileInfo = await PopulateProfileInfoAsync();
 
         ViewData["Title"] = "Account Security";
         return View(model);
