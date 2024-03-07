@@ -21,11 +21,22 @@
                     <a asp-controller="Home" asp-action="Index">
                         <img src="/images/logotype.svg" alt="Silicon logotype">
                     </a>
-                    <div class="nav-links">
-                        <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
-                        <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                        <a class="navigate-link" asp-controller="Contact" asp-action="Index">Contact</a>
-                    </div>
+                    @if (_signInManager.IsSignedIn(User))
+                    {
+                        <div class="nav-links">
+                            <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                            <a class="navigate-link" asp-controller="Courses" asp-action="Index">Courses</a>
+                            <a class="navigate-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="nav-links">
+                            <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                            <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                            <a class="navigate-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                        </div>
+                    }
                 </div>
                 <div class="right-nav">
                     <div class="nav-btns">
