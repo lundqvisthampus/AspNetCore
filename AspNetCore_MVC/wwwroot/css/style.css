@@ -55,7 +55,11 @@
   background-color: #c0c1f9;
 }
 .transparent-btn:active {
-  color: #6366F1;
+  background-color: #6366F1;
+  color: #FFFFFF;
+}
+.transparent-btn:active i {
+  color: #FFFFFF;
 }
 
 .header1 {
