@@ -152,7 +152,8 @@ public class AccountController : Controller
             LastName = user.LastName,
             Email = user.Email!,
             Phone = user.PhoneNumber,
-            Biography = user.Bio
+            Biography = user.Bio,
+            IsExternalAccount = user.IsExternalAccount
         };
         return viewModel;
     }

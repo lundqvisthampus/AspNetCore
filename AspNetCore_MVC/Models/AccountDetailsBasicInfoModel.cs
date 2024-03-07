@@ -29,4 +29,5 @@ public class AccountDetailsBasicInfoModel
     [DataType(DataType.MultilineText)]
     public string? Biography { get; set; }
 
+    public bool IsExternalAccount { get; set; }
 }

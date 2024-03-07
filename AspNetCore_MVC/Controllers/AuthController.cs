@@ -114,6 +114,7 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
                 LastName = info.Principal.FindFirstValue(ClaimTypes.Surname)!,
                 Email = info.Principal.FindFirstValue(ClaimTypes.Email)!,
                 UserName = info.Principal.FindFirstValue(ClaimTypes.Email)!,
+                IsExternalAccount = true
             };
 
             var user = await _userManager.FindByEmailAsync(userModel.Email);
@@ -133,6 +134,7 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
                     user.FirstName = userModel.FirstName;
                     user.LastName = userModel.LastName;
                     user.Email = userModel.Email;
+                    user.IsExternalAccount = true;
 
                     await _userManager.UpdateAsync(user);
                 }

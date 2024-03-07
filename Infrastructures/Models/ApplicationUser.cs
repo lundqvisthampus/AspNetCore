@@ -18,4 +18,6 @@ public class ApplicationUser : IdentityUser
     [ProtectedPersonalData]
     public string? Bio { get; set; }
     public ICollection<AddressModel> Address { get; set; } = new List<AddressModel>();
+
+    public bool IsExternalAccount { get; set; } = false;
 }
