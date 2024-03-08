@@ -9,10 +9,12 @@ public class AccountDetailsBasicInfoModel
 
     [Display(Name = "First name", Prompt = "Enter your first name", Order = 0)]
     [Required(ErrorMessage = "First name required")]
+    [MinLength(2, ErrorMessage = "Enter valid first name")]
     public string FirstName { get; set; } = null!;
 
     [Display(Name = "Last name", Prompt = "Enter your last name", Order = 1)]
     [Required(ErrorMessage = "Last name required")]
+    [MinLength(2, ErrorMessage = "Enter valid last name")]
     public string LastName { get; set; } = null!;
 
     [Display(Name = "Email", Prompt = "Enter your email address", Order = 2)]
