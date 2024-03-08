@@ -1,25 +1,36 @@
-﻿@model AccountIndexViewModel
+﻿@model AccountSecurityPasswordModel
 
 <h1 class="header2">Security</h1>
 <div class="password-info">
     <p class="header5">Password</p>
-    <form class="password-form" method="post">
+    @if ((string)ViewData["PasswordChanged"] != null)
+    {
+        @if ((string)ViewData["PasswordChanged"] == "Your password was successfully updated!")
+        {
+            <p class="text-success">@ViewData["PasswordChanged"]</p>
+        }
+        else
+        {
+            <p class="text-danger">@ViewData["PasswordChanged"]</p>
+        }
+    }
+    <form class="password-form" method="post" asp-controller="Account" asp-action="Security">
         <div class="currentPassword">
-            <label asp-for="@Model.SecurityPasswordModel.currentPassword">Current password</label>
-            <span asp-validation-for="SecurityPasswordModel.currentPassword"></span>
-            <input asp-for=SecurityPasswordModel.currentPassword class="userinput" type="password" id="current-password">
+            <label asp-for="@Model.currentPassword">Current password</label>
+            <span asp-validation-for="@Model.currentPassword"></span>
+            <input asp-for=@Model.currentPassword class="userinput" type="password" id="current-password">
         </div>
 
         <div class="new-password-div">
             <div class="newPassword">
-                <label asp-for="SecurityPasswordModel.newPassword">New password</label>
-                <span asp-validation-for="SecurityPasswordModel.newPassword"></span>
-                <input asp-for="SecurityPasswordModel.newPassword" class="userinput" type="password" id="new-password">
+                <label asp-for="@Model.newPassword">New password</label>
+                <span asp-validation-for="@Model.newPassword"></span>
+                <input asp-for="@Model.newPassword" class="userinput" type="password" id="new-password">
             </div>
             <div class="confirmPassword">
-                <label asp-for="SecurityPasswordModel.confirmNewPassword">Confirm new password</label>
-                <span asp-validation-for="SecurityPasswordModel.confirmNewPassword"></span>
-                <input asp-for="SecurityPasswordModel.confirmNewPassword" class="userinput" type="password" id="confirm-new-password">
+                <label asp-for="@Model.confirmNewPassword">Confirm new password</label>
+                <span asp-validation-for="@Model.confirmNewPassword"></span>
+                <input asp-for="@Model.confirmNewPassword" class="userinput" type="password" id="confirm-new-password">
             </div>
         </div>
         <div class="form-btns">

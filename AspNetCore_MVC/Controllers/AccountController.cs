@@ -120,6 +120,31 @@ public class AccountController : Controller
         ViewData["Title"] = "Account Security";
         return View(model);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Security(AccountSecurityPasswordModel passwordModel)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null) 
+            {
+                var result = await _userManager.ChangePasswordAsync(user, passwordModel.currentPassword, passwordModel.newPassword);
+                if (result.Succeeded)
+                {
+                    ViewData["PasswordChanged"] = "Your password was successfully updated!";
+                }
+                else
+                {
+                    ViewData["PasswordChanged"] = "Something went wrong, password was not updated.";
+                }
+            }
+        }
+
+        var model = new AccountIndexViewModel();
+        model.ProfileInfo = await PopulateProfileInfoAsync();
+        return View(model);
+    }
     #endregion
 
 
