@@ -6,6 +6,7 @@
 <section class="signin-section">
     <div class="container">
         <div class="signin-form">
+            <p class="text-success">@TempData["WasDeleted"]</p>
             <h1 class="header1">Welcome Back</h1>
             <p class="m-text">Don’t have an account yet? <a class="sign-in" asp-controller="Auth" asp-action="SignUp">Sign up here.</a></p>
             <form method="post" asp-controller="Auth" asp-action="SignIn" novalidate>

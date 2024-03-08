@@ -139,6 +139,12 @@ main {
                             display: block;
                         }
 
+                        .field-validation-error {
+                            margin-left: 0.5rem;
+                            color: $danger;
+                            font-size: 14px;
+                        }
+
                         .inputs {
                             input {
                                 accent-color: $theme;

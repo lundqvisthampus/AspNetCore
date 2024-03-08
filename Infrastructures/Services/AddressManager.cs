@@ -34,4 +34,17 @@ public class AddressManager(DataContext context)
         }
         return false;
     }
+
+    public async Task<bool> DeleteAddressAsync(string userId)
+    {
+        var existingAddress = await _context.Address.FirstOrDefaultAsync(x => x.UserId == userId);
+
+        if (existingAddress != null)
+        {
+            _context.Address.Remove(existingAddress);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
 }

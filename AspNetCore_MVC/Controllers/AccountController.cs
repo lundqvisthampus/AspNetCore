@@ -160,7 +160,38 @@ public class AccountController : Controller
         model.ProfileInfo = await PopulateProfileInfoAsync();
         return View(model);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteAccount(AccountSecurityDeleteModel model) 
+    { 
+        if (ModelState.IsValid)
+        {
+            if (model != null)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    var result = await _addressManager.DeleteAddressAsync(user.Id);
+                    if (result)
+                    {
+                        await _userManager.DeleteAsync(user);
+                    }
+                    await _userManager.DeleteAsync(user);
+                }
+            }
+        }
+        else
+        {
+            var newModel = new AccountIndexViewModel();
+            newModel.ProfileInfo = await PopulateProfileInfoAsync();
+            return View("Security", newModel);
+        }
+
+        TempData["WasDeleted"] = "Your account was successfully deleted";
+        return RedirectToAction("Signin", "Auth"); 
+    }
     #endregion
+
 
     #region Populate Info Methods
     private async Task<ProfileInfoModel> PopulateProfileInfoAsync()

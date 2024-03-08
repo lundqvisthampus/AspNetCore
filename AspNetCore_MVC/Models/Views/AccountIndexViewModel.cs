@@ -7,4 +7,5 @@ public class AccountIndexViewModel
     public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel();
     public AccountDetailsAddressInfoModel AddressInfo { get; set; } = new AccountDetailsAddressInfoModel();
     public AccountSecurityPasswordModel SecurityPasswordModel { get; set; } = new AccountSecurityPasswordModel();
+    public AccountSecurityDeleteModel SecurityDeleteModel { get; set; } = new AccountSecurityDeleteModel();
 }

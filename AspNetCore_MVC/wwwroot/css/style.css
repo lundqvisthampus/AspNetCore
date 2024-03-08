@@ -1379,6 +1379,11 @@ main .account-security-section .container .details .account-deletion form {
     display: block;
   }
 }
+main .account-security-section .container .details .account-deletion form .field-validation-error {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-size: 14px;
+}
 main .account-security-section .container .details .account-deletion form .inputs input {
   accent-color: #6366F1;
   margin-right: 0.5rem;
