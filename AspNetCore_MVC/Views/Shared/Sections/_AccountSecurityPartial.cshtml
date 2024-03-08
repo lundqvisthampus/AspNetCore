@@ -22,19 +22,19 @@
             {
                 <div class="currentPassword">
                     <label asp-for="@Model.currentPassword">Current password</label>
-                    <span asp-validation-for="@Model.currentPassword"></span>
+                    <span id="current-password-span" asp-validation-for="@Model.currentPassword"></span>
                     <input asp-for=@Model.currentPassword class="userinput" type="password" id="current-password" disabled>
                 </div>
 
                 <div class="new-password-div">
                     <div class="newPassword">
                         <label asp-for="@Model.newPassword">New password</label>
-                        <span asp-validation-for="@Model.newPassword"></span>
-                        <input asp-for="@Model.newPassword" class="userinput" type="password" id="new-password" disabled>
+                        <span id="new-password-span" asp-validation-for="@Model.newPassword"></span>
+                        <input asp-for ="@Model.newPassword" class="userinput" type="password" id="new-password" disabled>
                     </div>
                     <div class="confirmPassword">
                         <label asp-for="@Model.confirmNewPassword">Confirm new password</label>
-                        <span asp-validation-for="@Model.confirmNewPassword"></span>
+                        <span id="confirm-password-span" asp-validation-for="@Model.confirmNewPassword"></span>
                         <input asp-for="@Model.confirmNewPassword" class="userinput" type="password" id="confirm-new-password" disabled>
                     </div>
                 </div>
@@ -47,19 +47,19 @@
             {
                 <div class="currentPassword">
                     <label asp-for="@Model.currentPassword">Current password</label>
-                    <span asp-validation-for="@Model.currentPassword"></span>
+                    <span id="current-password-span" asp-validation-for="@Model.currentPassword"></span>
                     <input asp-for=@Model.currentPassword class="userinput" type="password" id="current-password">
                 </div>
 
                 <div class="new-password-div">
                     <div class="newPassword">
                         <label asp-for="@Model.newPassword">New password</label>
-                        <span asp-validation-for="@Model.newPassword"></span>
+                        <span id="new-password-span" asp-validation-for="@Model.newPassword"></span>
                         <input asp-for="@Model.newPassword" class="userinput" type="password" id="new-password">
                     </div>
                     <div class="confirmPassword">
                         <label asp-for="@Model.confirmNewPassword">Confirm new password</label>
-                        <span asp-validation-for="@Model.confirmNewPassword"></span>
+                        <span id="confirm-password-span" asp-validation-for="@Model.confirmNewPassword"></span>
                         <input asp-for="@Model.confirmNewPassword" class="userinput" type="password" id="confirm-new-password">
                     </div>
                 </div>
@@ -71,3 +71,5 @@
         }
     </form>
 </div>
+
+@await Html.PartialAsync("~/Views/Shared/_PasswordValidationPartial.cshtml")

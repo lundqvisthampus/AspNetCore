@@ -18,6 +18,6 @@ public class AccountSecurityPasswordModel
     [Display(Name = "Confirm new password", Prompt = "********", Order = 1)]
     [Required(ErrorMessage = "Confirm password")]
     [DataType(DataType.Password)]
-    [Compare(nameof(newPassword))]
+    [Compare(nameof(newPassword), ErrorMessage = "Password does not match")]
     public string confirmNewPassword { get; set; } = null!;
 }

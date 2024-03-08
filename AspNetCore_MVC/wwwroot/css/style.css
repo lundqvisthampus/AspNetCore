@@ -1305,6 +1305,11 @@ main .account-security-section .container .details .password-info .password-form
   margin: 0;
   display: inline;
 }
+main .account-security-section .container .details .password-info .password-form .field-validation-error {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-size: 14px;
+}
 main .account-security-section .container .details .password-info .password-form .new-password-div {
   margin-top: 0.5rem;
   gap: 2rem;

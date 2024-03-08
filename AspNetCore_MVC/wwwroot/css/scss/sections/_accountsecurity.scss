@@ -47,7 +47,7 @@ main {
 
                 .password-info {
                     padding-bottom: 2.5rem;
-                    
+
                     .header5 {
                         color: $theme;
                     }
@@ -57,6 +57,12 @@ main {
                             font-weight: 700;
                             margin: 0;
                             display: inline;
+                        }
+
+                        .field-validation-error {
+                            margin-left: 0.5rem;
+                            color: $danger;
+                            font-size: 14px;
                         }
 
                         .new-password-div {
