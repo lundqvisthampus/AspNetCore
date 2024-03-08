@@ -1,10 +1,15 @@
 ﻿@model AccountDetailsBasicInfoModel
+@inject UserManager<ApplicationUser> _userManager
+
+@{
+    var user = await _userManager.GetUserAsync(User);
+}
 
 <h1 class="header2">Account Details</h1>
 <div class="basic-info">
     <p class="header5">Basic Info</p>
     <form class="basic-form" method="post" asp-controller="Account" asp-action="SaveBasicInfo" novalidate>
-        @if (Model.IsExternalAccount == false)
+        @if (user!.IsExternalAccount == false)
         {
             <div class="nameinputs">
                 <div class="firstname">
@@ -27,7 +32,7 @@
                 </div>
             </div>
         }
-        else
+        else 
         {
             <div class="nameinputs">
                 <div class="firstname">

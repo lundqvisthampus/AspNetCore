@@ -39,12 +39,13 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> SaveBasicInfo(AccountDetailsBasicInfoModel basicInfoModel)
     {
-        if (TryValidateModel(basicInfoModel)) 
+        var user = await _userManager.GetUserAsync(User);
+
+        if (!user!.IsExternalAccount)
         {
-            if (basicInfoModel != null)
+            if (TryValidateModel(basicInfoModel))
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user != null)
+                if (basicInfoModel != null)
                 {
                     user.FirstName = basicInfoModel.FirstName;
                     user.LastName = basicInfoModel.LastName;
@@ -56,6 +57,20 @@ public class AccountController : Controller
                 }
             }
         }
+        else
+        {
+            if (basicInfoModel != null)
+            {
+                user.PhoneNumber = basicInfoModel.Phone;
+                user.Bio = basicInfoModel.Biography;
+                await _userManager.UpdateAsync(user);
+
+                basicInfoModel.FirstName = user.FirstName;
+                basicInfoModel.LastName = user.LastName;
+                basicInfoModel.Email = user.Email!;
+            }
+        }
+
 
         var newModel = new AccountIndexViewModel { BasicInfo = basicInfoModel! };
         newModel.ProfileInfo = await PopulateProfileInfoAsync();
