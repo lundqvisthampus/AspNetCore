@@ -60,7 +60,7 @@ public class AccountController : Controller
         var newModel = new AccountIndexViewModel { BasicInfo = basicInfoModel! };
         newModel.ProfileInfo = await PopulateProfileInfoAsync();
         newModel.AddressInfo = await PopulateAddressInfoAsync();
-        return View("Index", newModel);
+        return View("index", newModel);
     }
     #endregion
 
@@ -147,7 +147,7 @@ public class AccountController : Controller
     }
     #endregion
 
-
+    #region Populate Info Methods
     private async Task<ProfileInfoModel> PopulateProfileInfoAsync()
     {
         var user = await _userManager.GetUserAsync(User);
@@ -200,3 +200,4 @@ public class AccountController : Controller
         return new AccountDetailsAddressInfoModel();
     }
 }
+#endregion
