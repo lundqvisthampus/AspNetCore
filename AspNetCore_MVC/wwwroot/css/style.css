@@ -1565,6 +1565,254 @@ main .contact-us-section .container .contact .contact-form .theme-btn {
   border: none;
 }
 
+main .courses-section {
+  margin-top: 3rem;
+}
+main .courses-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container {
+    align-items: start;
+  }
+}
+main .courses-section .container .breadcrumbs {
+  margin-bottom: 1rem;
+}
+main .courses-section .container .breadcrumbs a {
+  text-decoration: none;
+  color: #9397AD;
+}
+main .courses-section .container .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+main .courses-section .container .breadcrumbs .arrows {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  font-size: 0.8rem;
+}
+main .courses-section .container .title-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs {
+    align-items: start;
+    flex-direction: row;
+  }
+}
+main .courses-section .container .title-inputs .header1 {
+  margin-top: 1rem;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs .header1 {
+    margin-right: 15rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .courses-section .container .title-inputs .header1 {
+    margin-right: 26.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .courses-section .container .title-inputs .header1 {
+    margin-right: 38rem;
+  }
+}
+main .courses-section .container .title-inputs .select-input {
+  padding: 0.5rem 6rem 0.5rem 0.5rem;
+  border: 2px solid #D4D7E5;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+main .courses-section .container .title-inputs .select-input:hover {
+  cursor: pointer;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs .select-input {
+    margin-top: 1.4rem;
+    margin-right: 1rem;
+  }
+}
+main .courses-section .container .title-inputs .search-input {
+  width: 230px;
+  padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+  border: 2px solid #D4D7E5;
+  border-radius: 6px;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs .search-input {
+    margin-top: 1.4rem;
+    width: 280px;
+  }
+}
+main .courses-section .container .title-inputs i {
+  position: absolute;
+  right: 8px;
+  top: 177px;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs i {
+    top: 37px;
+  }
+}
+main .courses-section .container .courses-all {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 478px) {
+  main .courses-section .container .courses-all {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  main .courses-section .container .courses-all {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+main .courses-section .container .courses-all .oneCourse {
+  text-decoration: none;
+  box-shadow: 1px 1px 6px 3px #E2E5F1;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+main .courses-section .container .courses-all .oneCourse:hover {
+  box-shadow: 1px 1px 6px 3px #B4B7C9;
+}
+main .courses-section .container .courses-all .oneCourse img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main .courses-section .container .courses-all .oneCourse .course-info .header5 {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .course-info .author {
+  color: #565973;
+  padding-left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .course-info .price {
+  color: #6366F1;
+  font-weight: 600;
+  padding-left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .course-info .hours-and-rating {
+  border-top: 2px solid #E2E5F1;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .course-info .hours-and-rating i {
+  margin-right: 0.5rem;
+}
+main .courses-section .container .courses-all .oneCourse .course-info .hours-and-rating p {
+  margin-right: 1.5rem;
+  margin-top: -0.15rem;
+}
+main .courses-section .container .page-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  align-items: start;
+}
+main .courses-section .container .page-numbers .number, main .courses-section .container .page-numbers .arrow {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  color: #33354D;
+  font-size: 0.8rem;
+  transition: all 0.15s ease-in-out;
+  font-weight: 500;
+}
+main .courses-section .container .page-numbers .number:hover, main .courses-section .container .page-numbers .arrow:hover {
+  background-color: #E2E5F1;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .page-numbers {
+    margin-left: 21.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .courses-section .container .page-numbers {
+    margin-left: 27rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .courses-section .container .page-numbers {
+    margin-left: 33rem;
+  }
+}
+
+main .work-with-us {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+main .work-with-us .container {
+  padding: 3rem 0rem 3rem 0rem;
+  background-color: #F3F6FF;
+  display: flex;
+  justify-content: center;
+}
+main .work-with-us .container .ready-text {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  main .work-with-us .container .ready-text {
+    text-align: start;
+    padding-top: 3.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .work-with-us .container .ready-text {
+    text-align: start;
+    padding-right: 8rem;
+    padding-left: 5.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .work-with-us .container .ready-text {
+    padding-right: 12rem;
+    padding-left: 8rem;
+  }
+}
+main .work-with-us .container .ready-text h2 {
+  margin-bottom: 3.5rem;
+}
+main .work-with-us .container .ready-text span {
+  color: #6366F1;
+}
+main .work-with-us .container img {
+  display: none;
+}
+@media (min-width: 1024px) {
+  main .work-with-us .container img {
+    display: flex;
+    margin-right: 5.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .work-with-us .container img {
+    margin-right: 5.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .work-with-us .container img {
+    margin-right: 8rem;
+  }
+}
+
 .wrapper {
   height: 100vh;
   display: grid;

@@ -1,0 +1,52 @@
+﻿@model CoursesIndexViewModel
+
+<section class="courses-section">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a asp-controller="Home" asp-action="Index"><i class="fa-regular fa-house" style="color: #9397AD;"></i> Home</a>
+            <i class="arrows fa-solid fa-chevrons-right" style="color: #9397AD;"></i>
+            <a asp-controller="Courses" asp-action="Index">Courses</a>
+        </div>
+        <div class="title-inputs">
+            <h1 class="header1">Courses</h1>
+            <select class="select-input">
+                <option value="categories-all">All categories</option>
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+                <option value="category3">Category 3</option>
+            </select>
+            <input class="search-input" type="text" placeholder="Search courses">
+            <i class="fa-regular fa-magnifying-glass" style="color: #33354D;"></i>
+        </div>
+        <div class="courses-all">
+            @if (Model.Courses != null)
+            {
+                foreach(var course in Model.Courses)
+                {
+                    <a asp-controller="@course.ControllerName" asp-action="@course.ActionName" class="oneCourse">
+                        <img src="@course.ImageUrl" alt="@course.ImageAltText">
+                        <div class="course-info">
+                            <h5 class="header5">@course.Title</h5>
+                            <p class="author">By @course.Author</p>
+                            <p class="price">@course.Price</p>
+                            <div class="hours-and-rating">
+                                <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
+                                <p class="hours s-text">@course.CourseHours hours</p>
+                                <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
+                                <p class="rating s-text">@course.CourseRating</p>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+        <div class="page-numbers">
+            <button class="arrow"><</button>
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="number">4</button>
+            <button class="arrow">></button>
+        </div>
+    </div>
+</section>
