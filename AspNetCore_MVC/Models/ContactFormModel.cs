@@ -21,6 +21,6 @@ public class ContactFormModel
     [Display(Name = "Message", Prompt = "Enter your message here...")]
     [Required(ErrorMessage = "Message is required")]
     [DataType(DataType.MultilineText)]
-    [MinLength(10, ErrorMessage = "Message has to be at least 10 characters long.")]
+    [MinLength(20, ErrorMessage = "Message has to be at least 10 characters long.")]
     public string Message { get; set; } = null!;
 }

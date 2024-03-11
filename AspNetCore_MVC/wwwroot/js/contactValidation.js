@@ -28,7 +28,7 @@ emailInput.addEventListener("keyup", () => {
 })
 
 messageInput.addEventListener("keyup", () => {
-    if (messageInput.value.length < 10) {
+    if (messageInput.value.length < 20) {
         messageSpan.innerHTML = "Message is too short"
     }
     else {

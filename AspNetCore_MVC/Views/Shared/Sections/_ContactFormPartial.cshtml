@@ -1,6 +1,18 @@
 ﻿@model ContactFormModel
 
 <div class="contact-form">
+    @if ((string)ViewData["MessageSent"]! == "True")
+    {
+        <p class="text-success">Your message was sent successfully!</p>
+    }
+    else if ((string)ViewData["MessageSent"]! == "False")
+    {
+        <p class="text-danger">Your message was not sent.</p>
+    }
+    else
+    {
+        <p></p>
+    }
     <h2 class="header2">Get In Contact With Us</h2>
     <form method="post" asp-action="Index" asp-controller="Contact" novalidate>
         <label asp-for="@Model.FullName"></label>
