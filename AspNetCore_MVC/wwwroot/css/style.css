@@ -1540,6 +1540,10 @@ main .contact-us-section .container .contact .contact-form label {
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
+main .contact-us-section .container .contact .contact-form .error-msg {
+  font-size: 14px;
+  color: #EF4444;
+}
 main .contact-us-section .container .contact .contact-form span {
   color: #9397AD;
 }

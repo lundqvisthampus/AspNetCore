@@ -114,6 +114,11 @@ main {
                         margin-bottom: 0.25rem;
                     }
 
+                    .error-msg {
+                        font-size: 14px;
+                        color: $danger;
+                    }
+
                     span {
                         color: $gray-600;
                     }

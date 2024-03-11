@@ -1,22 +1,29 @@
-﻿<div class="contact-form">
-    <h2 class="header2">Get In Contact With Us</h2>
-    <form method="post" novalidate>
-        <label for="">Full name</label>
-        <input type="text">
+﻿@model ContactFormModel
 
-        <label for="">Email address</label>
-        <input type="email">
+<div class="contact-form">
+    <h2 class="header2">Get In Contact With Us</h2>
+    <form method="post" asp-action="Index" asp-controller="Contact" novalidate>
+        <label asp-for="@Model.FullName"></label>
+        <span class="error-msg" id="fullNameSpan" asp-validation-for="@Model.FullName"></span>
+        <input id="fullNameInput" asp-for="@Model.FullName">
+
+        <label asp-for="@Model.Email"></label>
+        <span class="error-msg" id="emailSpan" asp-validation-for="@Model.Email"></span>
+        <input id="emailInput" asp-for="@Model.Email">
 
         <label for="">Service <span>(optional)</span></label>
-        <select class="select-input">
+        <select asp-for="Service" class="select-input">
             <option value="services-all">Choose the service you are interested in</option>
             <option value="service1">Service 1</option>
             <option value="service2">Service 2</option>
             <option value="service3">Service 3</option>
         </select>
 
-        <label for="">Message</label>
-        <textarea cols="55" rows="8"></textarea>
+        <label asp-for="@Model.Message"></label>
+        <span class="error-msg" id="messageSpan" asp-validation-for="@Model.Message"></span>
+        <textarea id="messageInput" asp-for="@Model.Message" cols="55" rows="8"></textarea>
         <button class="theme-btn" type="submit">Send Contact Request</button>
     </form>
 </div>
+
+@await Html.PartialAsync("~/Views/Shared/_ContactFormValidationPartial.cshtml")
