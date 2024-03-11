@@ -14,8 +14,8 @@
                     @ViewData["ErrorMessage"]
                 </div>
                 <label asp-for="SignInModel.Email"></label>
-                <span asp-validation-for="SignInModel.Email"></span>
-                <input asp-for="SignInModel.Email" class="userinput">
+                <span id="signInSpan" asp-validation-for="SignInModel.Email"></span>
+                <input id="signInEmail" asp-for="SignInModel.Email" class="userinput">
 
                 <label asp-for="SignInModel.Password"></label>
                 <span asp-validation-for="SignInModel.Password"></span>
@@ -36,3 +36,5 @@
         </div>
     </div>
 </section>
+
+@await Html.PartialAsync("~/Views/Shared/_SignInValidationPartial.cshtml")
