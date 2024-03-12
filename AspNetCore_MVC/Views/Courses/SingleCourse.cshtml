@@ -1,0 +1,9 @@
+﻿@model CoursesIndexViewModel
+<section class="single-course-section">
+    <img class="bkg-img" src="@Model.SingleCourse.CourseImgUrl" alt="Course image">
+    <div class="container">
+        @await Html.PartialAsync("~/Views/Shared/Sections/_SingleCourseUpperSectionPartial.cshtml", Model.SingleCourse)
+        @await Html.PartialAsync("/Views/Shared/Sections/_SingleCourseInfoPartial.cshtml", Model.SingleCourse)
+        @await Html.PartialAsync("/Views/Shared/Sections/_SingleCourseAuthorPartial.cshtml", Model.SingleCourse)
+    </div>
+</section>
