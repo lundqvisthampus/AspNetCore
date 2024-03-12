@@ -2208,6 +2208,11 @@ main .single-course-section .container .course-info .course-includes .course-pri
   align-items: center;
   justify-content: center;
 }
+@media (min-width: 1400px) {
+  main .single-course-section .container .course-info .course-includes .course-price {
+    justify-content: start;
+  }
+}
 main .single-course-section .container .course-info .course-includes .course-price p {
   margin-top: 1rem;
 }

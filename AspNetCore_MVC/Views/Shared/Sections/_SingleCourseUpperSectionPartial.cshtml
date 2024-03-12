@@ -1,11 +1,11 @@
 ﻿@model SingleCourseViewModel
 
 <div class="breadcrumbs">
-    <a class="gray-link" href="#"><i class="fa-regular fa-house" style="color: #9397AD;"></i> Home</a>
+    <a class="gray-link" asp-controller="Home" asp-action="Index"><i class="fa-regular fa-house" style="color: #9397AD;"></i> Home</a>
     <i class="arrows fa-solid fa-chevrons-right" style="color: #9397AD;"></i>
-    <a class="white-link" href="Courses.html">Courses</a>
+    <a class="white-link" asp-controller="Courses" asp-action="Index">Courses</a>
     <i class="arrows fa-solid fa-chevrons-right" style="color: #9397AD;"></i>
-    <a class="white-link" href="Courses.html">@Model.Title</a>
+    <a class="white-link" asp-controller="Courses" asp-action="SingleCourse">@Model.Title</a>
 </div>
 <div class="upper-section">
     <div class="course-categories">
