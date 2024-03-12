@@ -62,6 +62,22 @@
   color: #FFFFFF;
 }
 
+.danger-btn {
+  text-decoration: none;
+  color: #EF4444;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 1px solid rgba(217, 83, 79, 0.5);
+  transition: background-color 0.2s, border 0.2s, box-shadow 0.2s ease-in-out;
+}
+.danger-btn:hover {
+  box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid #d9534f;
+  background-color: rgba(217, 83, 79, 0.1);
+}
+
 .header1 {
   font-size: 40px;
   font-weight: 800;
@@ -1815,6 +1831,144 @@ main .work-with-us .container img {
   main .work-with-us .container img {
     margin-right: 8rem;
   }
+}
+
+@media (min-width: 1200px) {
+  main .saved-courses .container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+main .saved-courses .container aside {
+  padding-top: 3rem;
+}
+main .saved-courses .container aside .profile {
+  text-align: center;
+}
+main .saved-courses .container aside .profile img {
+  margin-bottom: 1rem;
+}
+@media (min-width: 1200px) {
+  main .saved-courses .container aside {
+    padding-right: 1rem;
+    border-right: 2px solid #E2E5F1;
+  }
+}
+main .saved-courses .container aside .buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1200px) {
+  main .saved-courses .container aside .buttons {
+    width: 18rem;
+  }
+}
+main .saved-courses .container aside .buttons .theme-btn {
+  padding-right: 7rem;
+}
+main .saved-courses .container aside .buttons .theme-btn i {
+  margin-right: 0.5rem;
+}
+main .saved-courses .container aside .buttons .sign-out {
+  color: #33354D;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  transition: all ease-in-out 0.15s;
+}
+main .saved-courses .container aside .buttons .sign-out i {
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
+}
+main .saved-courses .container aside .buttons .sign-out:hover {
+  background-color: #D4D7E5;
+}
+main .saved-courses .container .right-aside {
+  margin-top: 4.5rem;
+  margin-bottom: 6rem;
+}
+@media (min-width: 1200px) {
+  main .saved-courses .container .right-aside {
+    padding-left: 7rem;
+  }
+}
+main .saved-courses .container .right-aside .title-and-button {
+  text-align: center;
+}
+main .saved-courses .container .right-aside .title-and-button .danger-btn {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+main .saved-courses .container .right-aside .title-and-button .danger-btn i {
+  margin-right: 0.5rem;
+}
+main .saved-courses .container .right-aside .title-and-button h1 {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 368px) {
+  main .saved-courses .container .right-aside .title-and-button {
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+  }
+  main .saved-courses .container .right-aside .title-and-button h1 {
+    margin-bottom: 0rem;
+  }
+}
+main .saved-courses .container .right-aside .courses {
+  margin-top: 2rem;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 478px) {
+  main .saved-courses .container .right-aside .courses {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+main .saved-courses .container .right-aside .courses .oneCourse {
+  text-decoration: none;
+  box-shadow: 1px 1px 6px 3px #E2E5F1;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+main .saved-courses .container .right-aside .courses .oneCourse:hover {
+  box-shadow: 1px 1px 6px 3px #B4B7C9;
+}
+main .saved-courses .container .right-aside .courses .oneCourse img {
+  width: 100%;
+  border-radius: 6px;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .course-info .header5 {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .course-info .author {
+  color: #565973;
+  padding-left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .course-info .price {
+  color: #6366F1;
+  font-weight: 600;
+  padding-left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .course-info .hours-and-rating {
+  border-top: 2px solid #E2E5F1;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .course-info .hours-and-rating i {
+  margin-right: 0.5rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .course-info .hours-and-rating p {
+  margin-right: 1.5rem;
+  margin-top: -0.15rem;
 }
 
 .wrapper {

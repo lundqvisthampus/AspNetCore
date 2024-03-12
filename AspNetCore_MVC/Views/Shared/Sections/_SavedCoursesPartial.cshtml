@@ -1,0 +1,30 @@
+﻿@model AccountIndexViewModel
+
+<div class="right-aside">
+    <div class="title-and-button">
+        <h1 class="header2">Saved Items</h1>
+        <button asp-controller="Account" asp-action="DeleteCourses" class="danger-btn"><i class="fa-regular fa-trash"></i> Delete all</button>
+    </div>
+    <div class="courses">
+        @if (Model.SavedCoursesModel.SavedCourses != null)
+        {
+            foreach(var course in Model.SavedCoursesModel.SavedCourses)
+            {
+                <a asp-action="@course.ActionName" asp-controller="@course.ControllerName" class="oneCourse">
+                    <img src="@course.ImageUrl" alt="@course.ImageAltText">
+                    <div class="course-info">
+                        <h5 class="header5">@course.Title</h5>
+                        <p class="author">By @course.Author</p>
+                        <p class="price">$@course.Price</p>
+                        <div class="hours-and-rating">
+                            <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
+                            <p class="hours s-text">@course.CourseHours hours</p>
+                            <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
+                            <p class="rating s-text">@course.CourseRating</p>
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+    </div>
+</div>

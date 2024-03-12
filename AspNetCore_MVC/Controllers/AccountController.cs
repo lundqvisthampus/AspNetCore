@@ -192,6 +192,15 @@ public class AccountController : Controller
     }
     #endregion
 
+    public async Task<IActionResult> SavedCourses()
+    {
+        var viewModel = new AccountIndexViewModel();
+        viewModel.ProfileInfo = await PopulateProfileInfoAsync();
+
+        ViewData["Title"] = "Account Security";
+        return View(viewModel);
+    }
+
 
     #region Populate Info Methods
     private async Task<ProfileInfoModel> PopulateProfileInfoAsync()

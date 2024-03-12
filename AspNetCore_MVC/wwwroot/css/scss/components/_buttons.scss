@@ -71,3 +71,20 @@
         }
     }
 }
+
+.danger-btn {
+    text-decoration: none;
+    color: $danger;
+    font-weight: 500;
+    padding: 0.7rem 1.4rem;
+    background-color: $transparent;
+    border-radius: 6px;
+    border: 1px solid rgba($color: #d9534f, $alpha: 0.5);
+    transition: background-color 0.2s, border 0.2s, box-shadow 0.2s ease-in-out;
+
+    &:hover {
+        box-shadow: 3px 3px 6px 1px rgba($color: black, $alpha: 0.3);
+        border: 1px solid rgba($color: #d9534f, $alpha: 1);
+        background-color: rgba($color: #d9534f, $alpha: 0.1);
+    }
+}

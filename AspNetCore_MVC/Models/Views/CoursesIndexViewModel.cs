@@ -14,7 +14,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -27,7 +27,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -40,7 +40,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -53,7 +53,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -66,7 +66,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -79,7 +79,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -92,7 +92,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -105,7 +105,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
@@ -118,7 +118,7 @@ public class CoursesIndexViewModel
             ActionName = "Index",
             Title = "Fullstack Web Developer Course from Scratch",
             Author = "Robert Fox",
-            Price = "$12.50",
+            Price = "12.50",
             CourseHours = "220",
             CourseRating = "94% (4.2K)"
         },
