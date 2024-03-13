@@ -23,20 +23,24 @@
             {
                 foreach(var course in Model.Courses)
                 {
-                    <a asp-controller="@course.ControllerName" asp-action="@course.ActionName" class="oneCourse">
-                        <img src="@course.ImageUrl" alt="@course.ImageAltText">
-                        <div class="course-info">
-                            <h5 class="header5">@course.Title</h5>
-                            <p class="author">By @course.Author</p>
-                            <p class="price">$@course.Price</p>
-                            <div class="hours-and-rating">
-                                <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
-                                <p class="hours s-text">@course.CourseHours hours</p>
-                                <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
-                                <p class="rating s-text">@course.CourseRating</p>
+                    <div class="oneCourse">
+                        <button class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                        <p class="bestSeller">Best seller</p>
+                        <a asp-controller="@course.ControllerName" asp-action="@course.ActionName" class="oneCourseLink">
+                            <img src="@course.ImageUrl" alt="@course.ImageAltText">
+                            <div class="course-info">
+                                <h5 class="header5">@course.Title</h5>
+                                <p class="author">By @course.Author</p>
+                                <p class="price">$@course.Price</p>
+                                <div class="hours-and-rating">
+                                    <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
+                                    <p class="hours s-text">@course.CourseHours hours</p>
+                                    <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
+                                    <p class="rating s-text">@course.CourseRating</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 }
             }
         </div>

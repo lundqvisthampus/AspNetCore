@@ -1699,7 +1699,7 @@ main .courses-section .container .courses-all {
   }
 }
 main .courses-section .container .courses-all .oneCourse {
-  text-decoration: none;
+  position: relative;
   box-shadow: 1px 1px 6px 3px #E2E5F1;
   border-radius: 6px;
   transition: all 0.15s ease-in-out;
@@ -1707,35 +1707,68 @@ main .courses-section .container .courses-all .oneCourse {
 main .courses-section .container .courses-all .oneCourse:hover {
   box-shadow: 1px 1px 6px 3px #B4B7C9;
 }
-main .courses-section .container .courses-all .oneCourse img {
+main .courses-section .container .courses-all .oneCourse .bestSeller {
+  background-color: #22C55E;
+  color: #ffffff;
+  display: inline;
+  padding: 0rem 0.5rem;
+  border-radius: 6px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .saveCourseBtn {
+  border: none;
+  width: 42px;
+  height: 42px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 25px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: color 0.15s ease-in-out;
+}
+main .courses-section .container .courses-all .oneCourse .saveCourseBtn:hover {
+  color: #6366F1;
+}
+main .courses-section .container .courses-all .oneCourse .saveCourseBtn i {
+  font-size: 2.8rem;
+  margin-left: -1.1rem;
+  margin-top: -0.7rem;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink {
+  text-decoration: none;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink img {
   max-width: 100%;
   border-radius: 6px;
 }
-main .courses-section .container .courses-all .oneCourse .course-info .header5 {
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .header5 {
   margin-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
-main .courses-section .container .courses-all .oneCourse .course-info .author {
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .author {
   color: #565973;
   padding-left: 1rem;
 }
-main .courses-section .container .courses-all .oneCourse .course-info .price {
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .price {
   color: #6366F1;
   font-weight: 600;
   padding-left: 1rem;
 }
-main .courses-section .container .courses-all .oneCourse .course-info .hours-and-rating {
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating {
   border-top: 2px solid #E2E5F1;
   padding-top: 1rem;
   display: flex;
   flex-direction: row;
   padding-left: 1rem;
 }
-main .courses-section .container .courses-all .oneCourse .course-info .hours-and-rating i {
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating i {
   margin-right: 0.5rem;
 }
-main .courses-section .container .courses-all .oneCourse .course-info .hours-and-rating p {
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating p {
   margin-right: 1.5rem;
   margin-top: -0.15rem;
 }

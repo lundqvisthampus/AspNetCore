@@ -192,6 +192,8 @@ public class AccountController : Controller
     }
     #endregion
 
+
+    #region SavedCourses
     public async Task<IActionResult> SavedCourses()
     {
         var viewModel = new AccountIndexViewModel();
@@ -200,6 +202,7 @@ public class AccountController : Controller
         ViewData["Title"] = "Account Security";
         return View(viewModel);
     }
+    #endregion
 
 
     #region Populate Info Methods
