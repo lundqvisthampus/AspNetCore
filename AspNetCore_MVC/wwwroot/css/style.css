@@ -1753,10 +1753,18 @@ main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-
   color: #565973;
   padding-left: 1rem;
 }
-main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .price {
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .prices {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .prices .price {
   color: #6366F1;
   font-weight: 600;
   padding-left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .prices .reducedPrice {
+  color: #9397AD;
 }
 main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating {
   border-top: 2px solid #E2E5F1;
@@ -2423,4 +2431,8 @@ main .single-course-section .container .author-info .info-author .author .social
 
 .header-white {
   background-color: #FFFFFF;
+}
+
+.color-danger {
+  color: #EF4444 !important;
 }

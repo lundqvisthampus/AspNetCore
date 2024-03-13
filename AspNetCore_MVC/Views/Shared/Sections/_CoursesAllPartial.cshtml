@@ -34,7 +34,18 @@
                             <div class="course-info">
                                 <h5 class="header5">@course.Title</h5>
                                 <p class="author">By @course.Author.AuthorName</p>
-                                <p class="price">$@course.Includes.Price</p>
+                                <div class="prices">
+                                    @if(course.Includes.ReducedPrice != null)
+                                    {
+                                        <p class="price color-danger">$@course.Includes.Price</p>
+                                        <p class="reducedPrice">$@course.Includes.ReducedPrice</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="price">$@course.Includes.Price</p>
+                                        <p class="reducedPrice"></p>
+                                    }
+                                </div>
                                 <div class="hours-and-rating">
                                     <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
                                     <p class="hours s-text">@course.HoursContent hours</p>

@@ -69,8 +69,7 @@ public class CoursesIndexViewModel
             DownloadableResources = "25",
             LifetimeAccess = true,
             Certificate = true,
-            Price = "28.99",
-            ReducedPrice = "49.00"
+            Price = "58.99",
         },
 
         Details = new List<CourseDetailsViewModel>
@@ -231,7 +230,7 @@ public class CoursesIndexViewModel
         ReviewsAmount = "1.2K",
         LikesAmount = "5K",
         HoursContent = "148",
-        IsBestSeller = true,
+        IsBestSeller = false,
         IsDigital = true,
 
         Author = new CourseAuthorViewModel
@@ -281,8 +280,8 @@ public class CoursesIndexViewModel
             DownloadableResources = "25",
             LifetimeAccess = true,
             Certificate = true,
-            Price = "28.99",
-            ReducedPrice = "49.00"
+            Price = "63.99",
+            ReducedPrice = "43.20"
         },
 
         Details = new List<CourseDetailsViewModel>
@@ -443,7 +442,7 @@ public class CoursesIndexViewModel
         ReviewsAmount = "1.2K",
         LikesAmount = "5K",
         HoursContent = "148",
-        IsBestSeller = true,
+        IsBestSeller = false,
         IsDigital = true,
 
         Author = new CourseAuthorViewModel
@@ -493,8 +492,7 @@ public class CoursesIndexViewModel
             DownloadableResources = "25",
             LifetimeAccess = true,
             Certificate = true,
-            Price = "28.99",
-            ReducedPrice = "49.00"
+            Price = "268.99",
         },
 
         Details = new List<CourseDetailsViewModel>
