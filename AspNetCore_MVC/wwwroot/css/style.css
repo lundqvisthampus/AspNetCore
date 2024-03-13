@@ -2025,10 +2025,18 @@ main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .
   color: #565973;
   padding-left: 1rem;
 }
-main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .price {
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .prices {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .prices .price {
   color: #6366F1;
   font-weight: 600;
   padding-left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .prices .reducedPrice {
+  color: #9397AD;
 }
 main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .hours-and-rating {
   border-top: 2px solid #E2E5F1;

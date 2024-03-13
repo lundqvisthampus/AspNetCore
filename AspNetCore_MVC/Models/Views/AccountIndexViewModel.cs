@@ -27,7 +27,7 @@ public class AccountIndexViewModel
         ReviewsAmount = "1.2K",
         LikesAmount = "5K",
         HoursContent = "148",
-        IsBestSeller = true,
+        IsBestSeller = false,
         IsDigital = true,
 
         Author = new CourseAuthorViewModel
@@ -239,7 +239,7 @@ public class AccountIndexViewModel
         ReviewsAmount = "1.2K",
         LikesAmount = "5K",
         HoursContent = "148",
-        IsBestSeller = true,
+        IsBestSeller = false,
         IsDigital = true,
 
         Author = new CourseAuthorViewModel
@@ -289,8 +289,7 @@ public class AccountIndexViewModel
             DownloadableResources = "25",
             LifetimeAccess = true,
             Certificate = true,
-            Price = "28.99",
-            ReducedPrice = "49.00"
+            Price = "44.49",
         },
 
         Details = new List<CourseDetailsViewModel>

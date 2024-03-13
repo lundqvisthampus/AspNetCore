@@ -172,10 +172,20 @@ main {
                                     padding-left: 1rem;
                                 }
 
-                                .price {
-                                    color: $theme;
-                                    font-weight: 600;
-                                    padding-left: 1rem;
+                                .prices {
+                                    display: flex;
+                                    gap: 0.5rem;
+                                    align-items: center;
+
+                                    .price {
+                                        color: $theme;
+                                        font-weight: 600;
+                                        padding-left: 1rem;
+                                    }
+
+                                    .reducedPrice {
+                                        color: $gray-600;
+                                    }
                                 }
 
                                 .hours-and-rating {
