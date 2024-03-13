@@ -2,6 +2,10 @@
 
 <aside>
     <div class="profile">
+        <div class="img-btn">
+            <p class="tool-tip">Update</p>
+            <button class="updateAvatarBtn"><i class="fa-solid fa-arrows-rotate-reverse"></i></button>
+        </div>
         <img class="profile-avatar" src="~/images/profile-img.svg" alt="Profile image">
         <h5 class="header5">@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
         <p class="m-text">@Model.ProfileInfo.Email</p>

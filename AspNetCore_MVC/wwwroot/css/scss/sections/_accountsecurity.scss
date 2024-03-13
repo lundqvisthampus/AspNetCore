@@ -18,6 +18,49 @@ main {
                     img {
                         margin-bottom: 1rem;
                     }
+
+                    .img-btn {
+                        position: relative;
+                        display: inline;
+
+                        .updateAvatarBtn {
+                            position: absolute;
+                            width: 36px;
+                            height: 36px;
+                            border-radius: 18px;
+                            border: none;
+                            background-color: #ffffff;
+                            top: 1.5rem;
+                            left: 5rem;
+                            box-shadow: 1px 1px 2px 1px $gray-300;
+
+                            i {
+                                margin-top: 0.3rem;
+                                font-size: 1.2rem;
+                            }
+                        }
+
+                        .tool-tip {
+                            position: absolute;
+                            color: #ffffff;
+                            background-color: $gray-900;
+                            padding: 0rem 0.5rem;
+                            border-radius: 6px;
+                            font-weight: 300;
+                            top: -0.25rem;
+                            left: 6.5rem;
+                            opacity: 0;
+                            transition: all 0.25s ease-in-out;
+                            visibility: hidden;
+                        }
+
+                        &:hover {
+                            .tool-tip {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
                 }
 
                 @media (min-width: 1200px) {

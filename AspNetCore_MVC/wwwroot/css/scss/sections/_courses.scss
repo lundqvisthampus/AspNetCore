@@ -167,11 +167,13 @@ main {
                             top: -1.7rem;
                             right: -0.5rem;
                             opacity: 0;
-                            transition: opacity 0.25s ease-in-out;
+                            transition: all 0.25s ease-in-out;
+                            visibility: hidden;
                         }
 
                         &:hover {
                             .tool-tip {
+                                visibility: visible;
                                 opacity: 1;
                             }
                         }

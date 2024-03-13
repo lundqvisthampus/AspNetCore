@@ -16,6 +16,49 @@ main {
                     img {
                         margin-bottom: 1rem;
                     }
+
+                    .img-btn {
+                        position: relative;
+                        display: inline;
+
+                        .updateAvatarBtn {
+                            position: absolute;
+                            width: 36px;
+                            height: 36px;
+                            border-radius: 18px;
+                            border: none;
+                            background-color: #ffffff;
+                            top: 1.5rem;
+                            left: 5rem;
+                            box-shadow: 1px 1px 2px 1px $gray-300;
+
+                            i {
+                                margin-top: 0.3rem;
+                                font-size: 1.2rem;
+                            }
+                        }
+
+                        .tool-tip {
+                            position: absolute;
+                            color: #ffffff;
+                            background-color: $gray-900;
+                            padding: 0rem 0.5rem;
+                            border-radius: 6px;
+                            font-weight: 300;
+                            top: -0.25rem;
+                            left: 6.5rem;
+                            opacity: 0;
+                            transition: all 0.25s ease-in-out;
+                            visibility: hidden;
+                        }
+
+                        &:hover {
+                            .tool-tip {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
                 }
 
                 @media (min-width: 1200px) {
@@ -31,32 +74,6 @@ main {
 
                     @media (min-width: 1200px) {
                         width: 18rem;
-                    }
-
-                    .theme-btn {
-                        padding-right: 7rem;
-
-                        i {
-                            margin-right: 0.5rem;
-                        }
-                    }
-
-                    .sign-out {
-                        color: $gray-800;
-                        font-weight: 700;
-                        text-decoration: none;
-                        padding: 0.7rem 1rem;
-                        border-radius: 6px;
-                        transition: all ease-in-out 0.15s;
-
-                        i {
-                            margin-right: 0.5rem;
-                            font-size: 1.3rem;
-                        }
-
-                        &:hover {
-                            background-color: $gray-400;
-                        }
                     }
                 }
             }
@@ -161,11 +178,13 @@ main {
                                 top: -1.7rem;
                                 right: -0.5rem;
                                 opacity: 0;
-                                transition: opacity 0.25s ease-in-out;
+                                transition: all 0.25s ease-in-out;
+                                visibility: hidden;
                             }
 
                             &:hover {
                                 .tool-tip {
+                                    visibility: visible;
                                     opacity: 1;
                                 }
                             }
