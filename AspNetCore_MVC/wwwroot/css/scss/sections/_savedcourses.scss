@@ -107,7 +107,7 @@ main {
                     }
 
                     .oneCourse {
-                        text-decoration: none;
+                        position: relative;
                         box-shadow: 1px 1px 6px 3px $gray-300;
                         border-radius: 6px;
                         transition: all 0.15s ease-in-out;
@@ -116,43 +116,83 @@ main {
                             box-shadow: 1px 1px 6px 3px $gray-500;
                         }
 
-                        img {
-                            width: 100%;
+                        .bestSeller {
+                            background-color: $success;
+                            color: #ffffff;
+                            display: inline;
+                            padding: 0rem 0.5rem;
                             border-radius: 6px;
+                            position: absolute;
+                            top: 1rem;
+                            left: 1rem;
                         }
 
-                        .course-info {
-                            .header5 {
-                                margin-top: 1rem;
-                                padding-left: 1rem;
-                                padding-right: 1rem;
-                            }
+                        .saveCourseBtn {
+                            border: none;
+                            width: 42px;
+                            height: 42px;
+                            padding: 10px 16px;
+                            font-size: 18px;
+                            border-radius: 25px;
+                            position: absolute;
+                            top: 1rem;
+                            right: 1rem;
+                            transition: color 0.15s ease-in-out;
 
-                            .author {
-                                color: $gray-700;
-                                padding-left: 1rem;
-                            }
-
-                            .price {
+                            &:hover {
                                 color: $theme;
-                                font-weight: 600;
-                                padding-left: 1rem;
                             }
 
-                            .hours-and-rating {
-                                border-top: 2px solid $gray-300;
-                                padding-top: 1rem;
-                                display: flex;
-                                flex-direction: row;
-                                padding-left: 1rem;
+                            i {
+                                font-size: 2.8rem;
+                                margin-left: -1.1rem;
+                                margin-top: -0.7rem;
+                            }
+                        }
 
-                                i {
-                                    margin-right: 0.5rem;
+                        .oneCourseLink {
+                            text-decoration: none;
+
+                            img {
+                                max-width: 100%;
+                                border-radius: 6px;
+                            }
+
+
+
+                            .course-info {
+                                .header5 {
+                                    margin-top: 1rem;
+                                    padding-left: 1rem;
+                                    padding-right: 1rem;
                                 }
 
-                                p {
-                                    margin-right: 1.5rem;
-                                    margin-top: -0.15rem;
+                                .author {
+                                    color: $gray-700;
+                                    padding-left: 1rem;
+                                }
+
+                                .price {
+                                    color: $theme;
+                                    font-weight: 600;
+                                    padding-left: 1rem;
+                                }
+
+                                .hours-and-rating {
+                                    border-top: 2px solid $gray-300;
+                                    padding-top: 1rem;
+                                    display: flex;
+                                    flex-direction: row;
+                                    padding-left: 1rem;
+
+                                    i {
+                                        margin-right: 0.5rem;
+                                    }
+
+                                    p {
+                                        margin-right: 1.5rem;
+                                        margin-top: -0.15rem;
+                                    }
                                 }
                             }
                         }
