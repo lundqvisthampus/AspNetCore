@@ -11,16 +11,16 @@
             foreach(var course in Model.SavedCoursesModel.SavedCourses)
             {
                 <a asp-action="@course.ActionName" asp-controller="@course.ControllerName" class="oneCourse">
-                    <img src="@course.ImageUrl" alt="@course.ImageAltText">
+                    <img src="@course.CourseImgUrl" alt="Image of the course">
                     <div class="course-info">
                         <h5 class="header5">@course.Title</h5>
-                        <p class="author">By @course.Author</p>
-                        <p class="price">$@course.Price</p>
+                        <p class="author">By @course.Author.AuthorName</p>
+                        <p class="price">$@course.Includes.Price</p>
                         <div class="hours-and-rating">
                             <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
-                            <p class="hours s-text">@course.CourseHours hours</p>
+                            <p class="hours s-text">@course.Includes.HoursOfContent hours</p>
                             <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
-                            <p class="rating s-text">@course.CourseRating</p>
+                            <p class="rating s-text">@course.LikesAmount</p>
                         </div>
                     </div>
                 </a>

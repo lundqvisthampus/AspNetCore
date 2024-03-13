@@ -4,6 +4,8 @@ namespace AspNetCore_MVC.Models.Sections;
 
 public class SingleCourseViewModel
 {
+    public string? ControllerName { get; set; }
+    public string? ActionName { get; set; }
     public string CourseImgUrl { get; set; } = null!;
     public string Title { get; set; } = null!;
     public string Ingress { get; set; } = null!;
