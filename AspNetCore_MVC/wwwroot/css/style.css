@@ -1717,7 +1717,7 @@ main .courses-section .container .courses-all .oneCourse .bestSeller {
   top: 1rem;
   left: 1rem;
 }
-main .courses-section .container .courses-all .oneCourse .saveCourseBtn {
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .saveCourseBtn {
   border: none;
   width: 42px;
   height: 42px;
@@ -1729,13 +1729,28 @@ main .courses-section .container .courses-all .oneCourse .saveCourseBtn {
   right: 1rem;
   transition: color 0.15s ease-in-out;
 }
-main .courses-section .container .courses-all .oneCourse .saveCourseBtn:hover {
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .saveCourseBtn:hover {
   color: #6366F1;
 }
-main .courses-section .container .courses-all .oneCourse .saveCourseBtn i {
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .saveCourseBtn i {
   font-size: 2.8rem;
   margin-left: -1.1rem;
   margin-top: -0.7rem;
+}
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .tool-tip {
+  position: absolute;
+  color: #ffffff;
+  background-color: #0B0F19;
+  padding: 0.3rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 300;
+  top: -1.7rem;
+  right: -0.5rem;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+main .courses-section .container .courses-all .oneCourse .btn-tooltip:hover .tool-tip {
+  opacity: 1;
 }
 main .courses-section .container .courses-all .oneCourse .oneCourseLink {
   text-decoration: none;
@@ -1989,7 +2004,7 @@ main .saved-courses .container .right-aside .courses .oneCourse .bestSeller {
   top: 1rem;
   left: 1rem;
 }
-main .saved-courses .container .right-aside .courses .oneCourse .saveCourseBtn {
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .saveCourseBtn {
   border: none;
   width: 42px;
   height: 42px;
@@ -2001,13 +2016,28 @@ main .saved-courses .container .right-aside .courses .oneCourse .saveCourseBtn {
   right: 1rem;
   transition: color 0.15s ease-in-out;
 }
-main .saved-courses .container .right-aside .courses .oneCourse .saveCourseBtn:hover {
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .saveCourseBtn:hover {
   color: #6366F1;
 }
-main .saved-courses .container .right-aside .courses .oneCourse .saveCourseBtn i {
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .saveCourseBtn i {
   font-size: 2.8rem;
   margin-left: -1.1rem;
   margin-top: -0.7rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .tool-tip {
+  position: absolute;
+  color: #ffffff;
+  background-color: #0B0F19;
+  padding: 0.3rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 300;
+  top: -1.7rem;
+  right: -0.5rem;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip:hover .tool-tip {
+  opacity: 1;
 }
 main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink {
   text-decoration: none;

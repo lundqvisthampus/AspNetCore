@@ -11,7 +11,10 @@
             foreach(var course in Model.SavedCoursesModel.SavedCourses)
             {
                 <div class="oneCourse">
-                    <button class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                    <div class="btn-tooltip">
+                        <button class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                        <p class="tool-tip">Remove</p>
+                    </div>
                     @if (course.IsBestSeller == true)
                     {
                         <p class="bestSeller">Best seller</p>

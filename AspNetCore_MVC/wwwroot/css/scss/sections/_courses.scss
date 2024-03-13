@@ -133,28 +133,51 @@ main {
                         left: 1rem;
                     }
 
-                    .saveCourseBtn {
-                        border: none;
-                        width: 42px;
-                        height: 42px;
-                        padding: 10px 16px;
-                        font-size: 18px;
-                        border-radius: 25px;
-                        position: absolute;
-                        top: 1rem;
-                        right: 1rem;
-                        transition: color 0.15s ease-in-out;
+                    .btn-tooltip {
+                        .saveCourseBtn {
+                            border: none;
+                            width: 42px;
+                            height: 42px;
+                            padding: 10px 16px;
+                            font-size: 18px;
+                            border-radius: 25px;
+                            position: absolute;
+                            top: 1rem;
+                            right: 1rem;
+                            transition: color 0.15s ease-in-out;
+
+                            &:hover {
+                                color: $theme;
+                            }
+
+                            i {
+                                font-size: 2.8rem;
+                                margin-left: -1.1rem;
+                                margin-top: -0.7rem;
+                            }
+                        }
+
+                        .tool-tip {
+                            position: absolute;
+                            color: #ffffff;
+                            background-color: $gray-900;
+                            padding: 0.3rem 0.9rem;
+                            border-radius: 6px;
+                            font-weight: 300;
+                            top: -1.7rem;
+                            right: -0.5rem;
+                            opacity: 0;
+                            transition: opacity 0.25s ease-in-out;
+                        }
 
                         &:hover {
-                            color: $theme;
-                        }
-
-                        i {
-                            font-size: 2.8rem;
-                            margin-left: -1.1rem;
-                            margin-top: -0.7rem;
+                            .tool-tip {
+                                opacity: 1;
+                            }
                         }
                     }
+
+
 
                     .oneCourseLink {
                         text-decoration: none;
