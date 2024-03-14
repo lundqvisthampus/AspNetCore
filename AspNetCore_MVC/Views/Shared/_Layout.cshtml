@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
     <title>@ViewData["Title"] - Silicon</title>
 </head>
-<body>
+<body class="">
     <div class="wrapper">
         @{
             var headerColor = HeaderColor();
@@ -42,8 +42,8 @@
                     <div class="nav-btns">
                         <p>Light</p>
                         <label class="theme-switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
+                            <input id="darkModeToggle" type="checkbox">
+                            <span onclick="toggleDarkMode()" class="slider round"></span>
                         </label>
                         <p>Dark</p>
                         <div class="navbar-buttons">
@@ -106,6 +106,7 @@
     <script src="/js/site.js" asp-append-version="true"></script>
 </body>
 </html>
+
 
 @{
     bool ContentHidden()

@@ -49,3 +49,688 @@
 .color-danger {
     color: $danger !important;
 }
+
+.dark-mode {
+
+    .gray-btn {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 500;
+        padding: 0.7rem 1.4rem;
+        background-color: rgba(51, 53, 77, 0.5);
+        border-radius: 6px;
+        transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
+
+        i {
+            margin-right: 0.5rem;
+            margin-left: 0;
+            font-size: 1rem;
+        }
+
+        &:hover {
+            background-color: rgba(51, 53, 77, 0.4);
+            box-shadow: 3px 3px 6px 1px rgba($color: black, $alpha: 0.3)
+        }
+    }
+
+    header {
+        background-color: $gray-900;
+
+        p, .navigate-link {
+            color: #ffffff !important;
+        }
+    }
+
+    footer {
+        background-color: $gray-900;
+    }
+
+    main {
+        background-color: $gray-900;
+
+        .showcase {
+            h1, h6 {
+                color: #ffffff;
+            }
+
+            p {
+                color: $gray-500;
+            }
+
+            .showcase-brands {
+                h6 {
+                    color: white;
+                }
+            }
+        }
+
+        .tools-section {
+            background-color: rgba(51, 53, 77, 0.1);
+
+            .container {
+                h2 {
+                    color: #ffffff;
+                }
+
+                .our-tools {
+                    h5 {
+                        color: white;
+                    }
+
+                    p {
+                        color: $gray-600;
+                    }
+
+                    .tool {
+                        &:hover {
+                            box-shadow: none;
+                            background-color: rgba(51, 53, 77, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .manage-work-section {
+            .container {
+                h2 {
+                    color: white;
+                }
+
+                p {
+                    color: $gray-500;
+                }
+            }
+        }
+
+        .download-our-app-section {
+            background-color: rgba(51, 53, 77, 0.1);
+            padding: 0;
+
+            .container {
+                background-color: rgba(51, 53, 77, 0.3);
+
+                @media (min-width:1200px) {
+                    padding: 2rem 6rem;
+                }
+
+                .download-here {
+                    h2 {
+                        color: white;
+                    }
+
+                    .app-places {
+                        .rating-image {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .integrate-work-section {
+            .container {
+                .integrate-title {
+                    h2 {
+                        color: white;
+                    }
+                }
+
+                .other-apps {
+                    p {
+                        color: $gray-600;
+                    }
+
+                    a {
+                        &:hover {
+                            box-shadow: none;
+                            background-color: rgba(51, 53, 77, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .newsletter-section {
+            background-color: rgba(51, 53, 77, 0.1);
+
+            .container {
+                .newsletter-title {
+                    h2 {
+                        color: white;
+                    }
+                }
+
+                .newsform {
+                    .news-flex {
+                        h3 {
+                            color: white;
+                        }
+
+                        .settings {
+
+                            .setting {
+                                p {
+                                    color: $gray-600;
+                                }
+                            }
+                        }
+                    }
+
+                    .signup {
+
+                        #email {
+                            background-color: rgba(51, 53, 77, 0.2);
+                            color: white;
+                            border: 1px solid rgba(51, 53, 77, 0.5);
+                        }
+                    }
+                }
+            }
+        }
+
+        .courses-section {
+            .container {
+                .title-inputs {
+                    .header1 {
+                        color: white;
+                    }
+
+                    .select-input, .search-input {
+                        background-color: rgba(51, 53, 77, 0.2);
+                        color: $gray-500;
+                        border: 1px solid rgba(51, 53, 77, 0.5);
+                    }
+                }
+
+                .courses-all {
+                    .oneCourse {
+                        background-color: rgba(51, 53, 77, 0.1);
+                        box-shadow: none;
+
+                        &:hover {
+                            background-color: rgba(51, 53, 77, 0.2);
+                        }
+
+                        .oneCourseLink {
+                            .course-info {
+                                h5 {
+                                    color: $gray-400;
+                                }
+
+                                p {
+                                    color: $gray-600;
+                                }
+
+                                .hours-and-rating {
+                                    border-color: $gray-700;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .page-numbers {
+                    button {
+                        &:hover {
+                            background-color: $gray-800;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .work-with-us {
+            .container {
+                background-color: rgba(51, 53, 77, 0.1);
+
+                .ready-text {
+                    p {
+                        color: $gray-600;
+                    }
+
+                    h2 {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .single-course-section {
+            background-color: transparent;
+            z-index: 1;
+
+            .container {
+                .breadcrumbs {
+                    .white-link {
+                        color: $gray-300;
+                    }
+                }
+
+                .upper-section {
+                    .l-text {
+                        color: $gray-400;
+                    }
+                }
+
+                .course-info {
+                    .course-desc {
+                        .display6, h3 {
+                            color: white;
+                        }
+
+                        .m-text {
+                            color: $gray-500;
+                        }
+                    }
+
+                    .course-includes {
+                        box-shadow: none;
+                        background-color: rgba(51, 53, 77, 0.1);
+                        border: 1px solid rgba(51, 53, 77, 0.2);
+
+                        h4 {
+                            color: white;
+                        }
+
+                        .m-text {
+                            color: $gray-500;
+                        }
+
+                        .course-price {
+                            .header2 {
+                                color: white;
+                            }
+
+                            p {
+                                color: $gray-500;
+                            }
+                        }
+                    }
+                }
+
+                .program-details {
+                    h2 {
+                        color: white;
+                    }
+
+                    .program {
+                        .program-text {
+                            .lead-text {
+                                color: white;
+                            }
+
+                            .m-text {
+                                color: $gray-500;
+                            }
+                        }
+                    }
+                }
+
+                .author-info {
+                    border: 1px solid rgba(51, 53, 77, 0.4);
+                }
+            }
+        }
+
+        .contact-us-section {
+            background-color: rgba(51, 53, 77, 0.1);
+
+            .container {
+                h1 {
+                    color: white;
+                }
+
+                .breadcrumbs {
+                }
+
+                .contact-us {
+                    .email-career {
+                        .contact-option {
+                            .text {
+                                h3 {
+                                    color: white;
+                                }
+
+                                p {
+                                    color: $gray-500;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .contact-form {
+                    box-shadow: none;
+                    background-color: $gray-900;
+                    border: 1px solid rgba(51, 53, 77, 0.3);
+
+                    h2 {
+                        color: white;
+                    }
+
+                    form {
+                        label {
+                            color: white;
+                        }
+
+                        input, select, textarea {
+                            background-color: rgba(51, 53, 77, 0.2);
+                            color: $gray-500;
+                            border: 1px solid rgba(51, 53, 77, 0.5);
+                        }
+                    }
+                }
+            }
+        }
+
+        .signin-section {
+            .container {
+                .signin-form {
+                    h1 {
+                        color: white;
+                    }
+
+                    .m-text {
+                        color: $gray-500;
+                    }
+
+                    form {
+                        label {
+                            color: white;
+                        }
+
+                        input {
+                            background-color: rgba(51, 53, 77, 0.2);
+                            color: $gray-500;
+                            border: 1px solid rgba(51, 53, 77, 0.5);
+                        }
+
+                        .remember-me {
+                            p {
+                                color: $gray-500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .signup-section {
+            .container {
+                .signup-form {
+                    h1 {
+                        color: white;
+                    }
+
+                    .m-text {
+                        color: $gray-500;
+                    }
+
+                    form {
+                        label {
+                            color: white;
+                        }
+
+                        input {
+                            background-color: rgba(51, 53, 77, 0.2);
+                            color: $gray-500;
+                            border: 1px solid rgba(51, 53, 77, 0.5);
+                        }
+
+                        .agreement-signup {
+                            p {
+                                color: $gray-500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .account-details-section {
+            .container {
+                aside {
+                    border-color: $gray-800;
+
+                    .profile {
+                        h5 {
+                            color: white;
+                        }
+
+                        .fa-arrows-rotate-reverse {
+                            color: white;
+                        }
+
+                        .updateAvatarBtn {
+                            box-shadow: none;
+                            background-color: #131022;
+                            border: 1px solid $gray-800;
+                        }
+
+                        .m-text {
+                            color: $gray-500;
+                        }
+                    }
+
+                    a {
+                        color: white;
+
+                        &:hover {
+                            background-color: $gray-800;
+                        }
+
+                        &:active {
+                            background-color: $theme;
+                        }
+                    }
+                }
+
+                .details {
+                    .header2 {
+                        color: white;
+                    }
+
+                    .basic-form {
+                        .nameinputs, .email-phone {
+                            p {
+                                color: white;
+                            }
+
+                            input {
+                                background-color: rgba(51, 53, 77, 0.2);
+                                color: $gray-500;
+                                border: 1px solid rgba(51, 53, 77, 0.5);
+                            }
+                        }
+
+                        p {
+                            color: white;
+                        }
+
+                        textarea {
+                            background-color: rgba(51, 53, 77, 0.2);
+                            color: $gray-500;
+                            border: 1px solid rgba(51, 53, 77, 0.5) !important;
+                        }
+                    }
+
+                    .address-info {
+                        border-color: $gray-800;
+
+                        .basic-form {
+                            .address, .postal-city {
+                                p {
+                                    color: white;
+                                }
+
+                                input {
+                                    background-color: rgba(51, 53, 77, 0.2);
+                                    color: $gray-500;
+                                    border: 1px solid rgba(51, 53, 77, 0.5);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .account-security-section {
+            .container {
+                aside {
+                    border-color: $gray-800;
+
+                    .profile {
+                        h5 {
+                            color: white;
+                        }
+
+                        .fa-arrows-rotate-reverse {
+                            color: white;
+                        }
+
+                        .updateAvatarBtn {
+                            box-shadow: none;
+                            background-color: #131022;
+                            border: 1px solid $gray-800;
+                        }
+
+                        .m-text {
+                            color: $gray-500;
+                        }
+                    }
+
+                    a {
+                        color: white;
+
+                        &:hover {
+                            background-color: $gray-800;
+                        }
+
+                        &:active {
+                            background-color: $theme;
+                        }
+                    }
+                }
+
+                .details {
+                    h1 {
+                        color: white;
+                    }
+
+                    .password-form {
+                        .currentPassword, .new-password-div {
+                            label {
+                                color: white;
+                            }
+
+                            input {
+                                background-color: rgba(51, 53, 77, 0.2);
+                                color: $gray-500;
+                                border: 1px solid rgba(51, 53, 77, 0.5);
+                            }
+                        }
+                    }
+
+                    .account-deletion {
+                        border-color: $gray-800;
+
+                        .m-text {
+                            color: $gray-500;
+                        }
+                    }
+                }
+            }
+        }
+
+        .saved-courses {
+            .container {
+                aside {
+                    border-color: $gray-800;
+
+                    .profile {
+                        h5 {
+                            color: white;
+                        }
+
+                        .fa-arrows-rotate-reverse {
+                            color: white;
+                        }
+
+                        .updateAvatarBtn {
+                            box-shadow: none;
+                            background-color: #131022;
+                            border: 1px solid $gray-800;
+                        }
+
+                        .m-text {
+                            color: $gray-500;
+                        }
+                    }
+
+                    a {
+                        color: white;
+
+                        &:hover {
+                            background-color: $gray-800;
+                        }
+
+                        &:active {
+                            background-color: $theme;
+                        }
+                    }
+                }
+
+                .right-aside {
+                    .title-and-button {
+                        h1 {
+                            color: white;
+                        }
+                    }
+
+                    .courses {
+                        .oneCourse {
+                            background-color: rgba(51, 53, 77, 0.1);
+                            box-shadow: none;
+
+                            &:hover {
+                                background-color: rgba(51, 53, 77, 0.2);
+                            }
+
+                            .oneCourseLink {
+                                .course-info {
+                                    h5 {
+                                        color: $gray-400;
+                                    }
+
+                                    p {
+                                        color: $gray-600;
+                                    }
+
+                                    .hours-and-rating {
+                                        border-color: $gray-700;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .error-section {
+            .container {
+                .display5 {
+                    color: white;
+                }
+
+                .xl-text {
+                    color: $gray-500;
+                }
+            }
+        }
+    }
+}
+

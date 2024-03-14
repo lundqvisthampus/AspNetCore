@@ -165,7 +165,7 @@ header {
                     &:checked {
                         + {
                             .slider {
-                                background-color: $info;
+                                background-color: $theme;
 
                                 &:before {
                                     -webkit-transform: translateX(19.5px);

@@ -346,7 +346,7 @@ header .container .right-nav .nav-btns .slider:before {
   transition: 0.4s;
 }
 header .container .right-nav .nav-btns input:checked + .slider {
-  background-color: #4C82F7;
+  background-color: #6366F1;
 }
 header .container .right-nav .nav-btns input:checked + .slider:before {
   -webkit-transform: translateX(19.5px);
@@ -2564,4 +2564,405 @@ main .single-course-section .container .author-info .info-author .author .social
 
 .color-danger {
   color: #EF4444 !important;
+}
+
+.dark-mode .gray-btn {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  background-color: rgba(51, 53, 77, 0.5);
+  border-radius: 6px;
+  transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
+}
+.dark-mode .gray-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+}
+.dark-mode .gray-btn:hover {
+  background-color: rgba(51, 53, 77, 0.4);
+  box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+}
+.dark-mode header {
+  background-color: #0B0F19;
+}
+.dark-mode header p, .dark-mode header .navigate-link {
+  color: #ffffff !important;
+}
+.dark-mode footer {
+  background-color: #0B0F19;
+}
+.dark-mode main {
+  background-color: #0B0F19;
+}
+.dark-mode main .showcase h1, .dark-mode main .showcase h6 {
+  color: #ffffff;
+}
+.dark-mode main .showcase p {
+  color: #B4B7C9;
+}
+.dark-mode main .showcase .showcase-brands h6 {
+  color: white;
+}
+.dark-mode main .tools-section {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .tools-section .container h2 {
+  color: #ffffff;
+}
+.dark-mode main .tools-section .container .our-tools h5 {
+  color: white;
+}
+.dark-mode main .tools-section .container .our-tools p {
+  color: #9397AD;
+}
+.dark-mode main .tools-section .container .our-tools .tool:hover {
+  box-shadow: none;
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .manage-work-section .container h2 {
+  color: white;
+}
+.dark-mode main .manage-work-section .container p {
+  color: #B4B7C9;
+}
+.dark-mode main .download-our-app-section {
+  background-color: rgba(51, 53, 77, 0.1);
+  padding: 0;
+}
+.dark-mode main .download-our-app-section .container {
+  background-color: rgba(51, 53, 77, 0.3);
+}
+@media (min-width: 1200px) {
+  .dark-mode main .download-our-app-section .container {
+    padding: 2rem 6rem;
+  }
+}
+.dark-mode main .download-our-app-section .container .download-here h2 {
+  color: white;
+}
+.dark-mode main .download-our-app-section .container .download-here .app-places .rating-image {
+  color: white;
+}
+.dark-mode main .integrate-work-section .container .integrate-title h2 {
+  color: white;
+}
+.dark-mode main .integrate-work-section .container .other-apps p {
+  color: #9397AD;
+}
+.dark-mode main .integrate-work-section .container .other-apps a:hover {
+  box-shadow: none;
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .newsletter-section {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .newsletter-section .container .newsletter-title h2 {
+  color: white;
+}
+.dark-mode main .newsletter-section .container .newsform .news-flex h3 {
+  color: white;
+}
+.dark-mode main .newsletter-section .container .newsform .news-flex .settings .setting p {
+  color: #9397AD;
+}
+.dark-mode main .newsletter-section .container .newsform .signup #email {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: white;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .courses-section .container .title-inputs .header1 {
+  color: white;
+}
+.dark-mode main .courses-section .container .title-inputs .select-input, .dark-mode main .courses-section .container .title-inputs .search-input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse {
+  background-color: rgba(51, 53, 77, 0.1);
+  box-shadow: none;
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse:hover {
+  background-color: rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info h5 {
+  color: #D4D7E5;
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info p {
+  color: #9397AD;
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating {
+  border-color: #565973;
+}
+.dark-mode main .courses-section .container .page-numbers button:hover {
+  background-color: #33354D;
+  color: white;
+}
+.dark-mode main .work-with-us .container {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .work-with-us .container .ready-text p {
+  color: #9397AD;
+}
+.dark-mode main .work-with-us .container .ready-text h2 {
+  color: white;
+}
+.dark-mode main .single-course-section {
+  background-color: transparent;
+  z-index: 1;
+}
+.dark-mode main .single-course-section .container .breadcrumbs .white-link {
+  color: #E2E5F1;
+}
+.dark-mode main .single-course-section .container .upper-section .l-text {
+  color: #D4D7E5;
+}
+.dark-mode main .single-course-section .container .course-info .course-desc .display6, .dark-mode main .single-course-section .container .course-info .course-desc h3 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .course-info .course-desc .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes {
+  box-shadow: none;
+  background-color: rgba(51, 53, 77, 0.1);
+  border: 1px solid rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .single-course-section .container .course-info .course-includes h4 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes .course-price .header2 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes .course-price p {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .program-details h2 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .program-details .program .program-text .lead-text {
+  color: white;
+}
+.dark-mode main .single-course-section .container .program-details .program .program-text .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .author-info {
+  border: 1px solid rgba(51, 53, 77, 0.4);
+}
+.dark-mode main .contact-us-section {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .contact-us-section .container h1 {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-us .email-career .contact-option .text h3 {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-us .email-career .contact-option .text p {
+  color: #B4B7C9;
+}
+.dark-mode main .contact-us-section .container .contact-form {
+  box-shadow: none;
+  background-color: #0B0F19;
+  border: 1px solid rgba(51, 53, 77, 0.3);
+}
+.dark-mode main .contact-us-section .container .contact-form h2 {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-form form label {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-form form input, .dark-mode main .contact-us-section .container .contact-form form select, .dark-mode main .contact-us-section .container .contact-form form textarea {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .signin-section .container .signin-form h1 {
+  color: white;
+}
+.dark-mode main .signin-section .container .signin-form .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .signin-section .container .signin-form form label {
+  color: white;
+}
+.dark-mode main .signin-section .container .signin-form form input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .signin-section .container .signin-form form .remember-me p {
+  color: #B4B7C9;
+}
+.dark-mode main .signup-section .container .signup-form h1 {
+  color: white;
+}
+.dark-mode main .signup-section .container .signup-form .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .signup-section .container .signup-form form label {
+  color: white;
+}
+.dark-mode main .signup-section .container .signup-form form input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .signup-section .container .signup-form form .agreement-signup p {
+  color: #B4B7C9;
+}
+.dark-mode main .account-details-section .container aside {
+  border-color: #33354D;
+}
+.dark-mode main .account-details-section .container aside .profile h5 {
+  color: white;
+}
+.dark-mode main .account-details-section .container aside .profile .fa-arrows-rotate-reverse {
+  color: white;
+}
+.dark-mode main .account-details-section .container aside .profile .updateAvatarBtn {
+  box-shadow: none;
+  background-color: #131022;
+  border: 1px solid #33354D;
+}
+.dark-mode main .account-details-section .container aside .profile .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .account-details-section .container aside a {
+  color: white;
+}
+.dark-mode main .account-details-section .container aside a:hover {
+  background-color: #33354D;
+}
+.dark-mode main .account-details-section .container aside a:active {
+  background-color: #6366F1;
+}
+.dark-mode main .account-details-section .container .details .header2 {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .basic-form .nameinputs p, .dark-mode main .account-details-section .container .details .basic-form .email-phone p {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .basic-form .nameinputs input, .dark-mode main .account-details-section .container .details .basic-form .email-phone input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .account-details-section .container .details .basic-form p {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .basic-form textarea {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5) !important;
+}
+.dark-mode main .account-details-section .container .details .address-info {
+  border-color: #33354D;
+}
+.dark-mode main .account-details-section .container .details .address-info .basic-form .address p, .dark-mode main .account-details-section .container .details .address-info .basic-form .postal-city p {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .address-info .basic-form .address input, .dark-mode main .account-details-section .container .details .address-info .basic-form .postal-city input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .account-security-section .container aside {
+  border-color: #33354D;
+}
+.dark-mode main .account-security-section .container aside .profile h5 {
+  color: white;
+}
+.dark-mode main .account-security-section .container aside .profile .fa-arrows-rotate-reverse {
+  color: white;
+}
+.dark-mode main .account-security-section .container aside .profile .updateAvatarBtn {
+  box-shadow: none;
+  background-color: #131022;
+  border: 1px solid #33354D;
+}
+.dark-mode main .account-security-section .container aside .profile .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .account-security-section .container aside a {
+  color: white;
+}
+.dark-mode main .account-security-section .container aside a:hover {
+  background-color: #33354D;
+}
+.dark-mode main .account-security-section .container aside a:active {
+  background-color: #6366F1;
+}
+.dark-mode main .account-security-section .container .details h1 {
+  color: white;
+}
+.dark-mode main .account-security-section .container .details .password-form .currentPassword label, .dark-mode main .account-security-section .container .details .password-form .new-password-div label {
+  color: white;
+}
+.dark-mode main .account-security-section .container .details .password-form .currentPassword input, .dark-mode main .account-security-section .container .details .password-form .new-password-div input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .account-security-section .container .details .account-deletion {
+  border-color: #33354D;
+}
+.dark-mode main .account-security-section .container .details .account-deletion .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .saved-courses .container aside {
+  border-color: #33354D;
+}
+.dark-mode main .saved-courses .container aside .profile h5 {
+  color: white;
+}
+.dark-mode main .saved-courses .container aside .profile .fa-arrows-rotate-reverse {
+  color: white;
+}
+.dark-mode main .saved-courses .container aside .profile .updateAvatarBtn {
+  box-shadow: none;
+  background-color: #131022;
+  border: 1px solid #33354D;
+}
+.dark-mode main .saved-courses .container aside .profile .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .saved-courses .container aside a {
+  color: white;
+}
+.dark-mode main .saved-courses .container aside a:hover {
+  background-color: #33354D;
+}
+.dark-mode main .saved-courses .container aside a:active {
+  background-color: #6366F1;
+}
+.dark-mode main .saved-courses .container .right-aside .title-and-button h1 {
+  color: white;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse {
+  background-color: rgba(51, 53, 77, 0.1);
+  box-shadow: none;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse:hover {
+  background-color: rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info h5 {
+  color: #D4D7E5;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info p {
+  color: #9397AD;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .hours-and-rating {
+  border-color: #565973;
+}
+.dark-mode main .error-section .container .display5 {
+  color: white;
+}
+.dark-mode main .error-section .container .xl-text {
+  color: #B4B7C9;
 }
