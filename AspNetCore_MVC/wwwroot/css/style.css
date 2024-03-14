@@ -2559,7 +2559,7 @@ main .single-course-section .container .author-info .info-author .author .social
 }
 
 .header-white {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .color-danger {
@@ -2583,9 +2583,6 @@ main .single-course-section .container .author-info .info-author .author .social
 .dark-mode .gray-btn:hover {
   background-color: rgba(51, 53, 77, 0.4);
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
-}
-.dark-mode header {
-  background-color: #0B0F19;
 }
 .dark-mode header p, .dark-mode header .navigate-link {
   color: #ffffff !important;
