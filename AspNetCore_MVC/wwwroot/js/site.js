@@ -9,21 +9,20 @@ const toggleDarkMode = () => {
     const logo = document.querySelector("#logotype");
     if (darkModeEnabled) {
         logo.setAttribute("src", "/images/solid.svg");
+        if (url == "/Contact") {
+            header.style.backgroundColor = "#0f121e"
+        } else {
+            header.style.backgroundColor = "#0B0F19";
+        }
+        
     } else {
         logo.setAttribute("src", "/images/logotype.svg");
-    }
 
-    if (darkModeEnabled && url == "/Contact") {
-        header.style.backgroundColor = "#0f121e"
-    }
-    else if (darkModeEnabled && url != "/Contact") {
-        header.style.backgroundColor = "#0B0F19"
-    }
-    else if (darkModeEnabled == false && url == "/Contact") {
-        header.style.backgroundColor = "#F3F6FF"
-    }
-    else {
-        header.style.backgroundColor = "#FFFFFF"
+        if (url == "/Contact") {
+            header.style.backgroundColor = "#F3F6FF"
+        } else {
+            header.style.backgroundColor = "#FFFFFF";
+        }
     }
 }
 
