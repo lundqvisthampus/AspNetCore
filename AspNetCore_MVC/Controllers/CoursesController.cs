@@ -16,6 +16,7 @@ public class CoursesController : Controller
         return View(viewModel);
     }
 
+    [Authorize]
     public IActionResult SingleCourse()
     {
         var viewModel = new CoursesIndexViewModel();
