@@ -1070,6 +1070,7 @@ main .signin-section .container .signin-form form .userinput.input-validation-er
 main .signin-section .container .signin-form form .remember-me input {
   accent-color: #6366F1;
   margin-right: 0.5rem;
+  background: white;
 }
 main .signin-section .container .signin-form form .remember-me p {
   display: inline;
@@ -1583,6 +1584,9 @@ main .contact-us-section .container .breadcrumbs {
     text-align: start;
   }
 }
+main .contact-us-section .container .breadcrumbs #contact-link {
+  color: #6366F1;
+}
 main .contact-us-section .container .breadcrumbs a {
   text-decoration: none;
   color: #9397AD;
@@ -1721,6 +1725,9 @@ main .courses-section .container .breadcrumbs a {
 }
 main .courses-section .container .breadcrumbs a:hover {
   text-decoration: underline;
+}
+main .courses-section .container .breadcrumbs #courses-link {
+  color: #6366F1;
 }
 main .courses-section .container .breadcrumbs .arrows {
   margin-left: 0.7rem;
@@ -2837,6 +2844,9 @@ main .single-course-section .container .author-info .info-author .author .social
 }
 .dark-mode main .signin-section .container .signin-form form .remember-me p {
   color: #B4B7C9;
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external {
+  border-color: rgba(51, 53, 77, 0.5);
 }
 .dark-mode main .signin-section .container .signin-form form .signin-external .header6 {
   color: #ffffff;

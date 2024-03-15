@@ -23,7 +23,6 @@
 @import 'scss/sections/_savedcourses.scss';
 @import 'scss/sections/_singlecourse.scss';
 
-
 .wrapper {
     height: 100vh;
     display: grid;
@@ -452,6 +451,8 @@
                         }
 
                         .signin-external {
+                            border-color: rgba(51, 53, 77, 0.5);
+
                             .header6 {
                                 color: #ffffff;
                             }

@@ -14,6 +14,10 @@ main {
                     text-align: start;
                 }
 
+                #contact-link {
+                    color: $theme;
+                }
+
                 a {
                     text-decoration: none;
                     color: $gray-600;
