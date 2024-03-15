@@ -75,20 +75,56 @@ main {
                             border: none;
                         }
 
-                        .fb-btn {
-                            padding: 0.75rem 0.75rem;
-                            text-align: center;
-                            background-color: #316FF6;
-                        }
-
                         .forgot-password {
                             display: flex;
                             justify-content: center;
+                            padding-bottom: 2rem;
 
                             a {
                                 text-decoration: none;
                                 color: $theme;
                                 font-weight: 600;
+                            }
+                        }
+                    }
+
+                    .signin-external {
+                        padding-top: 1rem;
+                        border-top: 2px solid $gray-300;
+
+                        .header6 {
+                            text-align: center;
+                            color: $gray-900;
+                            padding-bottom: 0.8rem;
+                        }
+
+                        .signin-btns {
+                            gap: 1.5rem;
+                            text-align: center;
+                            margin-bottom: 5rem;
+
+                            @media (min-width: 1200px) {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+
+                            a {
+                                width: 100%;
+                                background-color: $gray-200;
+                                display: block;
+                                margin-bottom: 1rem;
+
+                                @media (min-width: 768px) {
+                                    display: inline;
+                                }
+
+                                &:hover {
+                                    background-color: $gray-400;
+                                }
+                            }
+
+                            i {
+                                color: $gray-800;
                             }
                         }
                     }

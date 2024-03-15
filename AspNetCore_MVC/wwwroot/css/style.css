@@ -1074,19 +1074,52 @@ main .signin-section .container .signin-form form .remember-me button, main .sig
   width: 100%;
   border: none;
 }
-main .signin-section .container .signin-form form .remember-me .fb-btn {
-  padding: 0.75rem 0.75rem;
-  text-align: center;
-  background-color: #316FF6;
-}
 main .signin-section .container .signin-form form .remember-me .forgot-password {
   display: flex;
   justify-content: center;
+  padding-bottom: 2rem;
 }
 main .signin-section .container .signin-form form .remember-me .forgot-password a {
   text-decoration: none;
   color: #6366F1;
   font-weight: 600;
+}
+main .signin-section .container .signin-form form .signin-external {
+  padding-top: 1rem;
+  border-top: 2px solid #E2E5F1;
+}
+main .signin-section .container .signin-form form .signin-external .header6 {
+  text-align: center;
+  color: #0B0F19;
+  padding-bottom: 0.8rem;
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns {
+  gap: 1.5rem;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+@media (min-width: 1200px) {
+  main .signin-section .container .signin-form form .signin-external .signin-btns {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns a {
+  width: 100%;
+  background-color: #EFF2FC;
+  display: block;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  main .signin-section .container .signin-form form .signin-external .signin-btns a {
+    display: inline;
+  }
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns a:hover {
+  background-color: #D4D7E5;
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns i {
+  color: #33354D;
 }
 
 main .account-details-section {
@@ -2795,6 +2828,19 @@ main .single-course-section .container .author-info .info-author .author .social
 }
 .dark-mode main .signin-section .container .signin-form form .remember-me p {
   color: #B4B7C9;
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .header6 {
+  color: #ffffff;
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .signin-btns a {
+  background-color: rgba(51, 53, 77, 0.1);
+  color: #ffffff;
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .signin-btns a:hover {
+  background-color: rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .signin-btns i {
+  color: #ffffff;
 }
 .dark-mode main .signup-section .container .signup-form h1 {
   color: white;

@@ -450,6 +450,27 @@
                                 color: $gray-500;
                             }
                         }
+
+                        .signin-external {
+                            .header6 {
+                                color: #ffffff;
+                            }
+
+                            .signin-btns {
+                                a {
+                                    background-color: rgba(51, 53, 77, 0.1);
+                                    color: #ffffff;
+
+                                    &:hover {
+                                        background-color: rgba(51, 53, 77, 0.2);
+                                    }
+                                }
+
+                                i {
+                                    color: #ffffff;
+                                }
+                            }
+                        }
                     }
                 }
             }
