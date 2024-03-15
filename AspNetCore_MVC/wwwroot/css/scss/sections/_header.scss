@@ -33,6 +33,16 @@ header {
                 text-decoration: underline;
             }
         }
+
+        #mobile-darkmode {
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            i {
+                font-size: 2rem;
+                color: $gray-800;
+            }
+        }
     }
 
     .container {
@@ -96,7 +106,7 @@ header {
                     margin-left: 2rem;
 
                     .profile-btn {
-                        
+
                         img {
                             margin-top: -0.6rem;
                             width: 50px;

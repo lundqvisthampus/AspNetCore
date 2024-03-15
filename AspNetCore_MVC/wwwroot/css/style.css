@@ -234,6 +234,15 @@ header .mobile-menu .link {
 header .mobile-menu .link:hover {
   text-decoration: underline;
 }
+header .mobile-menu #mobile-darkmode {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+header .mobile-menu #mobile-darkmode i {
+  font-size: 2rem;
+  color: #33354D;
+}
 header .container {
   margin-top: 1rem;
   display: flex;

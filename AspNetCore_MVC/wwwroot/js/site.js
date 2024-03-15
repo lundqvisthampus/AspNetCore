@@ -13,6 +13,7 @@ const toggleDarkMode = () => {
 
     if (darkModeEnabled) {
         logo.setAttribute("src", "/images/solid.svg");
+    
 
         if (errorImg) {
             errorImg.setAttribute("src", "/images/error-404-darkmode.svg");
