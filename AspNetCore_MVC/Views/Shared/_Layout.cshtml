@@ -12,9 +12,6 @@
 </head>
 <body class="">
     <div class="wrapper">
-        @{
-            var headerColor = HeaderColor();
-        }
         <header class="">
             <div class="container">
                 <div class="left-nav">
@@ -119,20 +116,6 @@
         }
 
         return false; 
-    }
-}
-
-@{
-    string HeaderColor()
-    {
-        var controller = ViewContext.RouteData.Values["controller"] as string;
-
-        if (controller == "Contact")
-        {
-            return "header-gray";
-        }
-
-        return "header-white";
     }
 }
 

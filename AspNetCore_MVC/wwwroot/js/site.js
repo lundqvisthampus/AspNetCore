@@ -7,8 +7,24 @@ const toggleDarkMode = () => {
     localStorage.setItem('darkModeEnabled', darkModeEnabled);
 
     const logo = document.querySelector("#logotype");
+    const errorImg = document.querySelector("#errorImg");
+    const singleCourseIcons = document.querySelectorAll("#programDetailsImg");
+    
+
     if (darkModeEnabled) {
         logo.setAttribute("src", "/images/solid.svg");
+
+        if (errorImg) {
+            errorImg.setAttribute("src", "/images/error-404-darkmode.svg");
+        }
+
+        if (singleCourseIcons != null) {
+            singleCourseIcons.forEach(icon => {
+                const darkIcon = icon.getAttribute("data-darksrc")
+                icon.setAttribute("src", darkIcon)
+            })
+        }
+
         if (url == "/Contact") {
             header.style.backgroundColor = "#0f121e"
         } else {
@@ -17,6 +33,17 @@ const toggleDarkMode = () => {
         
     } else {
         logo.setAttribute("src", "/images/logotype.svg");
+
+        if (errorImg) {
+            errorImg.setAttribute("src", "/images/error-404.svg");
+        }
+
+        if (singleCourseIcons != null) {
+            singleCourseIcons.forEach(icon => {
+                const lightIcon = icon.getAttribute("data-lightsrc")
+                icon.setAttribute("src", lightIcon)
+            })
+        }
 
         if (url == "/Contact") {
             header.style.backgroundColor = "#F3F6FF"
@@ -33,7 +60,22 @@ window.addEventListener("DOMContentLoaded", () => {
     if (darkModeEnabled === "true") {
         body.classList.add('dark-mode');
         document.getElementById("darkModeToggle").checked = true;
+
         document.querySelector("#logotype").setAttribute("src", "/images/solid.svg");
+
+        const errorImg = document.querySelector("#errorImg");
+        if (errorImg) {
+            errorImg.setAttribute("src", "/images/error-404-darkmode.svg");
+        }
+
+        const singleCourseIcons = document.querySelectorAll("#programDetailsImg");
+        if (singleCourseIcons != null) {
+            singleCourseIcons.forEach(icon => {
+                const darkIcon = icon.getAttribute("data-darksrc")
+                icon.setAttribute("src", darkIcon)
+            })
+        }
+
         if (url === "/Contact") {
             header.style.backgroundColor = "#0f121e";
         } else {
@@ -44,7 +86,22 @@ window.addEventListener("DOMContentLoaded", () => {
         body.classList.remove('dark-mode');
         document.getElementById("darkModeToggle").checked = false;
         document.querySelector("#logotype").setAttribute("src", "/images/logotype.svg");
-        header.style.backgroundColor = "#FFFFFF"
+
+        header.style.backgroundColor = "#FFFFFF";
+
+        const errorImg = document.querySelector("#errorImg");
+        if (errorImg) {
+            errorImg.setAttribute("src", "/images/error-404.svg");
+        }
+
+        const singleCourseIcons = document.querySelectorAll("#programDetailsImg");
+        if (singleCourseIcons != null) {
+            singleCourseIcons.forEach(icon => {
+                const lightIcon = icon.getAttribute("data-lightsrc")
+                icon.setAttribute("src", lightIcon)
+            })
+        }
+
         if (url === "/Contact") {
             header.style.backgroundColor = "#F3F6FF";
         } else {
