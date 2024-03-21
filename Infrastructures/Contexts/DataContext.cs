@@ -7,6 +7,8 @@ namespace Infrastructures.Contexts;
 public class DataContext(DbContextOptions<DataContext> options) : IdentityDbContext<ApplicationUser>(options)
 {
     public DbSet<AddressModel> Address { get; set; }
+    public DbSet<SubscribersModel> Subscribers { get; set; }
+    public DbSet<CourseModel> Courses { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

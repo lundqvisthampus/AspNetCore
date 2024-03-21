@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore_MVC", "AspNetCore_MVC\AspNetCore_MVC.csproj", "{1B84D920-0E18-4344-B77B-BB0344BDBC65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructures", "Infrastructures\Infrastructures.csproj", "{BCC23D28-77B8-4B31-B7B8-4CF5CBF7AF2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructures", "Infrastructures\Infrastructures.csproj", "{BCC23D28-77B8-4B31-B7B8-4CF5CBF7AF2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebbApi", "WebbApi\WebbApi.csproj", "{097C50EA-F320-40E4-BDA9-D859241ABBA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BCC23D28-77B8-4B31-B7B8-4CF5CBF7AF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC23D28-77B8-4B31-B7B8-4CF5CBF7AF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC23D28-77B8-4B31-B7B8-4CF5CBF7AF2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097C50EA-F320-40E4-BDA9-D859241ABBA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097C50EA-F320-40E4-BDA9-D859241ABBA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097C50EA-F320-40E4-BDA9-D859241ABBA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097C50EA-F320-40E4-BDA9-D859241ABBA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
