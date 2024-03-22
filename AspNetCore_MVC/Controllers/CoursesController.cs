@@ -30,10 +30,15 @@ public class CoursesController : Controller
     }
 
     [Authorize]
-    public async Task<IActionResult> SingleCourse()
+    public async Task<IActionResult> SingleCourse(int id)
     {
         using var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:7023/api/Course/9");
+        var response = await client.GetAsync($"https://localhost:7023/api/Course/{id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Error", "Home");
+        }
+
         var json = await response.Content.ReadAsStringAsync();
         var course = JsonConvert.DeserializeObject<CourseModel>(json);
 
