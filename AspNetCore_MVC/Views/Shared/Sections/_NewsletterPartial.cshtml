@@ -54,6 +54,7 @@
                 <a href="#">privacy policy</a>.
             </p>
         </form>
+        <p id="email-error" class="text-danger"></p>
         @if ((string)TempData["Success"] == "Success")
         {
             <p class="text-success">You are now subscribed.</p>
@@ -68,3 +69,5 @@
         }
     </div>
 </section>
+
+@await Html.PartialAsync("~/Views/Shared/_NewsletterValidationPartial.cshtml")
