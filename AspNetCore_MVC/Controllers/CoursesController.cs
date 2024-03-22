@@ -30,9 +30,19 @@ public class CoursesController : Controller
     }
 
     [Authorize]
-    public IActionResult SingleCourse()
+    public async Task<IActionResult> SingleCourse()
     {
+        using var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:7023/api/Course/9");
+        var json = await response.Content.ReadAsStringAsync();
+        var course = JsonConvert.DeserializeObject<CourseModel>(json);
+
         var viewModel = new CoursesIndexViewModel();
+
+        if (course != null)
+        {
+            viewModel.SingleCourse = course;
+        }
 
         ViewData["Title"] = "One of our courses";
         return View(viewModel);

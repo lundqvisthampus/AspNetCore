@@ -1,4 +1,4 @@
-﻿@model SingleCourseViewModel
+﻿@model CourseModel
 
 <div class="breadcrumbs">
     <a class="gray-link" asp-controller="Home" asp-action="Index"><i class="fa-regular fa-house" style="color: #9397AD;"></i> Home</a>
@@ -19,33 +19,30 @@
         }
     </div>
     <h1 class="display6">@Model.Title</h1>
-    <p class="l-text">@Model.Ingress</p>
+    <p class="l-text">Egestas feugiat lorem eu neque suspendisse ullamcorper scelerisque aliquam mauris.</p>
     <div class="rating-and-reviews">
         <div class="reviews">
-            @for(int i = 0; i<Model.StarsAmount; i++)
-            {
-                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-            }
-            @for (int i = 0; i < 5 - Model.StarsAmount; i++)
-            {
-                <i class="fa-regular fa-star"></i>
-            }
-            <p class="m-text">(@Model.ReviewsAmount reviews)</p>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-regular fa-star"></i>
+            <p class="m-text">(1.2K reviews)</p>
         </div>
         <div class="likes">
             <i class="fa-regular fa-thumbs-up"></i>
-            <p class="m-text">@Model.LikesAmount likes</p>
+            <p class="m-text">@Model.LikesNumber likes</p>
         </div>
         <div class="hours">
             <i class="fa-regular fa-clock"></i>
-            <p class="m-text">@Model.HoursContent hours</p>
+            <p class="m-text">@Model.CourseHours hours</p>
         </div>
     </div>
 </div>
 <div class="created-by">
-    <img src="@Model.Author.AuthorImgUrl" alt="Image of course author">
+    <img src="~/images/author-img.svg" alt="Image of course author">
     <div class="creator-text">
         <p class="m-text">Created by</p>
-        <p class="m-text author-name">@Model.Author.AuthorName</p>
+        <p class="m-text author-name">@Model.Author</p>
     </div>
 </div>

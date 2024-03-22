@@ -1,22 +1,16 @@
-﻿@model SingleCourseViewModel
+﻿@model CourseModel
 
 <div class="author-info">
-    <img class="big-author" src="@Model.Author.AuthorBigImgUrl" alt="Image of author">
+    <img class="big-author" src="~/images/author-big-picture.svg" alt="Image of author">
     <div class="info-author">
         <img src="/images/lines-blackbkg.png" alt="">
         <div class="author">
             <p class="xl-text">Learn from the best</p>
-            <p class="display6">@Model.Author.AuthorName</p>
-            <p class="m-text">@Model.Author.AuthorDescription</p>
+            <p class="display6">@Model.Author</p>
+            <p class="m-text">Dolor ipsum amet cursus quisque porta adipiscing. Lorem convallis malesuada sed maecenas. Ac dui at vitae mauris cursus in nullam porta sem. Quis pellentesque elementum ac bibendum. Nunc aliquam in tortor facilisis. Vulputate eget risus, metus phasellus. Pellentesque faucibus amet, eleifend diam quam condimentum convallis ultricies placerat. Duis habitasse placerat amet, odio pellentesque rhoncus, feugiat at. Eget pellentesque tristique felis magna fringilla.</p>
             <div class="social-btns">
-                @if (Model.Author.YoutubeUrl != null && Model.Author.YoutubeSubscribers != null)
-                {
-                    <a class="theme-btn youtube-btn" href="@Model.Author.YoutubeUrl"><i class="fa-brands fa-youtube" style="color: #FFFFFF;"></i> @Model.Author.YoutubeSubscribers subscribers</a>
-                }
-                @if (Model.Author.FacebookUrl != null && Model.Author.FacebookSubscribers != null)
-                {
-                    <a class="theme-btn facebook-btn" href="@Model.Author.FacebookUrl"><i class="fa-brands fa-square-facebook" style="color: #FFFFFF;"></i> @Model.Author.FacebookSubscribers followers</a>
-                }
+                <a class="theme-btn youtube-btn" href="#"><i class="fa-brands fa-youtube" style="color: #FFFFFF;"></i> @Model.AuthorYtSubs subscribers</a>
+                <a class="theme-btn facebook-btn" href="#"><i class="fa-brands fa-square-facebook" style="color: #FFFFFF;"></i> @Model.AuthorFbFollowers followers</a>
             </div>
         </div>
     </div>

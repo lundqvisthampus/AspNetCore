@@ -1,29 +1,48 @@
-﻿@model NewsletterViewModel
+﻿@model HomeIndexViewModel
 
 <section class="newsletter-section">
     <div class="container">
         <div class="newsletter-title">
-            <h2>@Model.Title</h2>
-            <img src="@Model.Image.ImageUrl" alt="@Model.Image.AltText">
+            <h2>Don't Want to Miss Anything?</h2>
+            <img src="~/images/arrows.svg" alt="Purple arrow image">
         </div>
-        <form action="#" method="post" class="newsform" novalidate>
+        <form method="post" asp-action="Subscribe" asp-controller="Home" class="newsform" novalidate>
             <div class="news-flex">
                 <h3>Sign up for <br> Newsletters</h3>
                 <div class="settings">
-                    @if (Model.Checkboxes != null)
-                    {
-                        foreach (var checkbox in Model.Checkboxes)
-                        {
-                            <div class="setting">
-                                <input class="checkboxes" type="checkbox" id="@checkbox.Name" name="@checkbox.Name">
-                                <p>@checkbox.Text</p>
-                            </div>
-                        }
-                    }
+                    <div class="setting">
+                        <input asp-for="@Model.Subscribe.DailyNewsletter" class="checkboxes" type="checkbox" id="DailyNewsletter">
+                        <p>Daily Newsletter</p>
+                    </div>
+
+                    <div class="setting">
+                        <input asp-for="@Model.Subscribe.AdvertisingUpdates" class="checkboxes" type="checkbox" id="AdvertisingUpdates">
+                        <p>Advertising Updates</p>
+                    </div>
+
+                    <div class="setting">
+                        <input asp-for="@Model.Subscribe.WeekInReview" class="checkboxes" type="checkbox" id="WeekInReview">
+                        <p>Week in Review</p>
+                    </div>
+
+                    <div class="setting">
+                        <input asp-for="@Model.Subscribe.EventUpdates" class="checkboxes" type="checkbox" id="EventUpdates">
+                        <p>Event Updates</p>
+                    </div>
+
+                    <div class="setting">
+                        <input asp-for="@Model.Subscribe.StartupsWeekly" class="checkboxes" type="checkbox" id="StartupsWeekly">
+                        <p>Startups Weekly</p>
+                    </div>
+
+                    <div class="setting">
+                        <input asp-for="@Model.Subscribe.Podcasts" class="checkboxes" type="checkbox" id="Podcasts">
+                        <p>Podcasts</p>
+                    </div>
                 </div>
             </div>
             <div class="signup">
-                <input type="email" id="email" name="email" placeholder="Your Email">
+                <input asp-for="@Model.Subscribe.Email" type="email" id="email" placeholder="Your Email">
                 <button class="theme-btn" type="submit">Subscribe *</button>
                 <i class="fa-regular fa-envelope"></i>
             </div>

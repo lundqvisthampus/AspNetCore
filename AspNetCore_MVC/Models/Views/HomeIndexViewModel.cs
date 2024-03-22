@@ -1,5 +1,7 @@
 ﻿using AspNetCore_MVC.Models.Components;
 using AspNetCore_MVC.Models.Sections;
+using Infrastructures.Dto;
+using Infrastructures.Models;
 
 namespace AspNetCore_MVC.Models.Views;
 
@@ -180,18 +182,5 @@ public class HomeIndexViewModel
         } 
     };
 
-    public NewsletterViewModel NewsLetter { get; set; } = new NewsletterViewModel
-    {
-        Title = "Don't Want to Miss Anything?",
-        Image  = new ImageViewModel { ImageUrl = "images/arrows.svg", AltText = "Purple arrows image"},
-        Checkboxes = new List<NewsCheckboxViewModel>
-        {
-            new NewsCheckboxViewModel { Name = "daily", Text = "Daily Newsletter"},
-            new NewsCheckboxViewModel { Name = "adupdates", Text = "Advertising Updates"},
-            new NewsCheckboxViewModel { Name = "weekreview", Text = "Week in Review"},
-            new NewsCheckboxViewModel { Name = "events", Text = "Event Updates"},
-            new NewsCheckboxViewModel { Name = "startups", Text = "Startups Weekly"},
-            new NewsCheckboxViewModel { Name = "podcasts", Text = "Podcasts"}
-        }
-    };
+    public SubscribeDto Subscribe { get; set; } = new SubscribeDto();
 }
