@@ -13,6 +13,7 @@ public class CourseModel
     public int Id { get; set; }
     public string Title { get; set; } = null!;
     public string Price { get; set; } = null!;
+    public string CourseImgUrl { get; set; } = null!;
     public string? DiscountPrice { get; set; }
     public string CourseHours { get; set; } = null!;
     public string LikesNumber { get; set; } = null!;

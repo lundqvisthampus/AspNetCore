@@ -47,6 +47,7 @@ public class CourseManager(DataContext context)
         {
             var model = new CourseModel
             {
+                CourseImgUrl = dto.CourseImgUrl,
                 Author = dto.Author,
                 AuthorFbFollowers = dto.AuthorFbFollowers,
                 AuthorYtSubs = dto.AuthorYtSubs,
