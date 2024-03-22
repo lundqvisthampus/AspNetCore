@@ -1,6 +1,6 @@
 ﻿@model HomeIndexViewModel
 
-<section class="newsletter-section">
+<section id="newsletterId" class="newsletter-section">
     <div class="container">
         <div class="newsletter-title">
             <h2>Don't Want to Miss Anything?</h2>
@@ -54,5 +54,17 @@
                 <a href="#">privacy policy</a>.
             </p>
         </form>
+        @if ((string)TempData["Success"] == "Success")
+        {
+            <p class="text-success">You are now subscribed.</p>
+        }
+        else if ((string)TempData["Success"] == "Invalid")
+        {
+            <p class="text-danger">Enter a valid email.</p>
+        }
+        else if ((string)TempData["Success"] == "Conflict")
+        {
+            <p class="text-warning">Email is already subscribed.</p>
+        }
     </div>
 </section>

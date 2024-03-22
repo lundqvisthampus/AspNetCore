@@ -3,6 +3,7 @@ using AspNetCore_MVC.Models.Sections;
 using AspNetCore_MVC.Models.Views;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net;
 using System.Text;
 
 namespace AspNetCore_MVC.Controllers;
@@ -39,10 +40,17 @@ public class HomeController : Controller
             var response = await client.PostAsync("https://localhost:7023/api/Subscriber", content);
             if (response.IsSuccessStatusCode)
             {
-                ViewData["Subscribed"] = true;
+                TempData["Success"] = "Success";
+            }
+            else if (response.StatusCode == HttpStatusCode.Conflict)
+            {
+                TempData["Success"] = "Conflict";
             }
         }
-
-        return RedirectToAction("Index");
+        else
+        {
+            TempData["Success"] = "Invalid";
+        }
+        return RedirectToAction("Index", "Home", "newsletterId");
     }
 }

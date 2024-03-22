@@ -17,7 +17,7 @@ public class CourseController(CourseManager courseManager) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(CourseDto dto)
     {
-        if (dto != null)
+        if (ModelState.IsValid)
         {
             var result = await _courseManager.GetOneWithTitleAsync(dto.Title);
             if (result == null)

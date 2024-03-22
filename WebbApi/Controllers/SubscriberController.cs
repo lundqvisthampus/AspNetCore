@@ -19,7 +19,7 @@ public class SubscriberController(SubscribeManager subscribeManager) : Controlle
     [HttpPost]
     public async Task<IActionResult> Create(SubscribeDto dto)
     {
-        if (!string.IsNullOrEmpty(dto.Email))
+        if (ModelState.IsValid)
         {
             var result = await _subscribeManager.GetOneAsync(dto.Email);
             if (result == null)

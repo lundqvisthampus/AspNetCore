@@ -2596,7 +2596,6 @@ main .single-course-section .container .author-info .info-author .author .social
   font-family: Manrope, sans-serif;
   font-size: 16px;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 .hide {

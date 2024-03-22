@@ -5,6 +5,7 @@ namespace Infrastructures.Dto;
 public class SubscribeDto
 {
     [Required]
+    [RegularExpression("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email address")]
     public string Email { get; set; } = null!;
     public bool DailyNewsletter { get; set; } = false;
     public bool AdvertisingUpdates { get; set; } = false;
