@@ -32,28 +32,28 @@
                         {
                             <p class="bestSeller">Best seller</p>
                         }
-                        <a asp-controller="@course.ControllerName" asp-action="@course.ActionName" class="oneCourseLink">
-                            <img src="@course.CourseImgUrl" alt="Image from the course">
+                        <a asp-controller="" asp-action="" class="oneCourseLink">
+                            <img src="~/images/course-img.svg" alt="Image from the course">
                             <div class="course-info">
                                 <h5 class="header5">@course.Title</h5>
-                                <p class="author">By @course.Author.AuthorName</p>
+                                <p class="author">By @course.Author</p>
                                 <div class="prices">
-                                    @if(course.Includes.ReducedPrice != null)
+                                    @if (course.DiscountPrice != "0" && (course.DiscountPrice != "string") && (course.DiscountPrice != null))
                                     {
-                                        <p class="price color-danger">$@course.Includes.Price</p>
-                                        <p class="reducedPrice">$@course.Includes.ReducedPrice</p>
+                                        <p class="price color-danger">$@course.Price</p>
+                                        <p class="reducedPrice">$@course.DiscountPrice</p>
                                     }
                                     else
                                     {
-                                        <p class="price">$@course.Includes.Price</p>
+                                        <p class="price">$@course.Price</p>
                                         <p class="reducedPrice"></p>
                                     }
                                 </div>
                                 <div class="hours-and-rating">
                                     <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
-                                    <p class="hours s-text">@course.HoursContent hours</p>
+                                    <p class="hours s-text">@course.CourseHours hours</p>
                                     <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
-                                    <p class="rating s-text">@course.LikesAmount</p>
+                                    <p class="rating s-text">@course.LikesProcent% (@course.LikesNumber)</p>
                                 </div>
                             </div>
                         </a>
