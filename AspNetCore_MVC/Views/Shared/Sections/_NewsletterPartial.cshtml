@@ -55,15 +55,15 @@
             </p>
         </form>
         <p id="email-error" class="text-danger"></p>
-        @if ((string)TempData["Success"] == "Success")
+        @if (ViewData["Success"]?.ToString() == "Success")
         {
             <p class="text-success">You are now subscribed.</p>
         }
-        else if ((string)TempData["Success"] == "Invalid")
+        else if (ViewData["Success"]?.ToString() == "Invalid")
         {
             <p id="email-error" class="text-danger">Enter a valid email.</p>
         }
-        else if ((string)TempData["Success"] == "Conflict")
+        else if (ViewData["Success"]?.ToString() == "Conflict")
         {
             <p class="text-warning">Email is already subscribed.</p>
         }
