@@ -37,7 +37,7 @@ public class HomeController : Controller
             var json = JsonConvert.SerializeObject(viewModel.Subscribe);
             using var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("https://localhost:7023/api/Subscriber", content);
+            var response = await client.PostAsync("https://localhost:7023/api/Subscriber?key=44ee639f-12d8-4847-a560-0604cc38cd57", content);
             if (response.IsSuccessStatusCode)
             {
                 TempData["Success"] = "Success";

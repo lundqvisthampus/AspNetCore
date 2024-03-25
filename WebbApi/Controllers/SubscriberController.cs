@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using WebbApi.Filters;
 
 namespace WebbApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[UseApiKey]
 public class SubscriberController(SubscribeManager subscribeManager) : ControllerBase
 {
     private readonly SubscribeManager _subscribeManager = subscribeManager;

@@ -15,7 +15,7 @@ public class CoursesController : Controller
     public async Task<IActionResult> Index()
     {
         using var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:7023/api/Course/all");
+        var response = await client.GetAsync("https://localhost:7023/api/Course/all?key=44ee639f-12d8-4847-a560-0604cc38cd57");
         var json = await response.Content.ReadAsStringAsync();
         var coursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
 
@@ -33,7 +33,7 @@ public class CoursesController : Controller
     public async Task<IActionResult> SingleCourse(int id)
     {
         using var client = new HttpClient();
-        var response = await client.GetAsync($"https://localhost:7023/api/Course/{id}");
+        var response = await client.GetAsync($"https://localhost:7023/api/Course/{id}?key=44ee639f-12d8-4847-a560-0604cc38cd57");
         if (!response.IsSuccessStatusCode)
         {
             return RedirectToAction("Error", "Home");

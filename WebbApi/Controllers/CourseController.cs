@@ -4,11 +4,13 @@ using Infrastructures.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebbApi.Filters;
 
 namespace WebbApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[UseApiKey]
 public class CourseController(CourseManager courseManager) : ControllerBase
 {
     private readonly CourseManager _courseManager = courseManager;
