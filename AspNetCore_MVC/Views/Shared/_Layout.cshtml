@@ -1,4 +1,30 @@
 ﻿@inject SignInManager<ApplicationUser> _signInManager
+@{
+    var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+    var isDark = (themeMode == "dark") ? true : false;
+    var themeClass = "";
+    var headerClass = "";
+    if (isDark == true)
+    {
+        themeClass = "dark-mode";
+
+        if (Context.Request.Path == "/contact")
+        {
+            headerClass = "header-gray";
+        }
+        else
+        {
+            headerClass = "header-dark-gray";
+        }
+    }
+    else
+    {
+        if (Context.Request.Path == "/contact")
+        {
+            headerClass = "header-light-gray";
+        }
+    }
+}
 
 <!DOCTYPE html>
 <html lang="sv-se">
@@ -10,13 +36,13 @@
     <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
     <title>@ViewData["Title"] - Silicon</title>
 </head>
-<body class="">
+<body class="@themeClass">
     <div class="wrapper">
-        <header class="">
+        <header class="@headerClass">
             <div class="container">
                 <div class="left-nav">
                     <a asp-controller="Home" asp-action="Index">
-                        <img id="logotype" src="/images/logotype.svg" alt="Silicon logotype">
+                        <img id="logotype" src="~/images/@(isDark ? "solid.svg" : "logotype.svg")" alt="Silicon logotype">
                     </a>
                     @if (_signInManager.IsSignedIn(User))
                     {
@@ -39,7 +65,7 @@
                     <div class="nav-btns">
                         <p>Light</p>
                         <label class="theme-switch">
-                            <input id="darkModeToggle" type="checkbox">
+                            <input id="darkModeToggle" type="checkbox" checked="@isDark">
                             <span onclick="toggleDarkMode()" class="slider round"></span>
                         </label>
                         <p>Dark</p>

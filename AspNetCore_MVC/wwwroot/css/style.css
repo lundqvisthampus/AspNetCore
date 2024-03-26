@@ -2602,12 +2602,20 @@ main .single-course-section .container .author-info .info-author .author .social
   display: none;
 }
 
-.header-gray {
+.header-light-gray {
   background-color: #F3F6FF;
 }
 
 .header-white {
   background-color: #ffffff;
+}
+
+.header-gray {
+  background-color: #0f121e;
+}
+
+.header-dark-gray {
+  background-color: #0B0F19;
 }
 
 .color-danger {

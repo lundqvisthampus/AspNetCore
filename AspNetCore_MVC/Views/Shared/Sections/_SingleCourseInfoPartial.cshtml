@@ -1,5 +1,10 @@
 ﻿@model CourseModel
 
+@{
+    var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+    var isDark = (themeMode == "dark") ? true : false;
+}
+
 <div class="course-info">
     <div class="course-desc">
         <h2 class="display6">Course Description</h2>
@@ -35,7 +40,7 @@
 <div class="program-details">
     <h2 class="display6">Program Details</h2>
     <div class="program">
-        <img id="programDetailsImg" src="" data-lightsrc="/images/1-program.svg" data-darksrc="/images/1-program-dark.svg" alt="">
+        <img id="programDetailsImg" src="@(isDark ? "/images/1-program-dark.svg" : "/images/1-program.svg")" alt="">
         <div class="program-text">
             <p class="lead-text">Introduction. Getting started</p>
             <p class="m-text">Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit tempus placerat.</p>
@@ -43,7 +48,7 @@
     </div>
 
     <div class="program">
-        <img id="programDetailsImg" src="" data-lightsrc="/images/2-program.svg" data-darksrc="/images/2-program-dark.svg" alt="">
+        <img id="programDetailsImg" src="@(isDark ? "/images/2-program-dark.svg" : "/images/2-program.svg")" alt="">
         <div class="program-text">
             <p class="lead-text">The ultimate HTML developer: advanced HTML</p>
             <p class="m-text">Lobortis diam elit id nibh ultrices sed penatibus donec. Nibh iaculis eu sit cras ultricies. Nam eu eget etiam egestas donec scelerisque ut ac enim. Vitae ac nisl, enim nec accumsan vitae est.</p>
@@ -51,7 +56,7 @@
     </div>
 
     <div class="program">
-        <img id="programDetailsImg" src="" data-lightsrc="/images/3-program.svg" data-darksrc="/images/3-program-dark.svg" alt="">
+        <img id="programDetailsImg" src="@(isDark ? "/images/3-program-dark.svg" : "/images/3-program.svg")" alt="">
         <div class="program-text">
             <p class="lead-text">CSS & CSS3: basic</p>
             <p class="m-text">Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est. Magna ullamcorper potenti elementum ultricies auctor nec volutpat augue.</p>
@@ -59,7 +64,7 @@
     </div>
 
     <div class="program">
-        <img id="programDetailsImg" src="" data-lightsrc="/images/4-program.svg" data-darksrc="/images/4-program-dark.svg" alt="">
+        <img id="programDetailsImg" src="@(isDark ? "/images/4-program-dark.svg" : "/images/4-program.svg")" alt="">
         <div class="program-text">
             <p class="lead-text">JavaScript basics for beginners</p>
             <p class="m-text">Morbi porttitor risus imperdiet a, nisl mattis. Amet, faucibus eget in platea vitae, velit, erat eget velit. At lacus ut proin erat.</p>
@@ -67,7 +72,7 @@
     </div>
 
     <div class="program">
-        <img id="programDetailsImg" src="" data-lightsrc="/images/5-program.svg" data-darksrc="/images/5-program-dark.svg" alt="">
+        <img id="programDetailsImg" src="@(isDark ? "/images/5-program-dark.svg" : "/images/5-program.svg")" alt="">
         <div class="program-text">
             <p class="lead-text">Understanding APIs</p>
             <p class="m-text">Risus morbi euismod in congue scelerisque fusce pellentesque diam consequat. Nisi mauris nibh sed est morbi amet arcu urna. Malesuada feugiat quisque consectetur elementum diam vitae. Dictumst facilisis odio eu quis maecenas risus odio fames bibendum.</p>
@@ -75,7 +80,7 @@
     </div>
 
     <div class="program">
-        <img id="programDetailsImg" src="" data-lightsrc="/images/6-program.svg" data-darksrc="/images/6-program-dark.svg" alt="">
+        <img id="programDetailsImg" src="@(isDark ? "/images/6-program-dark.svg" : "/images/6-program.svg")" alt="">
         <div class="program-text">
             <p class="lead-text">C# and .NET from beginner to advanced</p>
             <p class="m-text">Quis risus quisque diam diam. Volutpat neque eget eu faucibus sed urna fermentum risus. Est, mauris morbi nibh massa.</p>

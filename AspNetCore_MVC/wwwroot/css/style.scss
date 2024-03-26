@@ -36,12 +36,20 @@
     display: none;
 }
 
-.header-gray {
+.header-light-gray {
     background-color: $gray-100;
 }
 
 .header-white {
     background-color: #ffffff;
+}
+
+.header-gray {
+    background-color: #0f121e;
+}
+
+.header-dark-gray {
+    background-color: #0B0F19;
 }
 
 .color-danger {
