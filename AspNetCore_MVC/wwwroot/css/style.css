@@ -2598,6 +2598,14 @@ main .single-course-section .container .author-info .info-author .author .social
   overflow-x: hidden;
 }
 
+.alert {
+  background-color: #D4D7E5;
+}
+.alert button {
+  border: none;
+  margin-left: 2rem;
+}
+
 .hide {
   display: none;
 }

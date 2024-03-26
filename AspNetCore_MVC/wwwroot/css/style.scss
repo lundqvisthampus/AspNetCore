@@ -32,6 +32,15 @@
     overflow-x: hidden;
 }
 
+.alert {
+    background-color: $gray-400;
+
+    button {
+        border: none;
+        margin-left: 2rem;
+    }
+}
+
 .hide {
     display: none;
 }
