@@ -2589,6 +2589,32 @@ main .single-course-section .container .author-info .info-author .author .social
   margin-right: 0.5rem;
 }
 
+main .unsubscribe-section {
+  margin-top: 5rem;
+}
+main .unsubscribe-section .container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+main .unsubscribe-section .container h1 {
+  color: #0B0F19;
+}
+main .unsubscribe-section .container form {
+  width: 100%;
+  max-width: 20rem;
+}
+main .unsubscribe-section .container form input {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+}
+main .unsubscribe-section .container form button {
+  border: none;
+  margin-bottom: 1rem;
+}
+
 .wrapper {
   height: 100vh;
   display: grid;

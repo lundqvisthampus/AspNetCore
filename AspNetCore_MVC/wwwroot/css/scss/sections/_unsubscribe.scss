@@ -1,0 +1,31 @@
+main {
+    .unsubscribe-section {
+        margin-top: 5rem;
+        .container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+
+            h1 {
+                color: $gray-900;
+            }
+
+            form {
+                width: 100%;
+                max-width: 20rem;
+
+                input {
+                    display: block;
+                    width: 100%;
+                    margin: 2rem 0;
+                }
+
+                button {
+                    border: none;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
