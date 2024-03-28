@@ -6,8 +6,9 @@ input.addEventListener("keyup", () => {
 
     courses.forEach(course => {
         const title = course.querySelector(".header5").textContent.toLowerCase();
+        const author = course.querySelector(".author").textContent.toLowerCase();
 
-        if (searchText == "" || title.includes(searchText)) {
+        if (searchText == "" || title.includes(searchText) || author.includes(searchText)) {
             course.classList.remove('hide');
         }
         else {
