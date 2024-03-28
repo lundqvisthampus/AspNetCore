@@ -1,6 +1,7 @@
 ﻿using AspNetCore_MVC.Models.Components;
 using AspNetCore_MVC.Models.Sections;
 using Infrastructures.Models;
+using System.Security.Permissions;
 
 namespace AspNetCore_MVC.Models.Views;
 
@@ -18,4 +19,5 @@ public class CoursesIndexViewModel
         ButtonText = "Work with us"
     };
     public CourseModel SingleCourse { get; set; } = new CourseModel();
+    public IEnumerable<CourseModel> SavedCourses { get; set; } = new List<CourseModel>();
 }

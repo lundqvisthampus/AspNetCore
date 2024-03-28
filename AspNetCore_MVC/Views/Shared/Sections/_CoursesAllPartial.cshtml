@@ -26,9 +26,21 @@
                     <div class="oneCourse">
                         <div class="btn-tooltip">
                             <form method="post">
-                                <input type="hidden" name="courseId" value="@course.Id" />
-                                <button asp-action="SaveCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
-                                <p class="tool-tip">Save</p>
+                                @{
+                                    var isSaved = Model.SavedCourses.FirstOrDefault(x => x.Id == course.Id);
+                                    if (isSaved == null)
+                                    {
+                                        <input type="hidden" name="courseId" value="@course.Id" />
+                                        <button asp-action="SaveCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                                        <p class="tool-tip">Save</p>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" name="courseId" value="@course.Id" />
+                                        <button asp-action="DeleteCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark" style="color: #6366F1";></i></button>
+                                        <p class="tool-tip">Delete</p>
+                                    }
+                                }
                             </form>
                         </div>
                         @if (course.IsBestSeller == true)

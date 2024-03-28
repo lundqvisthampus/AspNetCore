@@ -19,7 +19,7 @@
                     {
                         <p class="bestSeller">Best seller</p>
                     }
-                    <a asp-controller="" asp-action="" class="oneCourseLink">
+                    <a asp-controller="Courses" asp-action="SingleCourse" asp-route-id="@course.Id" class="oneCourseLink">
                         <img src="@course.CourseImgUrl" alt="Image from the course">
                         <div class="course-info">
                             <h5 class="header5">@course.Title</h5>

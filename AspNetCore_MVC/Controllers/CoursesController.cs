@@ -3,22 +3,25 @@ using AspNetCore_MVC.Models.Views;
 using Infrastructures.Contexts;
 using Infrastructures.Migrations;
 using Infrastructures.Models;
+using Infrastructures.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Text;
 using System.Text.Json.Nodes;
 
 namespace AspNetCore_MVC.Controllers;
 
-public class CoursesController(SignInManager<ApplicationUser> signInManager, DataContext context) : Controller
+[Authorize]
+public class CoursesController(SignInManager<ApplicationUser> signInManager, DataContext context, CourseManager courseManager) : Controller
 {
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
     private readonly DataContext _context = context;
+    private readonly CourseManager _courseManager = courseManager;
 
 
-    [Authorize]
     public async Task<IActionResult> Index()
     {
         using var client = new HttpClient();
@@ -32,11 +35,22 @@ public class CoursesController(SignInManager<ApplicationUser> signInManager, Dat
             viewModel.Courses = coursesList!;
         }
 
+        var user = await _signInManager.UserManager.GetUserAsync(User);
+        var result = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
+        var courseList = new List<CourseModel>();
+
+        foreach (var course in result)
+        {
+            var getcourse = await _courseManager.GetOneAsync(course.CourseId);
+            courseList.Add(getcourse);
+        }
+
+        viewModel.SavedCourses = courseList;
+
         ViewData["Title"] = "All Our Courses";
         return View(viewModel);
     }
 
-    [Authorize]
     public async Task<IActionResult> SingleCourse(int id)
     {
         using var client = new HttpClient();
@@ -60,19 +74,48 @@ public class CoursesController(SignInManager<ApplicationUser> signInManager, Dat
         return View(viewModel);
     }
 
+
     [HttpPost]
     public async Task<IActionResult> SaveCourse(int courseId)
     {
-        var user = await _signInManager.UserManager.GetUserAsync(User);
-
-        var userCourse = new UserCourseModel
+        try
         {
-            CourseId = courseId,
-            UserId = user!.Id
-        };
+            var user = await _signInManager.UserManager.GetUserAsync(User);
+            var userCourse = new UserCourseModel
+            {
+                CourseId = courseId,
+                UserId = user!.Id
+            };
 
-        _context.SavedCourses.Add(userCourse);
-        await _context.SaveChangesAsync();
+            _context.SavedCourses.Add(userCourse);
+            await _context.SaveChangesAsync();
+        }
+        catch
+        {
+
+        }
+
+        return RedirectToAction("Index", "Courses");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteCourse(int courseId)
+    {
+        try
+        {
+            var user = await _signInManager.UserManager.GetUserAsync(User);
+            var userCourse = await _context.SavedCourses.FirstOrDefaultAsync(x => x.UserId == user!.Id && x.CourseId == courseId);
+
+            if (userCourse != null)
+            {
+                _context.SavedCourses.Remove(userCourse);
+                await _context.SaveChangesAsync();
+            }
+        }
+        catch
+        {
+
+        }
 
         return RedirectToAction("Index", "Courses");
     }
