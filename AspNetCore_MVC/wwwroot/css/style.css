@@ -2015,7 +2015,6 @@ main .work-with-us .container img {
 @media (min-width: 1200px) {
   main .saved-courses .container {
     display: flex;
-    justify-content: space-between;
   }
 }
 main .saved-courses .container aside {

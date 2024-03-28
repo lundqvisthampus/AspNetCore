@@ -1,6 +1,7 @@
 ﻿using AspNetCore_MVC.Models;
 using AspNetCore_MVC.Models.Views;
 using Infrastructures.Contexts;
+using Infrastructures.Migrations;
 using Infrastructures.Models;
 using Infrastructures.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -275,5 +276,52 @@ public class AccountController : Controller
         }
         return new AccountDetailsAddressInfoModel();
     }
+    #endregion
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteCourse(int courseId)
+    {
+        try
+        {
+            var user = await _signInManager.UserManager.GetUserAsync(User);
+            var userCourse = await _context.SavedCourses.FirstOrDefaultAsync(x => x.UserId == user!.Id && x.CourseId == courseId);
+
+            if (userCourse != null)
+            {
+                _context.SavedCourses.Remove(userCourse);
+                await _context.SaveChangesAsync();
+            }
+        }
+        catch
+        {
+
+        }
+
+        return RedirectToAction("SavedCourses", "Account");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteAll()
+    {
+        try
+        {
+            var user = await _signInManager.UserManager.GetUserAsync(User);
+            var savedCoursesList = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
+
+            if (savedCoursesList != null)
+            {
+                foreach (var course in savedCoursesList)
+                {
+                    _context.SavedCourses.Remove(course);
+                    await _context.SaveChangesAsync();
+                }
+            }
+        }
+        catch
+        {
+
+        }
+
+        return RedirectToAction("SavedCourses", "Account");
+    }
 }
-#endregion

@@ -4,7 +4,6 @@ main {
 
             @media (min-width: 1200px) {
                 display: flex;
-                justify-content: space-between;
             }
 
             aside {
@@ -92,6 +91,7 @@ main {
                     .danger-btn {
                         padding-left: 2rem;
                         padding-right: 2rem;
+
 
                         i {
                             margin-right: 0.5rem;
