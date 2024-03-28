@@ -1,4 +1,5 @@
 ﻿using AspNetCore_MVC.Models;
+using Infrastructures.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCore_MVC.Controllers;
@@ -12,7 +13,7 @@ public class ContactController : Controller
     }
 
     [HttpPost]
-    public IActionResult Index(ContactFormModel model)
+    public IActionResult Index(ContactDto dto)
     {
         ViewData["Title"] = "Contact Us";
 

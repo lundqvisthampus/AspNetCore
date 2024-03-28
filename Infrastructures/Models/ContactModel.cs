@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AspNetCore_MVC.Models;
+namespace Infrastructures.Models;
 
-public class ContactFormModel
+public class ContactModel
 {
+    [Key]
+    public int Id { get; set; }
+
     [Display(Name = "Full name", Prompt = "Enter your full name")]
     [Required(ErrorMessage = "Name is required")]
     [MinLength(2, ErrorMessage = "Invalid name")]

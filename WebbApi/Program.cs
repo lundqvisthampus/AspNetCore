@@ -13,6 +13,7 @@ builder.Services.AddDbContext<DataContext>(x =>
 
 builder.Services.AddScoped<SubscribeManager>();
 builder.Services.AddScoped<CourseManager>();
+builder.Services.AddScoped<ContactManager>();
 builder.Services.RegisterSwagger();
 
 var app = builder.Build();
