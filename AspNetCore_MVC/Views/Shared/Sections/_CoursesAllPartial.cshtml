@@ -15,7 +15,7 @@
                 <option value="category2">Category 2</option>
                 <option value="category3">Category 3</option>
             </select>
-            <input class="search-input" type="text" placeholder="Search courses">
+            <input id="courseSearch" class="search-input" type="text" placeholder="Search courses">
             <i class="fa-regular fa-magnifying-glass" style="color: #33354D;"></i>
         </div>
         <div class="courses-all">
@@ -71,3 +71,5 @@
         </div>
     </div>
 </section>
+
+@await Html.PartialAsync("~/Views/Shared/_CoursesSearchPartial.cshtml")
