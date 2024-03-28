@@ -20,7 +20,7 @@
                         <p class="bestSeller">Best seller</p>
                     }
                     <a asp-controller="" asp-action="" class="oneCourseLink">
-                        <img src="~/images/course-img.svg" alt="Image from the course">
+                        <img src="@course.CourseImgUrl" alt="Image from the course">
                         <div class="course-info">
                             <h5 class="header5">@course.Title</h5>
                             <p class="author">By @course.Author</p>
