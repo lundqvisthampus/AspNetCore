@@ -8,7 +8,11 @@
     }
     else if ((string)ViewData["MessageSent"]! == "False")
     {
-        <p class="text-danger">Your message was not sent.</p>
+        <p class="text-danger">Something went wrong. Message not sent.</p>
+    }
+    else if ((string)ViewData["MessageSent"]! == "BadRequest")
+    {
+        <p class="text-danger">Form not filled out correctly. Message not sent.</p>
     }
     else
     {
