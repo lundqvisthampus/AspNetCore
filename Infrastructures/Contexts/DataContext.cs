@@ -10,6 +10,7 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
     public DbSet<SubscribersModel> Subscribers { get; set; }
     public DbSet<CourseModel> Courses { get; set; }
     public DbSet<ContactModel> Contacts { get; set; }
+    public DbSet<UserCourseModel> SavedCourses { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

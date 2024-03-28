@@ -25,8 +25,11 @@
                 {
                     <div class="oneCourse">
                         <div class="btn-tooltip">
-                            <button class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
-                            <p class="tool-tip">Save</p>
+                            <form method="post">
+                                <input type="hidden" name="courseId" value="@course.Id" />
+                                <button asp-action="SaveCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                                <p class="tool-tip">Save</p>
+                            </form>
                         </div>
                         @if (course.IsBestSeller == true)
                         {

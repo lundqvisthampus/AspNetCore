@@ -12,5 +12,5 @@ public class AccountIndexViewModel
     public AccountDetailsAddressInfoModel AddressInfo { get; set; } = new AccountDetailsAddressInfoModel();
     public AccountSecurityPasswordModel SecurityPasswordModel { get; set; } = new AccountSecurityPasswordModel();
     public AccountSecurityDeleteModel SecurityDeleteModel { get; set; } = new AccountSecurityDeleteModel();
-    public AccountSavedCoursesModel SavedCoursesModel { get; set; } = new AccountSavedCoursesModel();
+    public List<CourseModel> SavedCourses { get; set; } = new List<CourseModel>();
 }

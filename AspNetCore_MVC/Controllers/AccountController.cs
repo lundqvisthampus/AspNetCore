@@ -1,10 +1,12 @@
 ﻿using AspNetCore_MVC.Models;
 using AspNetCore_MVC.Models.Views;
+using Infrastructures.Contexts;
 using Infrastructures.Models;
 using Infrastructures.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCore_MVC.Controllers;
 
@@ -14,12 +16,16 @@ public class AccountController : Controller
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly AddressManager _addressManager;
+    private readonly DataContext _context;
+    private readonly CourseManager _courseManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AddressManager addressManager)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AddressManager addressManager, DataContext context, CourseManager courseManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _addressManager = addressManager;
+        _courseManager = courseManager;
+        _context = context;
     }
 
     #region Index
@@ -198,6 +204,18 @@ public class AccountController : Controller
     {
         var viewModel = new AccountIndexViewModel();
         viewModel.ProfileInfo = await PopulateProfileInfoAsync();
+        var user = await _signInManager.UserManager.GetUserAsync(User);
+
+        var courses = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
+        var courseList = new List<CourseModel>();
+
+        foreach (var course in courses)
+        {
+            var getcourse = await _courseManager.GetOneAsync(course.CourseId);
+            courseList.Add(getcourse);
+        }
+
+        viewModel.SavedCourses = courseList;
 
         ViewData["Title"] = "Account Security";
         return View(viewModel);

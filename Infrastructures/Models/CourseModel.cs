@@ -23,4 +23,6 @@ public class CourseModel
     public bool IsDigital { get; set; } = false;
     public string? AuthorYtSubs { get; set; }
     public string? AuthorFbFollowers { get; set; }
+
+    public ICollection<ApplicationUser> UsersSaved { get; set; } = new List<ApplicationUser>();
 }

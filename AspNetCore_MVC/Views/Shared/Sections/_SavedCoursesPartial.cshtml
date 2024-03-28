@@ -6,9 +6,9 @@
         <button asp-controller="Account" asp-action="DeleteCourses" class="danger-btn"><i class="fa-regular fa-trash"></i> Delete all</button>
     </div>
     <div class="courses">
-        @if (Model.SavedCoursesModel.SavedCourses.Count != 0)
+        @if (Model.SavedCourses.Any())
         {
-            foreach(var course in Model.SavedCoursesModel.SavedCourses)
+            foreach(var course in Model.SavedCourses)
             {
                 <div class="oneCourse">
                     <div class="btn-tooltip">

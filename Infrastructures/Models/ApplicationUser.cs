@@ -20,4 +20,5 @@ public class ApplicationUser : IdentityUser
     public ICollection<AddressModel> Address { get; set; } = new List<AddressModel>();
 
     public bool IsExternalAccount { get; set; } = false;
+    public ICollection<CourseModel> Course { get; set; } = new List<CourseModel>();
 }

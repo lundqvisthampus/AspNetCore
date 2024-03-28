@@ -1,7 +1,10 @@
 ﻿using AspNetCore_MVC.Models.Sections;
 using AspNetCore_MVC.Models.Views;
+using Infrastructures.Contexts;
+using Infrastructures.Migrations;
 using Infrastructures.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -9,8 +12,12 @@ using System.Text.Json.Nodes;
 
 namespace AspNetCore_MVC.Controllers;
 
-public class CoursesController : Controller
+public class CoursesController(SignInManager<ApplicationUser> signInManager, DataContext context) : Controller
 {
+    private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
+    private readonly DataContext _context = context;
+
+
     [Authorize]
     public async Task<IActionResult> Index()
     {
@@ -51,5 +58,22 @@ public class CoursesController : Controller
 
         ViewData["Title"] = "One of our courses";
         return View(viewModel);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> SaveCourse(int courseId)
+    {
+        var user = await _signInManager.UserManager.GetUserAsync(User);
+
+        var userCourse = new UserCourseModel
+        {
+            CourseId = courseId,
+            UserId = user!.Id
+        };
+
+        _context.SavedCourses.Add(userCourse);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index", "Courses");
     }
 }
