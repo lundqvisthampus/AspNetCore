@@ -11,9 +11,9 @@
             <h1 class="header1">Courses</h1>
             <select class="select-input">
                 <option value="categories-all">All categories</option>
-                <option value="category1">Category 1</option>
-                <option value="category2">Category 2</option>
-                <option value="category3">Category 3</option>
+                <option value="category1">Best seller</option>
+                <option value="category2">Reduced price</option>
+                <option value="category3">Saved courses</option>
             </select>
             <input id="courseSearch" class="search-input" type="text" placeholder="Search courses">
             <i class="fa-regular fa-magnifying-glass" style="color: #33354D;"></i>
@@ -31,13 +31,13 @@
                                     if (isSaved == null)
                                     {
                                         <input type="hidden" name="courseId" value="@course.Id" />
-                                        <button asp-action="SaveCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                                        <button id="saveCourseBtn" asp-action="SaveCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
                                         <p class="tool-tip">Save</p>
                                     }
                                     else
                                     {
                                         <input type="hidden" name="courseId" value="@course.Id" />
-                                        <button asp-action="DeleteCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark" style="color: #6366F1";></i></button>
+                                        <button id="deleteCourseBtn" asp-action="DeleteCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark" style="color: #6366F1" ;></i></button>
                                         <p class="tool-tip">Delete</p>
                                     }
                                 }
@@ -61,7 +61,6 @@
                                     else
                                     {
                                         <p class="price">$@course.Price</p>
-                                        <p class="reducedPrice"></p>
                                     }
                                 </div>
                                 <div class="hours-and-rating">
