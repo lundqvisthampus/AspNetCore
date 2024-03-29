@@ -14,6 +14,12 @@
     })
 })
 
+const mobileDarkModeToggle = document.querySelector("#mobile-darkmode");
+mobileDarkModeToggle.addEventListener("click", () => {
+    let sw = document.querySelector("#darkModeToggle")
+    sw.click();
+})
+
 const toggleMenu = () => {
     document.getElementById('menu').classList.toggle('hide');
 }

@@ -37,12 +37,6 @@ select.addEventListener("change", () => {
         })
     }
 
-    else if (option == "All categories") {
-        courses.forEach(course => {
-            course.classList.remove('hide');
-        })
-    }
-
     else if (option == "Reduced price") {
 
         courses.forEach(course => {
@@ -66,6 +60,12 @@ select.addEventListener("change", () => {
             else {
                 course.classList.add('hide');
             }
+        })
+    }
+
+    else {
+        courses.forEach(course => {
+            course.classList.remove('hide');
         })
     }
 })
