@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace WebbApi.Filters;
 
-[AttributeUsage(validOn: AttributeTargets.Class | AttributeTargets.Method)]
+[AttributeUsage(validOn: AttributeTargets.All)]
 public class UseApiKeyAttribute : Attribute, IAsyncActionFilter
 {
     public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)

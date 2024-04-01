@@ -2,11 +2,13 @@
 using Infrastructures.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebbApi.Filters;
 
 namespace WebbApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[UseApiKey]
 public class ContactController(ContactManager contactManager) : ControllerBase
 {
     private readonly ContactManager _contactManager = contactManager;
