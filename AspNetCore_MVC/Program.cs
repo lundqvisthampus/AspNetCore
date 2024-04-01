@@ -29,6 +29,7 @@ builder.Services.ConfigureApplicationCookie(x =>
 
 builder.Services.AddScoped<AddressManager>();
 builder.Services.AddScoped<CourseManager>();
+builder.Services.AddHttpClient();
 
 builder.Services.AddAuthentication().AddFacebook(x =>
 {
@@ -51,8 +52,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
-app.UserSessionValidation();
 app.UseAuthorization();
+app.UserSessionValidation();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

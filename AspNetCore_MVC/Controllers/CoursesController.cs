@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json.Nodes;
 
@@ -24,31 +25,38 @@ public class CoursesController(SignInManager<ApplicationUser> signInManager, Dat
 
     public async Task<IActionResult> Index()
     {
-        using var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:7023/api/Course/all?key=44ee639f-12d8-4847-a560-0604cc38cd57");
-        var json = await response.Content.ReadAsStringAsync();
-        var coursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
-
-        var viewModel = new CoursesIndexViewModel();
-        if (coursesList!.Any())
-        {
-            viewModel.Courses = coursesList!;
-        }
-
-        var user = await _signInManager.UserManager.GetUserAsync(User);
-        var result = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
-        var courseList = new List<CourseModel>();
-
-        foreach (var course in result)
-        {
-            var getcourse = await _courseManager.GetOneAsync(course.CourseId);
-            courseList.Add(getcourse);
-        }
-
-        viewModel.SavedCourses = courseList;
-
         ViewData["Title"] = "All Our Courses";
-        return View(viewModel);
+
+        if (HttpContext.Request.Cookies.TryGetValue("AccessToken", out var token))
+        {
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response = await client.GetAsync("https://localhost:7023/api/Course/all?key=44ee639f-12d8-4847-a560-0604cc38cd57");
+            var json = await response.Content.ReadAsStringAsync();
+            var coursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
+
+            var viewModel = new CoursesIndexViewModel();
+            if (coursesList!.Any())
+            {
+                viewModel.Courses = coursesList!;
+            }
+
+            var user = await _signInManager.UserManager.GetUserAsync(User);
+            var result = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
+            var courseList = new List<CourseModel>();
+
+            foreach (var course in result)
+            {
+                var getcourse = await _courseManager.GetOneAsync(course.CourseId);
+                courseList.Add(getcourse);
+            }
+
+            viewModel.SavedCourses = courseList;
+
+            return View(viewModel);
+        }
+
+        return View();
     }
 
     public async Task<IActionResult> SingleCourse(int id)

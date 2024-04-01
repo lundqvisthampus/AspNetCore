@@ -4,14 +4,17 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Security.Claims;
+using System.Text;
 
 namespace AspNetCore_MVC.Controllers;
 
-public class AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) : Controller
+public class AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, HttpClient httpClient) : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
+    private readonly HttpClient _httpClient = httpClient;
 
 
     [Route("/signup")]
@@ -79,6 +82,22 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
             var signInResul = await _signInManager.PasswordSignInAsync(model.SignInModel.Email, model.SignInModel.Password, model.SignInModel.RememberMe, false);
             if (signInResul.Succeeded)
             {
+                var json = JsonConvert.SerializeObject(model.SignInModel);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("https://localhost:7023/api/Auth/token?key=44ee639f-12d8-4847-a560-0604cc38cd57", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var token = await response.Content.ReadAsStringAsync();
+                    var cookieOptions = new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        Expires = DateTime.Now.AddDays(1)
+                    };
+
+                    Response.Cookies.Append("AccessToken", token, cookieOptions);
+                }
                 return RedirectToAction("Index", "Account");
             }
         }
@@ -90,6 +109,8 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
     [Route("/signout")]
     public new async Task<IActionResult> SignOut()
     {
+        Response.Cookies.Delete("AccessToken");
+
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }

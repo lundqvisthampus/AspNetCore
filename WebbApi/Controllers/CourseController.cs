@@ -1,6 +1,7 @@
 ﻿using Infrastructures.Dto;
 using Infrastructures.Models;
 using Infrastructures.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ namespace WebbApi.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 [UseApiKey]
+[Authorize]
 public class CourseController(CourseManager courseManager) : ControllerBase
 {
     private readonly CourseManager _courseManager = courseManager;

@@ -1,36 +1,62 @@
 ﻿using Microsoft.OpenApi.Models;
+using System;
 
-namespace WebbApi.Configurations;
-
-public static class SwaggerConfiguration
+namespace WebbApi.Configurations
 {
-    public static void RegisterSwagger(this IServiceCollection services)
+    public static class SwaggerConfiguration
     {
-        services.AddSwaggerGen(x =>
+        public static void RegisterSwagger(this IServiceCollection services)
         {
-            x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Silicon", Version = "v1" });
-            x.AddSecurityDefinition("ApiKey", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            services.AddSwaggerGen(x =>
             {
-                In = Microsoft.OpenApi.Models.ParameterLocation.Query,
-                Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
-                Name = "key",
-                Description = "Enter key"
-            });
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Silicon", Version = "v1" });
 
-            x.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
-            {
+                x.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
                 {
-                    new OpenApiSecurityScheme
+                    In = ParameterLocation.Query,
+                    Type = SecuritySchemeType.ApiKey,
+                    Name = "key",
+                    Description = "Enter API key"
+                });
+
+                x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Enter JWT Token. Example: \"Bearer {token}\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                x.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
                     {
-                        Reference = new OpenApiReference
+                        new OpenApiSecurityScheme
                         {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "ApiKey"
-                        }
-                    },
-                    Array.Empty<string>()
-                }
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "ApiKey"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+
+                x.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
             });
-        });
+        }
     }
 }
