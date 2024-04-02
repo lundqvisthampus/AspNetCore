@@ -1,0 +1,23 @@
+﻿@model UnsubscribeModel
+
+<section class="unsubscribe-section">
+    <div class="container">
+        <h1 class="header1">Unsubscribe from newsletter</h1>
+        <form method="post" asp-action="Unsubscribe" asp-controller="Home" novalidate>
+            <input asp-for="@Model.Email" type="email" placeholder="Your email"/>
+            <button class="theme-btn" type="submit">Unsubscribe *</button>
+        </form>
+        @if (TempData["Unsubscribed"]?.ToString() == "Success")
+        {
+            <span class="text-success">Successfully unsubscribed from newsletter.</span>
+        }
+        @if (TempData["Unsubscribed"]?.ToString() == "NotFound")
+        {
+            <span class="text-danger">Invalid email, or email is not subscribed.</span>
+        }
+        @if (TempData["Unsubscribed"]?.ToString() == "Problem")
+        {
+            <span class="text-danger">Something went wrong, try again later.</span>
+        }
+    </div>
+</section>

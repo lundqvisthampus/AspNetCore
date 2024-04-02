@@ -1,0 +1,29 @@
+﻿@model AccountDetailsAddressInfoModel
+
+<div class="address-info">
+    <p class="header5">Address</p>
+    <form class="basic-form" method="post" asp-controller="Account" asp-action="SaveAddressInfo">
+        <div class="address">
+            <p>Address line 1 <span asp-validation-for="@Model.Addressline_1" class="error-span"></span></p>
+            <input asp-for="@Model.Addressline_1" class="userinput">
+        </div>
+        <div class="address">
+            <p>Address line 2 <span>(optional)</span></p>
+            <input asp-for="@Model.Addressline_2" class="userinput">
+        </div>
+        <div class="postal-city">
+            <div class="postal-code">
+                <p>Postal code <span asp-validation-for="@Model.PostalCode" class="error-span"></span></p>
+                <input asp-for="@Model.PostalCode" class="userinput">
+            </div>
+            <div class="city">
+                <p>City <span asp-validation-for="@Model.City" class="error-span"></span></p>
+                <input asp-for="@Model.City" class="userinput">
+            </div>
+        </div>
+        <div class="form-btns">
+            <button type="reset" class="gray-btn">Cancel</button>
+            <button type="submit" class="theme-btn">Save changes</button>
+        </div>
+    </form>
+</div>

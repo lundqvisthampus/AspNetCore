@@ -1,0 +1,89 @@
+﻿@model CoursesIndexViewModel
+
+<section class="courses-section">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a asp-controller="Home" asp-action="Index"><i class="fa-regular fa-house" style="color: #9397AD;"></i> Home</a>
+            <i class="arrows fa-solid fa-chevrons-right" style="color: #9397AD;"></i>
+            <a id="courses-link" asp-controller="Courses" asp-action="Index">Courses</a>
+        </div>
+        <div class="title-inputs">
+            <h1 class="header1">Courses</h1>
+            <select class="select-input">
+                <option value="categories-all">All categories</option>
+                <option value="category1">Best seller</option>
+                <option value="category2">Reduced price</option>
+                <option value="category3">Saved courses</option>
+            </select>
+            <input id="courseSearch" class="search-input" type="text" placeholder="Search courses">
+            <i class="fa-regular fa-magnifying-glass" style="color: #33354D;"></i>
+        </div>
+        <div class="courses-all">
+            @if (Model.Courses != null)
+            {
+                foreach(var course in Model.Courses)
+                {
+                    <div class="oneCourse">
+                        <div class="btn-tooltip">
+                            <form method="post">
+                                @{
+                                    var isSaved = Model.SavedCourses.FirstOrDefault(x => x.Id == course.Id);
+                                    if (isSaved == null)
+                                    {
+                                        <input type="hidden" name="courseId" value="@course.Id" />
+                                        <button id="saveCourseBtn" asp-action="SaveCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                                        <p class="tool-tip">Save</p>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" name="courseId" value="@course.Id" />
+                                        <button id="deleteCourseBtn" asp-action="DeleteCourse" asp-controller="Courses" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark" style="color: #6366F1" ;></i></button>
+                                        <p class="tool-tip">Delete</p>
+                                    }
+                                }
+                            </form>
+                        </div>
+                        @if (course.IsBestSeller == true)
+                        {
+                            <p class="bestSeller">Best seller</p>
+                        }
+                        <a asp-controller="Courses" asp-action="SingleCourse" asp-route-id="@course.Id" class="oneCourseLink">
+                            <img src="@course.CourseImgUrl" alt="Image from the course">
+                            <div class="course-info">
+                                <h5 class="header5">@course.Title</h5>
+                                <p class="author">By @course.Author</p>
+                                <div class="prices">
+                                    @if (course.DiscountPrice != "0" && (course.DiscountPrice != "string") && (course.DiscountPrice != null))
+                                    {
+                                        <p class="price color-danger">$@course.Price</p>
+                                        <p class="reducedPrice">$@course.DiscountPrice</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="price">$@course.Price</p>
+                                    }
+                                </div>
+                                <div class="hours-and-rating">
+                                    <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
+                                    <p class="hours s-text">@course.CourseHours hours</p>
+                                    <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
+                                    <p class="rating s-text">@course.LikesProcent% (@course.LikesNumber)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+        <div class="page-numbers">
+            <button class="arrow"><</button>
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="number">4</button>
+            <button class="arrow">></button>
+        </div>
+    </div>
+</section>
+
+@await Html.PartialAsync("~/Views/Shared/_CoursesSearchPartial.cshtml")

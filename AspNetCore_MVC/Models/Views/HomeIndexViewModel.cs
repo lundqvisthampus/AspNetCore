@@ -1,5 +1,7 @@
 ﻿using AspNetCore_MVC.Models.Components;
 using AspNetCore_MVC.Models.Sections;
+using Infrastructures.Dto;
+using Infrastructures.Models;
 
 namespace AspNetCore_MVC.Models.Views;
 
@@ -25,7 +27,7 @@ public class HomeIndexViewModel
     public ToolsViewModel Features { get; set; } = new ToolsViewModel
     {
         Title = "What Do You Get With Our Tool?",
-        Description = "Make sure all your tasks are organized so you can set the priorities and focus <br> on important.",
+        Description = "Make sure all your tasks are organized so you can set the priorities and focus on important.",
         Tools = new List<ToolViewModel>
         {
             new ToolViewModel 
@@ -107,7 +109,7 @@ public class HomeIndexViewModel
 
     public OurAppViewModel OurApp { get; set; } = new OurAppViewModel
     {
-        Title = "Download Our App <br> for Any Devices:",
+        Title = "Download Our App for Any Devices:",
         Image = new ImageViewModel { ImageUrl = "images/AppImg.svg", AltText = "Image of application"},
         AppStoresList = new List<DownloadAppViewModel>
         {
@@ -180,18 +182,5 @@ public class HomeIndexViewModel
         } 
     };
 
-    public NewsletterViewModel NewsLetter { get; set; } = new NewsletterViewModel
-    {
-        Title = "Don't Want to Miss Anything?",
-        Image  = new ImageViewModel { ImageUrl = "images/arrows.svg", AltText = "Purple arrows image"},
-        Checkboxes = new List<NewsCheckboxViewModel>
-        {
-            new NewsCheckboxViewModel { Name = "daily", Text = "Daily Newsletter"},
-            new NewsCheckboxViewModel { Name = "adupdates", Text = "Advertising Updates"},
-            new NewsCheckboxViewModel { Name = "weekreview", Text = "Week in Review"},
-            new NewsCheckboxViewModel { Name = "events", Text = "Event Updates"},
-            new NewsCheckboxViewModel { Name = "startups", Text = "Startups Weekly"},
-            new NewsCheckboxViewModel { Name = "podcasts", Text = "Podcasts"}
-        }
-    };
+    public SubscribeDto Subscribe { get; set; } = new SubscribeDto();
 }

@@ -1,0 +1,67 @@
+﻿@model AccountDetailsBasicInfoModel
+@inject UserManager<ApplicationUser> _userManager
+
+@{
+    var user = await _userManager.GetUserAsync(User);
+}
+
+<h1 class="header2">Account Details</h1>
+<div class="basic-info">
+    <p class="header5">Basic Info</p>
+    <form class="basic-form" method="post" asp-controller="Account" asp-action="SaveBasicInfo" novalidate>
+        @if (user!.IsExternalAccount == false)
+        {
+            <div class="nameinputs">
+                <div class="firstname">
+                    <p>First name <span id="firstnameSpan" asp-validation-for="@Model.FirstName" class="error-span"></span></p>
+                    <input id="firstnameInput" asp-for="@Model.FirstName" class="userinput">
+                </div>
+                <div class="lastname">
+                    <p>Last name <span id="lastnameSpan" asp-validation-for="@Model.LastName" class="error-span"></span></p>
+                    <input id="lastnameInput" asp-for="@Model.LastName" class="userinput">
+                </div>
+            </div>
+            <div class="email-phone">
+                <div class="email-address">
+                    <p>Email address <span id="email-span" asp-validation-for="@Model.Email" class="error-span"></span></p>
+                    <input asp-for="@Model.Email" class="userinput" id="email-input">
+                </div>
+                <div class="phone">
+                    <p>Phone <span asp-validation-for="@Model.Phone" class="error-span"></span></p>
+                    <input asp-for="@Model.Phone" class="userinput">
+                </div>
+            </div>
+        }
+        else 
+        {
+            <div class="nameinputs">
+                <div class="firstname">
+                    <p>First name</p>
+                    <input asp-for="@Model.FirstName" class="userinput" disabled>
+                </div>
+                <div class="lastname">
+                    <p>Last name</p>
+                    <input asp-for="@Model.LastName" class="userinput" disabled>
+                </div>
+            </div>
+            <div class="email-phone">
+                <div class="email-address">
+                    <p>Email address</p>
+                    <input asp-for="@Model.Email" class="userinput" disabled>
+                </div>
+                <div class="phone">
+                    <p>Phone <span asp-validation-for="@Model.Phone" class="error-span"></span></p>
+                    <input asp-for="@Model.Phone" class="userinput">
+                </div>
+            </div>
+        }
+        <p>Bio <span>(optional)</span></p>
+        <textarea asp-for="@Model.Biography" class="textarea"></textarea>
+        <div class="form-btns">
+            <button type="reset" class="gray-btn">Cancel</button>
+            <button type="submit" class="theme-btn">Save changes</button>
+        </div>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Shared/_BasicInfoValidationPartial.cshtml")

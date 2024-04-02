@@ -1,4 +1,26 @@
-﻿const toggleMenu = () => {
+﻿document.addEventListener('DOMContentLoaded', function () {
+    let sw = document.querySelector("#darkModeToggle")
+
+    sw.addEventListener('change', function () {
+        let theme = this.checked ? "dark" : "light"
+
+        fetch(`/sitesettings/changetheme?mode=${theme}`)
+            .then(res => {
+                if (res.ok)
+                    window.location.reload()
+                else
+                    console.log('something')
+            })
+    })
+})
+
+const mobileDarkModeToggle = document.querySelector("#mobile-darkmode");
+mobileDarkModeToggle.addEventListener("click", () => {
+    let sw = document.querySelector("#darkModeToggle")
+    sw.click();
+})
+
+const toggleMenu = () => {
     document.getElementById('menu').classList.toggle('hide');
 }
 

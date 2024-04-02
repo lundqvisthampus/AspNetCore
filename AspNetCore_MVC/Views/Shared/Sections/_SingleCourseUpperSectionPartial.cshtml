@@ -1,0 +1,48 @@
+﻿@model CourseModel
+
+<div class="breadcrumbs">
+    <a class="gray-link" asp-controller="Home" asp-action="Index"><i class="fa-regular fa-house" style="color: #9397AD;"></i> Home</a>
+    <i class="arrows fa-solid fa-chevrons-right" style="color: #9397AD;"></i>
+    <a class="white-link" asp-controller="Courses" asp-action="Index">Courses</a>
+    <i class="arrows fa-solid fa-chevrons-right" style="color: #9397AD;"></i>
+    <a class="white-link" asp-controller="Courses" asp-action="SingleCourse">@Model.Title</a>
+</div>
+<div class="upper-section">
+    <div class="course-categories">
+        @if(Model.IsBestSeller)
+        {
+            <p class="green-category">Best Seller</p>
+        }
+        @if(Model.IsDigital)
+        {
+            <p class="white-category">Digital</p>
+        }
+    </div>
+    <h1 class="display6">@Model.Title</h1>
+    <p class="l-text">Egestas feugiat lorem eu neque suspendisse ullamcorper scelerisque aliquam mauris.</p>
+    <div class="rating-and-reviews">
+        <div class="reviews">
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-regular fa-star"></i>
+            <p class="m-text">(1.2K reviews)</p>
+        </div>
+        <div class="likes">
+            <i class="fa-regular fa-thumbs-up"></i>
+            <p class="m-text">@Model.LikesNumber likes</p>
+        </div>
+        <div class="hours">
+            <i class="fa-regular fa-clock"></i>
+            <p class="m-text">@Model.CourseHours hours</p>
+        </div>
+    </div>
+</div>
+<div class="created-by">
+    <img src="~/images/author-img.svg" alt="Image of course author">
+    <div class="creator-text">
+        <p class="m-text">Created by</p>
+        <p class="m-text author-name">@Model.Author</p>
+    </div>
+</div>

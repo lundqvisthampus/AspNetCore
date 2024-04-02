@@ -40,7 +40,7 @@ const passwordValidator = (element) => {
             formErrorHandler(element, false)
     }
     else {
-        const regEx = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        const regEx = /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8,}$/;
         formErrorHandler(element, regEx.test(element.value))
     }
 }

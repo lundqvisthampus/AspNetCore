@@ -11,6 +11,13 @@ header {
         flex-direction: column;
         gap: 20px;
 
+        .profile-btn {
+            img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
         .gray-btn, .theme-btn {
             i {
                 margin-right: 0.5rem;
@@ -24,6 +31,17 @@ header {
 
             &:hover {
                 text-decoration: underline;
+            }
+        }
+
+        #mobile-darkmode {
+            padding: 0;
+            border: none;
+            background-color: transparent;
+
+            i {
+                font-size: 2rem;
+                color: $gray-800;
             }
         }
     }
@@ -88,6 +106,15 @@ header {
                 .navbar-buttons {
                     margin-left: 2rem;
 
+                    .profile-btn {
+
+                        img {
+                            margin-top: -0.6rem;
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+
                     i {
                         margin-right: 0.5rem;
                     }
@@ -149,7 +176,7 @@ header {
                     &:checked {
                         + {
                             .slider {
-                                background-color: $info;
+                                background-color: $theme;
 
                                 &:before {
                                     -webkit-transform: translateX(19.5px);

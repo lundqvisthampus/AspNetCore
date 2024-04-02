@@ -1,0 +1,8 @@
+﻿@model AccountIndexViewModel
+
+<section class="saved-courses">
+    <div class="container">
+        @await Html.PartialAsync("~/Views/Shared/Sections/_AccountAsidePartial.cshtml", Model)
+        @await Html.PartialAsync("~/Views/Shared/Sections/_SavedCoursesPartial.cshtml", Model)
+    </div>
+</section>

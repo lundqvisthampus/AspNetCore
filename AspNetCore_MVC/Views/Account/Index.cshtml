@@ -2,79 +2,10 @@
 
 <div class="account-details-section">
     <div class="container">
-        <aside>
-            <div class="profile">
-                <img class="profile-avatar" src="@Model.BasicInfo.ProfileImage" alt="Profile image">
-                <h5 class="header5">@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")</h5>
-                <p class="m-text">@User.Identity!.Name</p>
-            </div>
-            <div class="buttons">
-                <a class="theme-btn" asp-controller="Account" asp-action="Index"><i class="fa-light fa-gear-complex" style="color: #FFFFFF;"></i> Account Details</a>
-                <a class="sign-out" asp-controller="Auth" asp-action="SignOut"><i class="fa-light fa-left-to-line" style="color: #9397AD;;"></i> Sign Out</a>
-            </div>
-        </aside>
-
+        @await Html.PartialAsync("~/Views/Shared/Sections/_AccountAsidePartial.cshtml", Model)
         <div class="details">
-            <h1 class="header2">Account Details</h1>
-            <div class="basic-info">
-                <p class="header5">Basic Info</p>
-                <form class="basic-form" method="post" asp-controller="Account" asp-action="BasicInfo">
-                    <div class="nameinputs">
-                        <div class="firstname">
-                            <p>First name <span asp-validation-for="@Model.BasicInfo.FirstName" class="error-span"></span></p>
-                            <input asp-for="@Model.BasicInfo.FirstName" class="userinput">
-                        </div>
-                        <div class="lastname">
-                            <p>Last name <span asp-validation-for="@Model.BasicInfo.LastName" class="error-span"></span></p>
-                            <input asp-for="@Model.BasicInfo.LastName" class="userinput">
-                        </div>
-                    </div>
-                    <div class="email-phone">
-                        <div class="email-address">
-                            <p>Email address <span asp-validation-for="@Model.BasicInfo.Email" class="error-span"></span></p>
-                            <input asp-for="@Model.BasicInfo.Email" class="userinput">
-                        </div>
-                        <div class="phone">
-                            <p>Phone <span asp-validation-for="@Model.BasicInfo.Phone" class="error-span"></span></p>
-                            <input asp-for="@Model.BasicInfo.Phone" class="userinput">
-                        </div>
-                    </div>
-                    <p>Bio <span>(optional)</span></p>
-                    <textarea asp-for="@Model.BasicInfo.Biography" class="textarea"></textarea>
-                    <div class="form-btns">
-                        <button type="reset" class="gray-btn">Cancel</button>
-                        <button type="submit" class="theme-btn">Save changes</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="address-info">
-                <p class="header5">Address</p>
-                <form class="basic-form" method="post" asp-controller="Account" asp-action="AddressInfo">
-                    <div class="address">
-                        <p>Address line 1 <span asp-validation-for="@Model.AddressInfo.Addressline_1" class="error-span"></span></p>
-                        <input asp-for="@Model.AddressInfo.Addressline_1" class="userinput">
-                    </div>
-                    <div class="address">
-                        <p>Address line 2 <span>(optional)</span></p>
-                        <input asp-for="@Model.AddressInfo.Addressline_2" class="userinput">
-                    </div>
-                    <div class="postal-city">
-                        <div class="postal-code">
-                            <p>Postal code <span asp-validation-for="@Model.AddressInfo.PostalCode" class="error-span"></span></p>
-                            <input asp-for="@Model.AddressInfo.PostalCode" class="userinput">
-                        </div>
-                        <div class="city">
-                            <p>City <span asp-validation-for="@Model.AddressInfo.City" class="error-span"></span></p>
-                            <input asp-for="@Model.AddressInfo.City" class="userinput">
-                        </div>
-                    </div>
-                    <div class="form-btns">
-                        <button type="reset" class="gray-btn">Cancel</button>
-                        <button type="submit" class="theme-btn">Save changes</button>
-                    </div>
-                </form>
-            </div>
+            @await Html.PartialAsync("~/Views/Shared/Sections/_BasicInfoPartial.cshtml", Model.BasicInfo)
+            @await Html.PartialAsync("~/Views/Shared/Sections/_AddressInfoPartial.cshtml", Model.AddressInfo)
         </div>
     </div>
 </div>

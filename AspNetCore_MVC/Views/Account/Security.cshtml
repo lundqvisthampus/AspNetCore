@@ -1,0 +1,11 @@
+﻿@model AccountIndexViewModel
+
+<div class="account-security-section">
+    <div class="container">
+        @await Html.PartialAsync("~/Views/Shared/Sections/_AccountAsidePartial.cshtml", Model)
+        <div class="details">
+            @await Html.PartialAsync("~/Views/Shared/Sections/_AccountSecurityPartial.cshtml", Model.SecurityPasswordModel)
+            @await Html.PartialAsync("~/Views/Shared/Sections/_AccountSecurityDeletePartial.cshtml", Model.SecurityDeleteModel)
+        </div>
+    </div>
+</div>

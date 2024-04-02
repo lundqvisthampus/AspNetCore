@@ -1,0 +1,12 @@
+﻿@model CoursesWorkWithUsViewModel
+
+<section class="work-with-us">
+    <div class="container">
+        <div class="ready-text">
+            <p class="lead-text">@Model.Text</p>
+            <h2 class="header1">@Html.Raw(Model.Header)</h2>
+            <a asp-action="@Model.ButtonAction" asp-controller="@Model.ButtonController" class="theme-btn">@Model.ButtonText</a>
+        </div>
+        <img src="@Model.ImageUrl" alt="@Model.ImageAltText">
+    </div>
+</section>

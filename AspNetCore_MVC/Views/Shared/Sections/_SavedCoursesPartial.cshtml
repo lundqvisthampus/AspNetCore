@@ -1,0 +1,59 @@
+﻿@model AccountIndexViewModel
+
+<div class="right-aside">
+    <div class="title-and-button">
+        <h1 class="header2">Saved Items</h1>
+        @if (Model.SavedCourses.Any())
+        {
+            <form method="post">
+                <button asp-controller="Account" asp-action="DeleteAll" class="danger-btn"><i class="fa-regular fa-trash"></i> Delete all</button>
+            </form>
+        }
+    </div>
+    <div class="courses">
+        @if (Model.SavedCourses.Any())
+        {
+            foreach(var course in Model.SavedCourses)
+            {
+                <div class="oneCourse">
+                    <div class="btn-tooltip">
+                        <form method="post">
+                            <input type="hidden" name="courseId" value="@course.Id" />
+                            <button asp-action="DeleteCourse" asp-controller="Account" class="saveCourseBtn"><i class="fa-sharp fa-light fa-circle-bookmark"></i></button>
+                            <p class="tool-tip">Remove</p>
+                        </form>
+                    </div>
+                    @if (course.IsBestSeller)
+                    {
+                        <p class="bestSeller">Best seller</p>
+                    }
+                    <a asp-controller="Courses" asp-action="SingleCourse" asp-route-id="@course.Id" class="oneCourseLink">
+                        <img src="@course.CourseImgUrl" alt="Image from the course">
+                        <div class="course-info">
+                            <h5 class="header5">@course.Title</h5>
+                            <p class="author">By @course.Author</p>
+                            <div class="prices">
+                                @if (course.DiscountPrice != "0" && (course.DiscountPrice != "string") && (course.DiscountPrice != null))
+                                {
+                                    <p class="price color-danger">$@course.Price</p>
+                                    <p class="reducedPrice">$@course.DiscountPrice</p>
+                                }
+                                else
+                                {
+                                    <p class="price">$@course.Price</p>
+                                    <p class="reducedPrice"></p>
+                                }
+                            </div>
+                            <div class="hours-and-rating">
+                                <i class="fa-regular fa-clock" style="color: #9397AD;"></i>
+                                <p class="hours s-text">@course.CourseHours hours</p>
+                                <i class="fa-regular fa-thumbs-up" style="color: #9397AD;"></i>
+                                <p class="rating s-text">@course.LikesProcent% (@course.LikesNumber)</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>

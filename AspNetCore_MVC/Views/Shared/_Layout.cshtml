@@ -1,4 +1,32 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> _signInManager
+@{
+    var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+    var isDark = (themeMode == "dark") ? true : false;
+    var themeClass = "";
+    var headerClass = "";
+    if (isDark == true)
+    {
+        themeClass = "dark-mode";
+
+        if (Context.Request.Path == "/contact")
+        {
+            headerClass = "header-gray";
+        }
+        else
+        {
+            headerClass = "header-dark-gray";
+        }
+    }
+    else
+    {
+        if (Context.Request.Path == "/contact")
+        {
+            headerClass = "header-light-gray";
+        }
+    }
+}
+
+<!DOCTYPE html>
 <html lang="sv-se">
 <head>
     <meta charset="UTF-8">
@@ -8,31 +36,49 @@
     <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
     <title>@ViewData["Title"] - Silicon</title>
 </head>
-<body>
+<body class="@themeClass">
     <div class="wrapper">
-        <header>
+        <header class="@headerClass">
             <div class="container">
                 <div class="left-nav">
                     <a asp-controller="Home" asp-action="Index">
-                        <img src="/images/logotype.svg" alt="Silicon logotype">
+                        <img id="logotype" src="~/images/@(isDark ? "solid.svg" : "logotype.svg")" alt="Silicon logotype">
                     </a>
-                    <div class="nav-links">
-                        <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
-                        <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                        <a class="navigate-link" asp-controller="Contact" asp-action="Index">Contact</a>
-                    </div>
+                    @if (_signInManager.IsSignedIn(User))
+                    {
+                        <div class="nav-links">
+                            <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                            <a class="navigate-link" asp-controller="Courses" asp-action="Index">Courses</a>
+                            <a class="navigate-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="nav-links">
+                            <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                            <a class="navigate-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                            <a class="navigate-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                        </div>
+                    }
                 </div>
                 <div class="right-nav">
                     <div class="nav-btns">
                         <p>Light</p>
                         <label class="theme-switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
+                            <input id="darkModeToggle" type="checkbox" checked="@isDark">
+                            <span onclick="toggleDarkMode()" class="slider round"></span>
                         </label>
                         <p>Dark</p>
                         <div class="navbar-buttons">
-                            <a class="gray-btn" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
-                            <a class="theme-btn" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
+                            @if (_signInManager.IsSignedIn(User))
+                            {
+                                <a class="profile-btn" onclick="toggleMenu()" asp-controller="Account" asp-action="Index"><img src="~/images/profile-img.svg" alt="Profile Image link" /></a>
+                            }
+                            else
+                            {
+                                <a class="gray-btn" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
+                                <a class="theme-btn" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
+                            }
                         </div>
                     </div>
                     <button onclick="toggleMenu()" class="menu-burger">
@@ -41,11 +87,26 @@
                 </div>
             </div>
             <div id="menu" class="mobile-menu container hide">
-                <a class="gray-btn" onclick="toggleMenu()" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
-                <a class="theme-btn" onclick="toggleMenu()" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
-                <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
-                <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                <a class="link" onclick="toggleMenu()" asp-controller="Contact" asp-action="Index">Contact</a>
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    if (ShowProfileBtn())
+                    {
+                        <a class="profile-btn" onclick="toggleMenu()" asp-controller="Account" asp-action="Index"><img src="~/images/profile-img.svg" alt="Profile Image link" /></a>
+                        <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                        <a class="link" onclick="toggleMenu()" asp-controller="Courses" asp-action="Index">Courses</a>
+                        <a class="link" onclick="toggleMenu()" asp-controller="Contact" asp-action="Index">Contact</a>
+                        <button id="mobile-darkmode"><i class="fa-solid fa-moon-over-sun"></i></button>
+                    }
+                }
+                else
+                {
+                    <a class="gray-btn" onclick="toggleMenu()" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i>Sign In</a>
+                    <a class="theme-btn" onclick="toggleMenu()" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign Up</a>
+                    <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                    <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                    <a class="link" onclick="toggleMenu()" asp-controller="Contact" asp-action="Index">Contact</a>
+                    <button id="mobile-darkmode"><i class="fa-solid fa-moon-over-sun"></i></button>
+                }
             </div>
         </header>
 
@@ -55,12 +116,15 @@
 
         <footer>
             <div class="container">
-                <div class="social-media">
-                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
-                </div>
+                @if(!ContentHidden())
+                {
+                    <div class="social-media">
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
+                    </div>
+                }
                 <div class="footer-text">
                     <p>&#169; @DateTime.Now.Year Silicon. All rights reserved. <span>Pulvinar urna condimentum amet tempor, ornare integer. Lorem odio justo malesuada suspendisse viverra aliquet quisque turpis non. Feugiat in odio non nunc ornare consectetur.</span></p>
                 </div>
@@ -68,5 +132,36 @@
         </footer>
     </div>
     <script src="/js/site.js" asp-append-version="true"></script>
+
+    <partial name="_CookieConsent" />
 </body>
 </html>
+
+
+@{
+    bool ContentHidden()
+    {
+        var controller = ViewContext.RouteData.Values["controller"] as string;
+
+        if (controller == "Auth")
+        {
+            return true; 
+        }
+
+        return false; 
+    }
+}
+
+@{
+    bool ShowProfileBtn()
+    {
+        var controller = ViewContext.RouteData.Values["controller"] as string;
+
+        if (controller != "Account")
+        {
+            return true;
+        }
+
+        return false;
+    }
+}

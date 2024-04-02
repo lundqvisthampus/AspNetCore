@@ -8,6 +8,11 @@
   border-radius: 6px;
   transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
 }
+.theme-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+}
 .theme-btn:hover {
   background-color: #5c5ece;
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
@@ -22,9 +27,55 @@
   border-radius: 6px;
   transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
 }
+.gray-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+}
 .gray-btn:hover {
-  background-color: #F3F6FF;
+  background-color: #c0c1f9;
   box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+}
+
+.transparent-btn {
+  text-decoration: none;
+  color: #33354D;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+.transparent-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+  color: #9397AD;
+}
+.transparent-btn:hover {
+  background-color: #c0c1f9;
+}
+.transparent-btn:active {
+  background-color: #6366F1;
+  color: #FFFFFF;
+}
+.transparent-btn:active i {
+  color: #FFFFFF;
+}
+
+.danger-btn {
+  text-decoration: none;
+  color: #EF4444;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 1px solid rgba(217, 83, 79, 0.5);
+  transition: background-color 0.2s, border 0.2s, box-shadow 0.2s ease-in-out;
+}
+.danger-btn:hover {
+  box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid #d9534f;
+  background-color: rgba(217, 83, 79, 0.1);
 }
 
 .header1 {
@@ -168,6 +219,10 @@ header .mobile-menu {
   flex-direction: column;
   gap: 20px;
 }
+header .mobile-menu .profile-btn img {
+  width: 90px;
+  height: 90px;
+}
 header .mobile-menu .gray-btn i, header .mobile-menu .theme-btn i {
   margin-right: 0.5rem;
 }
@@ -178,6 +233,15 @@ header .mobile-menu .link {
 }
 header .mobile-menu .link:hover {
   text-decoration: underline;
+}
+header .mobile-menu #mobile-darkmode {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+header .mobile-menu #mobile-darkmode i {
+  font-size: 2rem;
+  color: #33354D;
 }
 header .container {
   margin-top: 1rem;
@@ -235,6 +299,11 @@ header .container .right-nav .nav-btns {
 header .container .right-nav .nav-btns .navbar-buttons {
   margin-left: 2rem;
 }
+header .container .right-nav .nav-btns .navbar-buttons .profile-btn img {
+  margin-top: -0.6rem;
+  width: 50px;
+  height: 50px;
+}
 header .container .right-nav .nav-btns .navbar-buttons i {
   margin-right: 0.5rem;
 }
@@ -286,7 +355,7 @@ header .container .right-nav .nav-btns .slider:before {
   transition: 0.4s;
 }
 header .container .right-nav .nav-btns input:checked + .slider {
-  background-color: #4C82F7;
+  background-color: #6366F1;
 }
 header .container .right-nav .nav-btns input:checked + .slider:before {
   -webkit-transform: translateX(19.5px);
@@ -877,6 +946,10 @@ main .signup-section .container {
   display: flex;
   justify-content: center;
 }
+main .signup-section .container .signup-form .already-exists-error {
+  color: #EF4444;
+  font-size: 14px;
+}
 main .signup-section .container .signup-form .sign-in {
   color: #6366F1;
 }
@@ -997,13 +1070,14 @@ main .signin-section .container .signin-form form .userinput.input-validation-er
 main .signin-section .container .signin-form form .remember-me input {
   accent-color: #6366F1;
   margin-right: 0.5rem;
+  background: white;
 }
 main .signin-section .container .signin-form form .remember-me p {
   display: inline;
   font-weight: 400;
   color: #565973;
 }
-main .signin-section .container .signin-form form .remember-me button {
+main .signin-section .container .signin-form form .remember-me button, main .signin-section .container .signin-form form .remember-me .fb-btn {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   display: block;
@@ -1013,11 +1087,49 @@ main .signin-section .container .signin-form form .remember-me button {
 main .signin-section .container .signin-form form .remember-me .forgot-password {
   display: flex;
   justify-content: center;
+  padding-bottom: 2rem;
 }
 main .signin-section .container .signin-form form .remember-me .forgot-password a {
   text-decoration: none;
   color: #6366F1;
   font-weight: 600;
+}
+main .signin-section .container .signin-form form .signin-external {
+  padding-top: 1rem;
+  border-top: 2px solid #E2E5F1;
+}
+main .signin-section .container .signin-form form .signin-external .header6 {
+  text-align: center;
+  color: #0B0F19;
+  padding-bottom: 0.8rem;
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns {
+  gap: 1.5rem;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+@media (min-width: 1200px) {
+  main .signin-section .container .signin-form form .signin-external .signin-btns {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns a {
+  width: 100%;
+  background-color: #EFF2FC;
+  display: block;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  main .signin-section .container .signin-form form .signin-external .signin-btns a {
+    display: inline;
+  }
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns a:hover {
+  background-color: #D4D7E5;
+}
+main .signin-section .container .signin-form form .signin-external .signin-btns i {
+  color: #33354D;
 }
 
 main .account-details-section {
@@ -1040,6 +1152,42 @@ main .account-details-section .container aside .profile {
 main .account-details-section .container aside .profile img {
   margin-bottom: 1rem;
 }
+main .account-details-section .container aside .profile .img-btn {
+  position: relative;
+  display: inline;
+}
+main .account-details-section .container aside .profile .img-btn .updateAvatarBtn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: none;
+  background-color: #ffffff;
+  top: 1.5rem;
+  left: 5rem;
+  box-shadow: 1px 1px 2px 1px #E2E5F1;
+}
+main .account-details-section .container aside .profile .img-btn .updateAvatarBtn i {
+  margin-top: 0.3rem;
+  font-size: 1.2rem;
+}
+main .account-details-section .container aside .profile .img-btn .tool-tip {
+  position: absolute;
+  color: #ffffff;
+  background-color: #0B0F19;
+  padding: 0rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 300;
+  top: -0.25rem;
+  left: 6.5rem;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  visibility: hidden;
+}
+main .account-details-section .container aside .profile .img-btn:hover .tool-tip {
+  visibility: visible;
+  opacity: 1;
+}
 @media (min-width: 1200px) {
   main .account-details-section .container aside {
     padding-right: 1rem;
@@ -1052,28 +1200,13 @@ main .account-details-section .container aside .buttons {
   flex-direction: column;
   gap: 1rem;
 }
-main .account-details-section .container aside .buttons .theme-btn {
-  padding-right: 7rem;
-}
-main .account-details-section .container aside .buttons .theme-btn i {
-  margin-right: 0.5rem;
-}
-main .account-details-section .container aside .buttons .sign-out {
-  color: #33354D;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 0.7rem 1rem;
-  border-radius: 6px;
-  transition: all ease-in-out 0.15s;
-}
-main .account-details-section .container aside .buttons .sign-out i {
-  margin-right: 0.5rem;
-  font-size: 1.3rem;
-}
-main .account-details-section .container aside .buttons .sign-out:hover {
-  background-color: #D4D7E5;
+@media (min-width: 1200px) {
+  main .account-details-section .container aside .buttons {
+    width: 18rem;
+  }
 }
 main .account-details-section .container .details {
+  width: 100%;
   margin-top: 4.5rem;
 }
 main .account-details-section .container .details .header2 {
@@ -1082,6 +1215,12 @@ main .account-details-section .container .details .header2 {
 main .account-details-section .container .details .basic-info .header5 {
   color: #6366F1;
 }
+main .account-details-section .container .details .basic-info .basic-form .error-span {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-weight: 400;
+  font-size: 14px;
+}
 main .account-details-section .container .details .basic-info .basic-form p {
   font-weight: 700;
   margin: 0;
@@ -1089,13 +1228,6 @@ main .account-details-section .container .details .basic-info .basic-form p {
 }
 main .account-details-section .container .details .basic-info .basic-form span {
   color: #9397AD;
-  font-weight: 400;
-}
-main .account-details-section .container .details .basic-info .basic-form .error-span {
-  color: #EF4444;
-  font-size: 14px;
-  font-weight: 400;
-  margin-left: 0.5rem;
 }
 main .account-details-section .container .details .basic-info .basic-form .userinput, main .account-details-section .container .details .basic-info .basic-form .textarea {
   margin-top: 0.2rem;
@@ -1112,13 +1244,6 @@ main .account-details-section .container .details .basic-info .basic-form .useri
 main .account-details-section .container .details .basic-info .basic-form .userinput::placeholder, main .account-details-section .container .details .basic-info .basic-form .textarea::placeholder {
   color: #B4B7C9;
 }
-main .account-details-section .container .details .basic-info .basic-form .userinput.input-validation-error, main .account-details-section .container .details .basic-info .basic-form .textarea.input-validation-error {
-  border: 1px solid #EF4444;
-  background-color: rgba(255, 0, 0, 0.05);
-}
-main .account-details-section .container .details .basic-info .basic-form .userinput.input-validation-error::placeholder, main .account-details-section .container .details .basic-info .basic-form .textarea.input-validation-error::placeholder {
-  color: #EF4444;
-}
 main .account-details-section .container .details .basic-info .basic-form .textarea {
   padding-top: 0.5rem;
   padding-bottom: 5rem;
@@ -1133,7 +1258,7 @@ main .account-details-section .container .details .basic-info .basic-form .form-
   border: none;
   margin-right: 1rem;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   main .account-details-section .container .details .basic-info .basic-form .form-btns {
     justify-content: start;
   }
@@ -1145,11 +1270,10 @@ main .account-details-section .container .details .basic-info .basic-form .namei
 @media (min-width: 1400px) {
   main .account-details-section .container .details .basic-info .basic-form .nameinputs, main .account-details-section .container .details .basic-info .basic-form .email-phone {
     display: flex;
-    justify-content: space-between;
   }
   main .account-details-section .container .details .basic-info .basic-form .nameinputs input, main .account-details-section .container .details .basic-info .basic-form .email-phone input {
     min-width: 10%;
-    width: 19vw;
+    width: 22vw;
   }
 }
 main .account-details-section .container .details .address-info {
@@ -1160,6 +1284,12 @@ main .account-details-section .container .details .address-info {
 main .account-details-section .container .details .address-info .header5 {
   color: #6366F1;
 }
+main .account-details-section .container .details .address-info .basic-form .error-span {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-weight: 400;
+  font-size: 14px;
+}
 main .account-details-section .container .details .address-info .basic-form p {
   font-weight: 700;
   margin: 0;
@@ -1167,13 +1297,6 @@ main .account-details-section .container .details .address-info .basic-form p {
 }
 main .account-details-section .container .details .address-info .basic-form span {
   color: #9397AD;
-  font-weight: 400;
-}
-main .account-details-section .container .details .address-info .basic-form .error-span {
-  color: #EF4444;
-  font-size: 14px;
-  font-weight: 400;
-  margin-left: 0.5rem;
 }
 main .account-details-section .container .details .address-info .basic-form .userinput {
   margin-top: 0.2rem;
@@ -1190,13 +1313,6 @@ main .account-details-section .container .details .address-info .basic-form .use
 main .account-details-section .container .details .address-info .basic-form .userinput::placeholder {
   color: #B4B7C9;
 }
-main .account-details-section .container .details .address-info .basic-form .userinput.input-validation-error {
-  border: 1px solid #EF4444;
-  background-color: rgba(255, 0, 0, 0.05);
-}
-main .account-details-section .container .details .address-info .basic-form .userinput.input-validation-error::placeholder {
-  color: #EF4444;
-}
 main .account-details-section .container .details .address-info .basic-form .postal-city {
   display: flex;
 }
@@ -1209,7 +1325,7 @@ main .account-details-section .container .details .address-info .basic-form .for
   border: none;
   margin-right: 1rem;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   main .account-details-section .container .details .address-info .basic-form .form-btns {
     justify-content: start;
   }
@@ -1222,12 +1338,1280 @@ main .account-details-section .container .details .address-info .basic-form .pos
 @media (min-width: 1400px) {
   main .account-details-section .container .details .address-info .basic-form .postal-city {
     display: flex;
-    justify-content: space-between;
   }
   main .account-details-section .container .details .address-info .basic-form .postal-city input {
     min-width: 10%;
-    width: 19vw;
+    width: 22vw;
   }
+}
+
+main .account-security-section {
+  margin-bottom: 10rem;
+}
+main .account-security-section .container {
+  gap: 7rem;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container {
+    display: flex;
+  }
+}
+main .account-security-section .container aside {
+  padding-top: 3rem;
+}
+main .account-security-section .container aside .profile {
+  text-align: center;
+}
+main .account-security-section .container aside .profile img {
+  margin-bottom: 1rem;
+}
+main .account-security-section .container aside .profile .img-btn {
+  position: relative;
+  display: inline;
+}
+main .account-security-section .container aside .profile .img-btn .updateAvatarBtn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: none;
+  background-color: #ffffff;
+  top: 1.5rem;
+  left: 5rem;
+  box-shadow: 1px 1px 2px 1px #E2E5F1;
+}
+main .account-security-section .container aside .profile .img-btn .updateAvatarBtn i {
+  margin-top: 0.3rem;
+  font-size: 1.2rem;
+}
+main .account-security-section .container aside .profile .img-btn .tool-tip {
+  position: absolute;
+  color: #ffffff;
+  background-color: #0B0F19;
+  padding: 0rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 300;
+  top: -0.25rem;
+  left: 6.5rem;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  visibility: hidden;
+}
+main .account-security-section .container aside .profile .img-btn:hover .tool-tip {
+  visibility: visible;
+  opacity: 1;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container aside {
+    padding-right: 1rem;
+    border-right: 2px solid #E2E5F1;
+  }
+}
+main .account-security-section .container aside .buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container aside .buttons {
+    width: 18rem;
+  }
+}
+main .account-security-section .container .details {
+  margin-top: 4.5rem;
+  width: 100%;
+}
+main .account-security-section .container .details .header2 {
+  margin-bottom: 2rem;
+}
+main .account-security-section .container .details .password-info {
+  padding-bottom: 2.5rem;
+}
+main .account-security-section .container .details .password-info .header5 {
+  color: #6366F1;
+}
+main .account-security-section .container .details .password-info .password-form label {
+  font-weight: 700;
+  margin: 0;
+  display: inline;
+}
+main .account-security-section .container .details .password-info .password-form .field-validation-error {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-size: 14px;
+}
+main .account-security-section .container .details .password-info .password-form .new-password-div {
+  margin-top: 0.5rem;
+  gap: 2rem;
+  display: block;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container .details .password-info .password-form .new-password-div {
+    display: flex;
+  }
+  main .account-security-section .container .details .password-info .password-form .new-password-div input {
+    min-width: 10%;
+    width: 22vw;
+  }
+}
+main .account-security-section .container .details .password-info .password-form .userinput {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #D4D7E5;
+  height: 2.5rem;
+  width: 100%;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  display: block;
+}
+main .account-security-section .container .details .password-info .password-form .userinput::placeholder {
+  color: #B4B7C9;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container .details .password-info .password-form .userinput {
+    width: 22vw;
+  }
+}
+main .account-security-section .container .details .password-info .password-form .form-btns {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+main .account-security-section .container .details .password-info .password-form .form-btns button {
+  border: none;
+  margin-right: 1rem;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container .details .password-info .password-form .form-btns {
+    justify-content: start;
+  }
+}
+main .account-security-section .container .details .account-deletion {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 2px solid #E2E5F1;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container .details .account-deletion {
+    text-align: start;
+  }
+}
+main .account-security-section .container .details .account-deletion .header5 {
+  color: #6366F1;
+}
+main .account-security-section .container .details .account-deletion form {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1200px) {
+  main .account-security-section .container .details .account-deletion form {
+    display: block;
+  }
+}
+main .account-security-section .container .details .account-deletion form .field-validation-error {
+  margin-left: 0.5rem;
+  color: #EF4444;
+  font-size: 14px;
+}
+main .account-security-section .container .details .account-deletion form .inputs input {
+  accent-color: #6366F1;
+  margin-right: 0.5rem;
+  margin-bottom: 2rem;
+}
+main .account-security-section .container .details .account-deletion form .theme-btn {
+  background-color: #EF4444;
+  border: none;
+  display: block;
+}
+
+.error-section {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+.error-section .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-section .container img {
+  width: 80%;
+  margin-bottom: 2rem;
+}
+.error-section .container h1 {
+  font-size: 36px;
+  margin-bottom: 1.5rem;
+}
+.error-section .container p {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 2.5rem;
+}
+.error-section .container .theme-btn i {
+  margin-right: 0.5rem;
+}
+@media (min-width: 768px) {
+  .error-section .container img {
+    width: 50%;
+    margin-bottom: 2rem;
+  }
+  .error-section .container h1 {
+    margin-bottom: 1.5rem;
+    font-size: 48px;
+  }
+  .error-section .container p {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 20px;
+  }
+}
+
+main .contact-us-section {
+  padding-top: 3rem;
+  background-color: #F3F6FF;
+}
+main .contact-us-section .container {
+  position: relative;
+}
+main .contact-us-section .container .breadcrumbs {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .breadcrumbs {
+    text-align: start;
+  }
+}
+main .contact-us-section .container .breadcrumbs #contact-link {
+  color: #6366F1;
+}
+main .contact-us-section .container .breadcrumbs a {
+  text-decoration: none;
+  color: #9397AD;
+}
+main .contact-us-section .container .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+main .contact-us-section .container .breadcrumbs .arrows {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  font-size: 0.8rem;
+}
+main .contact-us-section .container .header1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .header1 {
+    text-align: start;
+  }
+}
+main .contact-us-section .container .contact {
+  margin-bottom: 5rem;
+}
+main .contact-us-section .container .contact .contact-us {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .contact .contact-us {
+    display: block;
+  }
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option {
+  display: flex;
+  margin-bottom: 3rem;
+  max-width: 400px;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .icon {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-right: 1.5rem;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .text .contact-link {
+  text-decoration: none;
+  color: #6366F1;
+  font-weight: 500;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .text .contact-link:hover {
+  text-decoration: underline;
+}
+main .contact-us-section .container .contact .contact-us .email-career .contact-option .text .fa-arrow-right {
+  margin-left: 0.5rem;
+}
+main .contact-us-section .container .contact .contact-form {
+  background-color: #FFFFFF;
+  padding: 3rem;
+  border-radius: 6px;
+  box-shadow: 1px 1px 6px 3px #E2E5F1;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .contact .contact-form {
+    position: absolute;
+    right: 0px;
+    top: 40px;
+    max-width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  main .contact-us-section .container .contact .contact-form {
+    max-width: 100%;
+  }
+}
+main .contact-us-section .container .contact .contact-form .header2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  main .contact-us-section .container .contact .contact-form .header2 {
+    text-align: start;
+  }
+}
+main .contact-us-section .container .contact .contact-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+main .contact-us-section .container .contact .contact-form .error-msg {
+  font-size: 14px;
+  color: #EF4444;
+}
+main .contact-us-section .container .contact .contact-form span {
+  color: #9397AD;
+}
+main .contact-us-section .container .contact .contact-form input, main .contact-us-section .container .contact .contact-form select, main .contact-us-section .container .contact .contact-form textarea {
+  display: block;
+  resize: none;
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #D4D7E5;
+  border-radius: 6px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+main .contact-us-section .container .contact .contact-form input::placeholder, main .contact-us-section .container .contact .contact-form select::placeholder, main .contact-us-section .container .contact .contact-form textarea::placeholder {
+  color: #B4B7C9;
+}
+main .contact-us-section .container .contact .contact-form textarea {
+  height: 10rem;
+}
+main .contact-us-section .container .contact .contact-form .theme-btn {
+  margin-top: 1rem;
+  border: none;
+}
+
+main .courses-section {
+  margin-top: 3rem;
+}
+main .courses-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container {
+    align-items: start;
+  }
+}
+main .courses-section .container .breadcrumbs {
+  margin-bottom: 1rem;
+}
+main .courses-section .container .breadcrumbs a {
+  text-decoration: none;
+  color: #9397AD;
+}
+main .courses-section .container .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+main .courses-section .container .breadcrumbs #courses-link {
+  color: #6366F1;
+}
+main .courses-section .container .breadcrumbs .arrows {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  font-size: 0.8rem;
+}
+main .courses-section .container .title-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs {
+    align-items: start;
+    flex-direction: row;
+  }
+}
+main .courses-section .container .title-inputs .header1 {
+  margin-top: 1rem;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs .header1 {
+    margin-right: 15rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .courses-section .container .title-inputs .header1 {
+    margin-right: 26.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .courses-section .container .title-inputs .header1 {
+    margin-right: 38rem;
+  }
+}
+main .courses-section .container .title-inputs .select-input {
+  padding: 0.5rem 6rem 0.5rem 0.5rem;
+  border: 2px solid #D4D7E5;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+main .courses-section .container .title-inputs .select-input:hover {
+  cursor: pointer;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs .select-input {
+    margin-top: 1.4rem;
+    margin-right: 1rem;
+  }
+}
+main .courses-section .container .title-inputs .search-input {
+  width: 230px;
+  padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+  border: 2px solid #D4D7E5;
+  border-radius: 6px;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs .search-input {
+    margin-top: 1.4rem;
+    width: 280px;
+  }
+}
+main .courses-section .container .title-inputs i {
+  position: absolute;
+  right: 8px;
+  top: 177px;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .title-inputs i {
+    top: 37px;
+  }
+}
+main .courses-section .container .courses-all {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 478px) {
+  main .courses-section .container .courses-all {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  main .courses-section .container .courses-all {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+main .courses-section .container .courses-all .oneCourse {
+  position: relative;
+  box-shadow: 1px 1px 6px 3px #E2E5F1;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+main .courses-section .container .courses-all .oneCourse:hover {
+  box-shadow: 1px 1px 6px 3px #B4B7C9;
+}
+main .courses-section .container .courses-all .oneCourse .bestSeller {
+  background-color: #22C55E;
+  color: #ffffff;
+  display: inline;
+  padding: 0rem 0.5rem;
+  border-radius: 6px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .saveCourseBtn {
+  border: none;
+  width: 42px;
+  height: 42px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 25px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: color 0.15s ease-in-out;
+}
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .saveCourseBtn:hover {
+  color: #6366F1;
+}
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .saveCourseBtn i {
+  font-size: 2.8rem;
+  margin-left: -1.1rem;
+  margin-top: -0.7rem;
+}
+main .courses-section .container .courses-all .oneCourse .btn-tooltip .tool-tip {
+  position: absolute;
+  color: #ffffff;
+  background-color: #0B0F19;
+  padding: 0.3rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 300;
+  top: -1.7rem;
+  right: -0.5rem;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  visibility: hidden;
+}
+main .courses-section .container .courses-all .oneCourse .btn-tooltip:hover .tool-tip {
+  visibility: visible;
+  opacity: 1;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink {
+  text-decoration: none;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .header5 {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .author {
+  color: #565973;
+  padding-left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .prices {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .prices .price {
+  color: #6366F1;
+  font-weight: 600;
+  padding-left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .prices .reducedPrice {
+  color: #9397AD;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating {
+  border-top: 2px solid #E2E5F1;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating i {
+  margin-right: 0.5rem;
+}
+main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating p {
+  margin-right: 1.5rem;
+  margin-top: -0.15rem;
+}
+main .courses-section .container .page-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  align-items: start;
+}
+main .courses-section .container .page-numbers .number, main .courses-section .container .page-numbers .arrow {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  color: #33354D;
+  font-size: 0.8rem;
+  transition: all 0.15s ease-in-out;
+  font-weight: 500;
+}
+main .courses-section .container .page-numbers .number:hover, main .courses-section .container .page-numbers .arrow:hover {
+  background-color: #E2E5F1;
+}
+@media (min-width: 1024px) {
+  main .courses-section .container .page-numbers {
+    margin-left: 21.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .courses-section .container .page-numbers {
+    margin-left: 27rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .courses-section .container .page-numbers {
+    margin-left: 33rem;
+  }
+}
+
+main .work-with-us {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+main .work-with-us .container {
+  padding: 3rem 0rem 3rem 0rem;
+  background-color: #F3F6FF;
+  display: flex;
+  justify-content: center;
+}
+main .work-with-us .container .ready-text {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  main .work-with-us .container .ready-text {
+    text-align: start;
+    padding-top: 3.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .work-with-us .container .ready-text {
+    text-align: start;
+    padding-right: 8rem;
+    padding-left: 5.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .work-with-us .container .ready-text {
+    padding-right: 12rem;
+    padding-left: 8rem;
+  }
+}
+main .work-with-us .container .ready-text h2 {
+  margin-bottom: 3.5rem;
+}
+main .work-with-us .container .ready-text span {
+  color: #6366F1;
+}
+main .work-with-us .container img {
+  display: none;
+}
+@media (min-width: 1024px) {
+  main .work-with-us .container img {
+    display: flex;
+    margin-right: 5.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .work-with-us .container img {
+    margin-right: 5.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .work-with-us .container img {
+    margin-right: 8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  main .saved-courses .container {
+    display: flex;
+  }
+}
+main .saved-courses .container aside {
+  padding-top: 3rem;
+}
+main .saved-courses .container aside .profile {
+  text-align: center;
+}
+main .saved-courses .container aside .profile img {
+  margin-bottom: 1rem;
+}
+main .saved-courses .container aside .profile .img-btn {
+  position: relative;
+  display: inline;
+}
+main .saved-courses .container aside .profile .img-btn .updateAvatarBtn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: none;
+  background-color: #ffffff;
+  top: 1.5rem;
+  left: 5rem;
+  box-shadow: 1px 1px 2px 1px #E2E5F1;
+}
+main .saved-courses .container aside .profile .img-btn .updateAvatarBtn i {
+  margin-top: 0.3rem;
+  font-size: 1.2rem;
+}
+main .saved-courses .container aside .profile .img-btn .tool-tip {
+  position: absolute;
+  color: #ffffff;
+  background-color: #0B0F19;
+  padding: 0rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 300;
+  top: -0.25rem;
+  left: 6.5rem;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  visibility: hidden;
+}
+main .saved-courses .container aside .profile .img-btn:hover .tool-tip {
+  visibility: visible;
+  opacity: 1;
+}
+@media (min-width: 1200px) {
+  main .saved-courses .container aside {
+    padding-right: 1rem;
+    border-right: 2px solid #E2E5F1;
+  }
+}
+main .saved-courses .container aside .buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1200px) {
+  main .saved-courses .container aside .buttons {
+    width: 18rem;
+  }
+}
+main .saved-courses .container .right-aside {
+  margin-top: 4.5rem;
+  margin-bottom: 6rem;
+}
+@media (min-width: 1200px) {
+  main .saved-courses .container .right-aside {
+    padding-left: 7rem;
+  }
+}
+main .saved-courses .container .right-aside .title-and-button {
+  text-align: center;
+}
+main .saved-courses .container .right-aside .title-and-button .danger-btn {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+main .saved-courses .container .right-aside .title-and-button .danger-btn i {
+  margin-right: 0.5rem;
+}
+main .saved-courses .container .right-aside .title-and-button h1 {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 368px) {
+  main .saved-courses .container .right-aside .title-and-button {
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+  }
+  main .saved-courses .container .right-aside .title-and-button h1 {
+    margin-bottom: 0rem;
+  }
+}
+main .saved-courses .container .right-aside .courses {
+  margin-top: 2rem;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 478px) {
+  main .saved-courses .container .right-aside .courses {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+main .saved-courses .container .right-aside .courses .oneCourse {
+  position: relative;
+  box-shadow: 1px 1px 6px 3px #E2E5F1;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+main .saved-courses .container .right-aside .courses .oneCourse:hover {
+  box-shadow: 1px 1px 6px 3px #B4B7C9;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .bestSeller {
+  background-color: #22C55E;
+  color: #ffffff;
+  display: inline;
+  padding: 0rem 0.5rem;
+  border-radius: 6px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .saveCourseBtn {
+  border: none;
+  width: 42px;
+  height: 42px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 25px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: color 0.15s ease-in-out;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .saveCourseBtn:hover {
+  color: #6366F1;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .saveCourseBtn i {
+  font-size: 2.8rem;
+  margin-left: -1.1rem;
+  margin-top: -0.7rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip .tool-tip {
+  position: absolute;
+  color: #ffffff;
+  background-color: #0B0F19;
+  padding: 0.3rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 300;
+  top: -1.7rem;
+  right: -0.5rem;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  visibility: hidden;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .btn-tooltip:hover .tool-tip {
+  visibility: visible;
+  opacity: 1;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink {
+  text-decoration: none;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .header5 {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .author {
+  color: #565973;
+  padding-left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .prices {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .prices .price {
+  color: #6366F1;
+  font-weight: 600;
+  padding-left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .prices .reducedPrice {
+  color: #9397AD;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .hours-and-rating {
+  border-top: 2px solid #E2E5F1;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .hours-and-rating i {
+  margin-right: 0.5rem;
+}
+main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .hours-and-rating p {
+  margin-right: 1.5rem;
+  margin-top: -0.15rem;
+}
+
+main .single-course-section {
+  margin-top: 0.5rem;
+  position: relative;
+}
+main .single-course-section .bkg-img {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  z-index: -1;
+  display: none;
+}
+@media (min-width: 578px) {
+  main .single-course-section .bkg-img {
+    display: block;
+  }
+}
+main .single-course-section .container {
+  padding-top: 2rem;
+  position: relative;
+  text-align: center;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container {
+    text-align: start;
+  }
+}
+main .single-course-section .container .breadcrumbs {
+  margin-bottom: 4rem;
+}
+main .single-course-section .container .breadcrumbs a {
+  text-decoration: none;
+  color: #9397AD;
+}
+main .single-course-section .container .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .breadcrumbs .white-link {
+    color: #F3F6FF;
+  }
+}
+main .single-course-section .container .breadcrumbs .arrows {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  font-size: 0.8rem;
+}
+main .single-course-section .container .upper-section .course-categories {
+  margin-bottom: 3rem;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .upper-section .course-categories {
+    margin-bottom: 1rem;
+  }
+}
+main .single-course-section .container .upper-section .course-categories .green-category {
+  border-radius: 6px;
+  padding: 0rem 0.7rem;
+  color: #ffffff;
+  background-color: #22C55E;
+  display: inline;
+  margin-right: 0.5rem;
+}
+main .single-course-section .container .upper-section .course-categories .white-category {
+  border-radius: 6px;
+  padding: 0rem 0.7rem;
+  background-color: #EFF2FC;
+  display: inline;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .upper-section .course-categories .white-category {
+    background-color: #ffffff;
+  }
+}
+main .single-course-section .container .upper-section .display6 {
+  color: #000000;
+  margin-bottom: 1rem;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .upper-section .display6 {
+    color: #ffffff;
+  }
+}
+main .single-course-section .container .upper-section .l-text {
+  color: #B4B7C9;
+  margin-bottom: 3rem;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .upper-section .rating-and-reviews {
+    display: flex;
+  }
+}
+main .single-course-section .container .upper-section .rating-and-reviews .reviews {
+  gap: 0.3rem;
+  display: flex;
+  color: #B4B7C9;
+  margin-right: 1.5rem;
+  justify-content: center;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .upper-section .rating-and-reviews .reviews {
+    justify-content: start;
+  }
+}
+main .single-course-section .container .upper-section .rating-and-reviews .reviews .m-text, main .single-course-section .container .upper-section .rating-and-reviews .reviews .fa-regular {
+  color: #B4B7C9;
+}
+main .single-course-section .container .upper-section .rating-and-reviews .reviews .m-text {
+  margin-top: -0.2rem;
+}
+main .single-course-section .container .upper-section .rating-and-reviews .likes {
+  margin-right: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .upper-section .rating-and-reviews .likes {
+    justify-content: start;
+  }
+}
+main .single-course-section .container .upper-section .rating-and-reviews .likes .m-text {
+  color: #B4B7C9;
+  margin-top: -0.2rem;
+}
+main .single-course-section .container .upper-section .rating-and-reviews .likes i {
+  margin-right: 0.5rem;
+  color: #B4B7C9;
+}
+main .single-course-section .container .upper-section .rating-and-reviews .hours {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .upper-section .rating-and-reviews .hours {
+    justify-content: start;
+  }
+}
+main .single-course-section .container .upper-section .rating-and-reviews .hours .m-text {
+  color: #B4B7C9;
+  margin-top: -0.2rem;
+}
+main .single-course-section .container .upper-section .rating-and-reviews .hours i {
+  margin-right: 0.5rem;
+  color: #9397AD;
+}
+main .single-course-section .container .created-by {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .created-by {
+    margin-top: 5rem;
+    justify-content: start;
+  }
+}
+main .single-course-section .container .created-by img {
+  width: 60px;
+  height: 60px;
+}
+main .single-course-section .container .created-by .creator-text {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+main .single-course-section .container .created-by .creator-text .m-text {
+  margin: 0;
+  margin-bottom: 0.1rem;
+  font-weight: 500;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .created-by .creator-text .m-text {
+    color: #ffffff;
+  }
+}
+main .single-course-section .container .created-by .creator-text .author-name {
+  font-weight: 300;
+}
+main .single-course-section .container .course-info {
+  margin-top: 8rem;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  main .single-course-section .container .course-info {
+    margin-top: 10rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .course-info {
+    margin-top: 13rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+  }
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .course-info .course-desc {
+    max-width: 45rem;
+  }
+}
+main .single-course-section .container .course-info .course-desc .display6 {
+  margin-bottom: 2rem;
+}
+main .single-course-section .container .course-info .course-desc .what-youll-learn {
+  margin-top: 3rem;
+}
+main .single-course-section .container .course-info .course-desc .what-youll-learn .header3 {
+  margin-bottom: 2rem;
+}
+main .single-course-section .container .course-info .course-desc .what-youll-learn i {
+  margin-right: 0.5rem;
+  color: #6366F1;
+}
+main .single-course-section .container .course-info .course-includes {
+  margin-top: 4rem;
+  border-radius: 6px;
+  box-shadow: 1px 1px 6px 3px #E2E5F1;
+  padding: 2rem 0rem;
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .course-info .course-includes {
+    margin-top: 2rem;
+    height: 450px;
+    padding: 2.5rem 7.5rem 1.5rem 2.5rem;
+  }
+}
+main .single-course-section .container .course-info .course-includes .header4 {
+  margin-bottom: 1.5rem;
+}
+main .single-course-section .container .course-info .course-includes i {
+  margin-right: 0.5rem;
+}
+main .single-course-section .container .course-info .course-includes .course-price {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .course-info .course-includes .course-price {
+    justify-content: start;
+  }
+}
+main .single-course-section .container .course-info .course-includes .course-price p {
+  margin-top: 1rem;
+}
+main .single-course-section .container .course-info .course-includes button {
+  border: none;
+}
+main .single-course-section .container .program-details {
+  margin-top: 5rem;
+}
+main .single-course-section .container .program-details h2 {
+  margin-bottom: 2rem;
+}
+main .single-course-section .container .program-details .program {
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  main .single-course-section .container .program-details .program {
+    display: flex;
+  }
+}
+main .single-course-section .container .program-details .program .program-text {
+  margin: 0;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  main .single-course-section .container .program-details .program .program-text {
+    margin-left: 2rem;
+  }
+}
+main .single-course-section .container .program-details .program .program-text .lead-text {
+  color: #000000;
+  font-weight: 800;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+main .single-course-section .container .author-info {
+  margin: 5rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .author-info {
+    display: flex;
+    flex-direction: row;
+  }
+}
+main .single-course-section .container .author-info .big-author {
+  width: 50%;
+}
+@media (min-width: 768px) {
+  main .single-course-section .container .author-info .big-author {
+    height: 568px;
+    width: 526px;
+  }
+}
+main .single-course-section .container .author-info .info-author img {
+  margin-top: -0.35rem;
+  position: absolute;
+  z-index: -1;
+  display: none;
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .author-info .info-author img {
+    display: flex;
+  }
+}
+main .single-course-section .container .author-info .info-author .author {
+  text-align: center;
+  padding: 0;
+}
+@media (min-width: 578px) {
+  main .single-course-section .container .author-info .info-author .author {
+    padding: 2rem 6rem 2rem 6rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .author-info .info-author .author {
+    padding: 6rem;
+    text-align: start;
+  }
+}
+main .single-course-section .container .author-info .info-author .author .display6 {
+  color: #33354D;
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .author-info .info-author .author .display6 {
+    color: #ffffff;
+  }
+}
+main .single-course-section .container .author-info .info-author .author p {
+  color: #9397AD;
+}
+main .single-course-section .container .author-info .info-author .author .social-btns {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .author-info .info-author .author .social-btns {
+    display: block;
+  }
+}
+main .single-course-section .container .author-info .info-author .author .social-btns .youtube-btn {
+  margin-bottom: 1rem;
+  background-color: #EF4444;
+}
+@media (min-width: 1400px) {
+  main .single-course-section .container .author-info .info-author .author .social-btns .youtube-btn {
+    margin-right: 1rem;
+    margin-bottom: 0rem;
+  }
+}
+main .single-course-section .container .author-info .info-author .author .social-btns .youtube-btn .fa-youtube {
+  margin-right: 0.5rem;
+}
+main .single-course-section .container .author-info .info-author .author .social-btns .facebook-btn {
+  background-color: #1877F2;
+}
+main .single-course-section .container .author-info .info-author .author .social-btns .facebook-btn .fa-square-facebook {
+  margin-right: 0.5rem;
+}
+
+main .unsubscribe-section {
+  margin-top: 5rem;
+}
+main .unsubscribe-section .container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+main .unsubscribe-section .container h1 {
+  color: #0B0F19;
+}
+main .unsubscribe-section .container form {
+  width: 100%;
+  max-width: 20rem;
+}
+main .unsubscribe-section .container form input {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+}
+main .unsubscribe-section .container form button {
+  border: none;
+  margin-bottom: 1rem;
 }
 
 .wrapper {
@@ -1237,5 +2621,450 @@ main .account-details-section .container .details .address-info .basic-form .pos
   font-family: Manrope, sans-serif;
   font-size: 16px;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+}
+
+.alert {
+  background-color: #D4D7E5;
+}
+.alert button {
+  border: none;
+  margin-left: 2rem;
+}
+
+.hide {
+  display: none;
+}
+
+.header-light-gray {
+  background-color: #F3F6FF;
+}
+
+.header-white {
+  background-color: #ffffff;
+}
+
+.header-gray {
+  background-color: #0f121e;
+}
+
+.header-dark-gray {
+  background-color: #0B0F19;
+}
+
+.color-danger {
+  color: #EF4444 !important;
+}
+
+.dark-mode .gray-btn {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  background-color: rgba(51, 53, 77, 0.5);
+  border-radius: 6px;
+  transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
+}
+.dark-mode .gray-btn i {
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+}
+.dark-mode .gray-btn:hover {
+  background-color: rgba(51, 53, 77, 0.4);
+  box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+}
+.dark-mode header p, .dark-mode header .navigate-link {
+  color: #ffffff !important;
+}
+.dark-mode footer {
+  background-color: #0B0F19;
+}
+.dark-mode main {
+  background-color: #0B0F19;
+}
+.dark-mode main .showcase h1, .dark-mode main .showcase h6 {
+  color: #ffffff;
+}
+.dark-mode main .showcase p {
+  color: #B4B7C9;
+}
+.dark-mode main .showcase .showcase-brands h6 {
+  color: white;
+}
+.dark-mode main .tools-section {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .tools-section .container h2 {
+  color: #ffffff;
+}
+.dark-mode main .tools-section .container .our-tools h5 {
+  color: white;
+}
+.dark-mode main .tools-section .container .our-tools p {
+  color: #9397AD;
+}
+.dark-mode main .tools-section .container .our-tools .tool:hover {
+  box-shadow: none;
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .manage-work-section .container h2 {
+  color: white;
+}
+.dark-mode main .manage-work-section .container p {
+  color: #B4B7C9;
+}
+.dark-mode main .download-our-app-section {
+  background-color: rgba(51, 53, 77, 0.1);
+  padding: 0;
+}
+.dark-mode main .download-our-app-section .container {
+  background-color: rgba(51, 53, 77, 0.3);
+}
+@media (min-width: 1200px) {
+  .dark-mode main .download-our-app-section .container {
+    padding: 2rem 6rem;
+  }
+}
+.dark-mode main .download-our-app-section .container .download-here h2 {
+  color: white;
+}
+.dark-mode main .download-our-app-section .container .download-here .app-places .rating-image {
+  color: white;
+}
+.dark-mode main .integrate-work-section .container .integrate-title h2 {
+  color: white;
+}
+.dark-mode main .integrate-work-section .container .other-apps p {
+  color: #9397AD;
+}
+.dark-mode main .integrate-work-section .container .other-apps a:hover {
+  box-shadow: none;
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .newsletter-section {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .newsletter-section .container .newsletter-title h2 {
+  color: white;
+}
+.dark-mode main .newsletter-section .container .newsform .news-flex h3 {
+  color: white;
+}
+.dark-mode main .newsletter-section .container .newsform .news-flex .settings .setting p {
+  color: #9397AD;
+}
+.dark-mode main .newsletter-section .container .newsform .signup #email {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: white;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .courses-section .container .title-inputs .header1 {
+  color: white;
+}
+.dark-mode main .courses-section .container .title-inputs .select-input, .dark-mode main .courses-section .container .title-inputs .search-input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse {
+  background-color: rgba(51, 53, 77, 0.1);
+  box-shadow: none;
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse:hover {
+  background-color: rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info h5 {
+  color: #D4D7E5;
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info p {
+  color: #9397AD;
+}
+.dark-mode main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating {
+  border-color: #565973;
+}
+.dark-mode main .courses-section .container .page-numbers button:hover {
+  background-color: #33354D;
+  color: white;
+}
+.dark-mode main .work-with-us .container {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .work-with-us .container .ready-text p {
+  color: #9397AD;
+}
+.dark-mode main .work-with-us .container .ready-text h2 {
+  color: white;
+}
+.dark-mode main .single-course-section {
+  background-color: transparent;
+  z-index: 1;
+}
+.dark-mode main .single-course-section .container .breadcrumbs .white-link {
+  color: #E2E5F1;
+}
+.dark-mode main .single-course-section .container .upper-section .l-text {
+  color: #D4D7E5;
+}
+.dark-mode main .single-course-section .container .course-info .course-desc .display6, .dark-mode main .single-course-section .container .course-info .course-desc h3 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .course-info .course-desc .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes {
+  box-shadow: none;
+  background-color: rgba(51, 53, 77, 0.1);
+  border: 1px solid rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .single-course-section .container .course-info .course-includes h4 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes .course-price .header2 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .course-info .course-includes .course-price p {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .program-details h2 {
+  color: white;
+}
+.dark-mode main .single-course-section .container .program-details .program .program-text .lead-text {
+  color: white;
+}
+.dark-mode main .single-course-section .container .program-details .program .program-text .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .single-course-section .container .author-info {
+  border: 1px solid rgba(51, 53, 77, 0.4);
+}
+.dark-mode main .contact-us-section {
+  background-color: rgba(51, 53, 77, 0.1);
+}
+.dark-mode main .contact-us-section .container h1 {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-us .email-career .contact-option .text h3 {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-us .email-career .contact-option .text p {
+  color: #B4B7C9;
+}
+.dark-mode main .contact-us-section .container .contact-form {
+  box-shadow: none;
+  background-color: #0B0F19;
+  border: 1px solid rgba(51, 53, 77, 0.3);
+}
+.dark-mode main .contact-us-section .container .contact-form h2 {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-form form label {
+  color: white;
+}
+.dark-mode main .contact-us-section .container .contact-form form input, .dark-mode main .contact-us-section .container .contact-form form select, .dark-mode main .contact-us-section .container .contact-form form textarea {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .signin-section .container .signin-form h1 {
+  color: white;
+}
+.dark-mode main .signin-section .container .signin-form .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .signin-section .container .signin-form form label {
+  color: white;
+}
+.dark-mode main .signin-section .container .signin-form form input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .signin-section .container .signin-form form .remember-me p {
+  color: #B4B7C9;
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external {
+  border-color: rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .header6 {
+  color: #ffffff;
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .signin-btns a {
+  background-color: rgba(51, 53, 77, 0.1);
+  color: #ffffff;
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .signin-btns a:hover {
+  background-color: rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .signin-section .container .signin-form form .signin-external .signin-btns i {
+  color: #ffffff;
+}
+.dark-mode main .signup-section .container .signup-form h1 {
+  color: white;
+}
+.dark-mode main .signup-section .container .signup-form .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .signup-section .container .signup-form form label {
+  color: white;
+}
+.dark-mode main .signup-section .container .signup-form form input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .signup-section .container .signup-form form .agreement-signup p {
+  color: #B4B7C9;
+}
+.dark-mode main .account-details-section .container aside {
+  border-color: #33354D;
+}
+.dark-mode main .account-details-section .container aside .profile h5 {
+  color: white;
+}
+.dark-mode main .account-details-section .container aside .profile .fa-arrows-rotate-reverse {
+  color: white;
+}
+.dark-mode main .account-details-section .container aside .profile .updateAvatarBtn {
+  box-shadow: none;
+  background-color: #131022;
+  border: 1px solid #33354D;
+}
+.dark-mode main .account-details-section .container aside .profile .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .account-details-section .container aside a {
+  color: white;
+}
+.dark-mode main .account-details-section .container aside a:hover {
+  background-color: #33354D;
+}
+.dark-mode main .account-details-section .container aside a:active {
+  background-color: #6366F1;
+}
+.dark-mode main .account-details-section .container .details .header2 {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .basic-form .nameinputs p, .dark-mode main .account-details-section .container .details .basic-form .email-phone p {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .basic-form .nameinputs input, .dark-mode main .account-details-section .container .details .basic-form .email-phone input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .account-details-section .container .details .basic-form p {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .basic-form textarea {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5) !important;
+}
+.dark-mode main .account-details-section .container .details .address-info {
+  border-color: #33354D;
+}
+.dark-mode main .account-details-section .container .details .address-info .basic-form .address p, .dark-mode main .account-details-section .container .details .address-info .basic-form .postal-city p {
+  color: white;
+}
+.dark-mode main .account-details-section .container .details .address-info .basic-form .address input, .dark-mode main .account-details-section .container .details .address-info .basic-form .postal-city input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .account-security-section .container aside {
+  border-color: #33354D;
+}
+.dark-mode main .account-security-section .container aside .profile h5 {
+  color: white;
+}
+.dark-mode main .account-security-section .container aside .profile .fa-arrows-rotate-reverse {
+  color: white;
+}
+.dark-mode main .account-security-section .container aside .profile .updateAvatarBtn {
+  box-shadow: none;
+  background-color: #131022;
+  border: 1px solid #33354D;
+}
+.dark-mode main .account-security-section .container aside .profile .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .account-security-section .container aside a {
+  color: white;
+}
+.dark-mode main .account-security-section .container aside a:hover {
+  background-color: #33354D;
+}
+.dark-mode main .account-security-section .container aside a:active {
+  background-color: #6366F1;
+}
+.dark-mode main .account-security-section .container .details h1 {
+  color: white;
+}
+.dark-mode main .account-security-section .container .details .password-form .currentPassword label, .dark-mode main .account-security-section .container .details .password-form .new-password-div label {
+  color: white;
+}
+.dark-mode main .account-security-section .container .details .password-form .currentPassword input, .dark-mode main .account-security-section .container .details .password-form .new-password-div input {
+  background-color: rgba(51, 53, 77, 0.2);
+  color: #B4B7C9;
+  border: 1px solid rgba(51, 53, 77, 0.5);
+}
+.dark-mode main .account-security-section .container .details .account-deletion {
+  border-color: #33354D;
+}
+.dark-mode main .account-security-section .container .details .account-deletion .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .saved-courses .container aside {
+  border-color: #33354D;
+}
+.dark-mode main .saved-courses .container aside .profile h5 {
+  color: white;
+}
+.dark-mode main .saved-courses .container aside .profile .fa-arrows-rotate-reverse {
+  color: white;
+}
+.dark-mode main .saved-courses .container aside .profile .updateAvatarBtn {
+  box-shadow: none;
+  background-color: #131022;
+  border: 1px solid #33354D;
+}
+.dark-mode main .saved-courses .container aside .profile .m-text {
+  color: #B4B7C9;
+}
+.dark-mode main .saved-courses .container aside a {
+  color: white;
+}
+.dark-mode main .saved-courses .container aside a:hover {
+  background-color: #33354D;
+}
+.dark-mode main .saved-courses .container aside a:active {
+  background-color: #6366F1;
+}
+.dark-mode main .saved-courses .container .right-aside .title-and-button h1 {
+  color: white;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse {
+  background-color: rgba(51, 53, 77, 0.1);
+  box-shadow: none;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse:hover {
+  background-color: rgba(51, 53, 77, 0.2);
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info h5 {
+  color: #D4D7E5;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info p {
+  color: #9397AD;
+}
+.dark-mode main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .hours-and-rating {
+  border-color: #565973;
+}
+.dark-mode main .error-section .container .display5 {
+  color: white;
+}
+.dark-mode main .error-section .container .xl-text {
+  color: #B4B7C9;
 }

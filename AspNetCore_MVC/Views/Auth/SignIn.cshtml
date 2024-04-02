@@ -6,15 +6,16 @@
 <section class="signin-section">
     <div class="container">
         <div class="signin-form">
+            <p class="text-success">@TempData["WasDeleted"]</p>
             <h1 class="header1">Welcome Back</h1>
             <p class="m-text">Don’t have an account yet? <a class="sign-in" asp-controller="Auth" asp-action="SignUp">Sign up here.</a></p>
-            <form method="post" novalidate asp-controller="Auth" asp-action="SignIn">
+            <form method="post" asp-controller="Auth" asp-action="SignIn" novalidate>
                 <div class="error-message">
-                    @Model.ErrorMessage
+                    @ViewData["ErrorMessage"]
                 </div>
                 <label asp-for="SignInModel.Email"></label>
-                <span asp-validation-for="SignInModel.Email"></span>
-                <input asp-for="SignInModel.Email" class="userinput">
+                <span id="signInSpan" asp-validation-for="SignInModel.Email"></span>
+                <input id="signInEmail" asp-for="SignInModel.Email" class="userinput">
 
                 <label asp-for="SignInModel.Password"></label>
                 <span asp-validation-for="SignInModel.Password"></span>
@@ -24,11 +25,22 @@
                     <input asp-for="SignInModel.RememberMe">
                     <p>Remember me</p>
                     <button type="submit" asp-controller="Auth" asp-action="SignIn" class="theme-btn">Sign in</button>
+
                     <div class="forgot-password">
                         <a asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
+                    </div>
+                </div>
+
+                <div class="signin-external">
+                    <p class="header6">Or sign in with your social network</p>
+                    <div class="signin-btns">
+                        <a class="transparent-btn fb-btn" asp-controller="Auth" asp-action="Google"><i class="fa-brands fa-google"></i> Google</a>
+                        <a class="transparent-btn fb-btn" asp-controller="Auth" asp-action="Facebook"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </section>
+
+@await Html.PartialAsync("~/Views/Shared/_SignInValidationPartial.cshtml")

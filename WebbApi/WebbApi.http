@@ -1,0 +1,6 @@
+@WebbApi_HostAddress = http://localhost:5274
+
+GET {{WebbApi_HostAddress}}/api/subscribe
+Accept: application/json
+
+###
