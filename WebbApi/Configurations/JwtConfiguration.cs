@@ -8,23 +8,28 @@ public static class JwtConfiguration
 {
     public static void RegisterJwt(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(x => {
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidIssuer = configuration["Jwt:Issuer"],
+        services.AddAuthentication(x =>
+        {
+            x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(x => 
+        {
+            x.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidIssuer = configuration["Jwt:Issuer"],
 
-                    ValidateAudience = true,
-                    ValidAudience = configuration["Jwt:Audience"],
+                ValidateAudience = true,
+                ValidAudience = configuration["Jwt:Audience"],
 
-                    ValidateLifetime = true,
+                ValidateLifetime = true,
 
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Secret"]!)),
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Secret"]!)),
 
-                    ClockSkew = TimeSpan.Zero,
-                };
-            });
+                ClockSkew = TimeSpan.FromMinutes(1),
+            };
+        });
     }
 }

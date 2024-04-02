@@ -20,12 +20,6 @@ builder.Services.AddScoped<SubscribeManager>();
 builder.Services.AddScoped<CourseManager>();
 builder.Services.AddScoped<ContactManager>();
 builder.Services.RegisterSwagger();
-builder.Services.AddAuthentication(x =>
-{
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-});
 builder.Services.AddDefaultIdentity<ApplicationUser>(x =>
 {
     x.User.RequireUniqueEmail = true;
