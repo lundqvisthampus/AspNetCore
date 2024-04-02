@@ -45,11 +45,7 @@ public class AuthController(UserManager<ApplicationUser> userManager, SignInMana
                 var signUpResult = await _userManager.CreateAsync(applicationUser, model.Form.Password);
                 if (signUpResult.Succeeded)
                 {
-                    var signInResul = await _signInManager.PasswordSignInAsync(applicationUser, model.Form.Password, false, false);
-                    if (signInResul.Succeeded)
-                    {
-                        return RedirectToAction("Index", "Account");
-                    }
+                    return RedirectToAction("SignIn", "Auth");
                 }
             }
             else
