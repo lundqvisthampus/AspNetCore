@@ -29,6 +29,7 @@ builder.Services.ConfigureApplicationCookie(x =>
 
 builder.Services.AddScoped<AddressManager>();
 builder.Services.AddScoped<CourseManager>();
+builder.Services.AddScoped<ImageManager>();
 builder.Services.AddHttpClient();
 
 builder.Services.AddAuthentication().AddFacebook(x =>

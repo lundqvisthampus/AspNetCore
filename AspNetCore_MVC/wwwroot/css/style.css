@@ -222,6 +222,7 @@ header .mobile-menu {
 header .mobile-menu .profile-btn img {
   width: 90px;
   height: 90px;
+  border-radius: 50%;
 }
 header .mobile-menu .gray-btn i, header .mobile-menu .theme-btn i {
   margin-right: 0.5rem;
@@ -303,6 +304,7 @@ header .container .right-nav .nav-btns .navbar-buttons .profile-btn img {
   margin-top: -0.6rem;
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 header .container .right-nav .nav-btns .navbar-buttons i {
   margin-right: 0.5rem;
@@ -1151,6 +1153,9 @@ main .account-details-section .container aside .profile {
 }
 main .account-details-section .container aside .profile img {
   margin-bottom: 1rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 main .account-details-section .container aside .profile .img-btn {
   position: relative;
@@ -1168,8 +1173,8 @@ main .account-details-section .container aside .profile .img-btn .updateAvatarBt
   box-shadow: 1px 1px 2px 1px #E2E5F1;
 }
 main .account-details-section .container aside .profile .img-btn .updateAvatarBtn i {
-  margin-top: 0.3rem;
-  font-size: 1.2rem;
+  margin-top: 0.55rem;
+  font-size: 1.1rem;
 }
 main .account-details-section .container aside .profile .img-btn .tool-tip {
   position: absolute;
@@ -1364,6 +1369,9 @@ main .account-security-section .container aside .profile {
 }
 main .account-security-section .container aside .profile img {
   margin-bottom: 1rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 main .account-security-section .container aside .profile .img-btn {
   position: relative;
@@ -1381,8 +1389,8 @@ main .account-security-section .container aside .profile .img-btn .updateAvatarB
   box-shadow: 1px 1px 2px 1px #E2E5F1;
 }
 main .account-security-section .container aside .profile .img-btn .updateAvatarBtn i {
-  margin-top: 0.3rem;
-  font-size: 1.2rem;
+  margin-top: 0.55rem;
+  font-size: 1.1rem;
 }
 main .account-security-section .container aside .profile .img-btn .tool-tip {
   position: absolute;
@@ -2025,6 +2033,9 @@ main .saved-courses .container aside .profile {
 }
 main .saved-courses .container aside .profile img {
   margin-bottom: 1rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 main .saved-courses .container aside .profile .img-btn {
   position: relative;
@@ -2042,8 +2053,8 @@ main .saved-courses .container aside .profile .img-btn .updateAvatarBtn {
   box-shadow: 1px 1px 2px 1px #E2E5F1;
 }
 main .saved-courses .container aside .profile .img-btn .updateAvatarBtn i {
-  margin-top: 0.3rem;
-  font-size: 1.2rem;
+  margin-top: 0.55rem;
+  font-size: 1.1rem;
 }
 main .saved-courses .container aside .profile .img-btn .tool-tip {
   position: absolute;

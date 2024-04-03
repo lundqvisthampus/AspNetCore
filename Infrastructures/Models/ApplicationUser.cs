@@ -21,4 +21,5 @@ public class ApplicationUser : IdentityUser
 
     public bool IsExternalAccount { get; set; } = false;
     public ICollection<CourseModel> Course { get; set; } = new List<CourseModel>();
+    public string? ProfileImage { get; set; } = "profile-img.svg";
 }

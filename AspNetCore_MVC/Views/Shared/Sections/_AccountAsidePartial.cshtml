@@ -1,12 +1,19 @@
 ﻿@model AccountIndexViewModel
 
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
 <aside>
     <div class="profile">
-        <div class="img-btn">
-            <p class="tool-tip">Update</p>
-            <button class="updateAvatarBtn"><i class="fa-solid fa-arrows-rotate-reverse"></i></button>
-        </div>
-        <img class="profile-avatar" src="~/images/profile-img.svg" alt="Profile image">
+        <form enctype="multipart/form-data" method="post" asp-action="UploadImage" asp-controller="Account">
+            <div class="img-btn">
+                <p class="tool-tip">Update</p>
+                <label for="fileUploader" class="updateAvatarBtn"><i class="fa-solid fa-arrows-rotate-reverse"></i></label>
+            </div>
+            <img class="profile-avatar" src="~/uploads/@user!.ProfileImage" alt="Profile image">
+            <input type="file" id="fileUploader" name="file" hidden/>
+        </form>
         <h5 class="header5">@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
         <p class="m-text">@Model.ProfileInfo.Email</p>
     </div>
@@ -33,3 +40,5 @@
         }
     }
 }
+
+@await Html.PartialAsync("~/Views/Shared/_AccountSaveImagePartial.cshtml")
