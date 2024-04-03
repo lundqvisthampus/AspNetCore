@@ -4,6 +4,7 @@
     var isDark = (themeMode == "dark") ? true : false;
     var themeClass = "";
     var headerClass = "";
+    var user = await _signInManager.UserManager.GetUserAsync(User);
     if (isDark == true)
     {
         themeClass = "dark-mode";
@@ -72,7 +73,7 @@
                         <div class="navbar-buttons">
                             @if (_signInManager.IsSignedIn(User))
                             {
-                                <a class="profile-btn" onclick="toggleMenu()" asp-controller="Account" asp-action="Index"><img src="~/images/profile-img.svg" alt="Profile Image link" /></a>
+                                <a class="profile-btn" asp-controller="Account" asp-action="Index"><img src="~/uploads/@user!.ProfileImage" alt="Profile Image link" /></a>
                             }
                             else
                             {
@@ -91,7 +92,14 @@
                 {
                     if (ShowProfileBtn())
                     {
-                        <a class="profile-btn" onclick="toggleMenu()" asp-controller="Account" asp-action="Index"><img src="~/images/profile-img.svg" alt="Profile Image link" /></a>
+                        <a class="profile-btn" onclick="toggleMenu()" asp-controller="Account" asp-action="Index"><img src="~/uploads/@user!.ProfileImage" alt="Profile Image link" /></a>
+                        <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
+                        <a class="link" onclick="toggleMenu()" asp-controller="Courses" asp-action="Index">Courses</a>
+                        <a class="link" onclick="toggleMenu()" asp-controller="Contact" asp-action="Index">Contact</a>
+                        <button id="mobile-darkmode"><i class="fa-solid fa-moon-over-sun"></i></button>
+                    }
+                    else
+                    {
                         <a class="link" onclick="toggleMenu()" asp-controller="Home" asp-action="Index" asp-fragment="showcase">Overview</a>
                         <a class="link" onclick="toggleMenu()" asp-controller="Courses" asp-action="Index">Courses</a>
                         <a class="link" onclick="toggleMenu()" asp-controller="Contact" asp-action="Index">Contact</a>

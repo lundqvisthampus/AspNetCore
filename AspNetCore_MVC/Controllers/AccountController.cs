@@ -19,14 +19,16 @@ public class AccountController : Controller
     private readonly AddressManager _addressManager;
     private readonly DataContext _context;
     private readonly CourseManager _courseManager;
+    private readonly ImageManager _imageManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AddressManager addressManager, DataContext context, CourseManager courseManager)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AddressManager addressManager, DataContext context, CourseManager courseManager, ImageManager imageManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _addressManager = addressManager;
         _courseManager = courseManager;
         _context = context;
+        _imageManager = imageManager;
     }
 
     #region Index
@@ -278,6 +280,8 @@ public class AccountController : Controller
     }
     #endregion
 
+
+    #region Delete
     [HttpPost]
     public async Task<IActionResult> DeleteCourse(int courseId)
     {
@@ -324,4 +328,15 @@ public class AccountController : Controller
 
         return RedirectToAction("SavedCourses", "Account");
     }
+    #endregion
+
+
+    #region UploadImage
+    [HttpPost]
+    public async Task<IActionResult> UploadImage(IFormFile file)
+    {
+        var result = await _imageManager.ImageUploadAsync(User, file);
+        return RedirectToAction("Index", "Account");
+    }
+    #endregion
 }

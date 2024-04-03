@@ -13,13 +13,14 @@ namespace WebbApi.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 [UseApiKey]
-[Authorize]
 public class CourseController(CourseManager courseManager) : ControllerBase
 {
     private readonly CourseManager _courseManager = courseManager;
 
     #region CREATE
     [HttpPost]
+    [Authorize]
+
     public async Task<IActionResult> Create(CourseDto dto)
     {
         if (ModelState.IsValid)
@@ -53,6 +54,8 @@ public class CourseController(CourseManager courseManager) : ControllerBase
 
     #region READ
     [HttpGet("all")]
+    [Authorize]
+
     public async Task<IActionResult> GetAll()
     {
         var courses = await _courseManager.GetAll();
