@@ -86,3 +86,16 @@ select.addEventListener("change", () => {
         })
     }
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+    const numberButton = document.querySelectorAll('.number');
+    const queryString = window.location.search;
+    const urlParam = new URLSearchParams(queryString)
+    const page = urlParam.get('pageNumber');
+
+    numberButton.forEach(function (number) {
+        if (page == number.textContent || page == null) {
+            number.classList.add('active');
+        }
+    })
+})
