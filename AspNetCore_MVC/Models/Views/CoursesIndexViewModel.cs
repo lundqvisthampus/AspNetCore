@@ -20,4 +20,5 @@ public class CoursesIndexViewModel
     };
     public CourseModel SingleCourse { get; set; } = new CourseModel();
     public IEnumerable<CourseModel> SavedCourses { get; set; } = new List<CourseModel>();
+    public int totalCourses { get; set; }
 }

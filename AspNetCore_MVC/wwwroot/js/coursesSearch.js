@@ -1,5 +1,6 @@
 const input = document.querySelector("#courseSearch")
 const courses = document.querySelectorAll(".oneCourse")
+const numbersDiv = document.querySelector(".page-numbers")
 
 input.addEventListener("keyup", () => {
     const searchText = input.value.trim().toLowerCase();
@@ -7,16 +8,28 @@ input.addEventListener("keyup", () => {
     courses.forEach(course => {
         const title = course.querySelector(".header5").textContent.toLowerCase();
         const author = course.querySelector(".author").textContent.toLowerCase();
+            
 
-        if (searchText == "" || title.includes(searchText) || author.includes(searchText)) {
+        if (searchText == "") {
             course.classList.remove('hide');
-        }
-        else {
+            showButtons()
+        } else if (title.includes(searchText) || author.includes(searchText)) {
+            course.classList.remove('hide');
+            removeButtons()
+        } else {
             course.classList.add('hide');
+            removeButtons()
         }
     });
 })
 
+const removeButtons = () => {
+    numbersDiv.classList.add('hide');
+}
+
+const showButtons = () => {
+    numbersDiv.classList.remove('hide');
+}
 
 
 const select = document.querySelector(".select-input")
@@ -30,6 +43,7 @@ select.addEventListener("change", () => {
             const bestSeller = course.querySelector(".bestSeller");
             if (bestSeller != null) {
                 course.classList.remove('hide');
+                removeButtons()
             }
             else {
                 course.classList.add('hide');
@@ -43,6 +57,7 @@ select.addEventListener("change", () => {
             const reducedPrice = course.querySelector(".reducedPrice");
             if (reducedPrice != null) {
                 course.classList.remove('hide');
+                removeButtons()
             }
             else {
                 course.classList.add('hide');
@@ -56,6 +71,7 @@ select.addEventListener("change", () => {
             const savedCourse = course.querySelector("#deleteCourseBtn");
             if (savedCourse != null) {
                 course.classList.remove('hide');
+                removeButtons()
             }
             else {
                 course.classList.add('hide');
@@ -66,6 +82,7 @@ select.addEventListener("change", () => {
     else {
         courses.forEach(course => {
             course.classList.remove('hide');
+            showButtons()
         })
     }
 })

@@ -2643,7 +2643,7 @@ main .unsubscribe-section .container form button {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .header-light-gray {
