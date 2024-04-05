@@ -1927,11 +1927,9 @@ main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-
   margin-top: -0.15rem;
 }
 main .courses-section .container .page-numbers {
-  display: flex;
-  justify-content: center;
+  right: 15rem;
   gap: 0.5rem;
-  margin-top: 1.5rem;
-  align-items: start;
+  margin-top: 2.5rem;
 }
 main .courses-section .container .page-numbers .number, main .courses-section .container .page-numbers .arrow {
   padding: 0.4rem 0.8rem;
@@ -1939,12 +1937,17 @@ main .courses-section .container .page-numbers .number, main .courses-section .c
   background-color: transparent;
   border-radius: 4px;
   color: #33354D;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   transition: all 0.15s ease-in-out;
   font-weight: 500;
+  text-decoration: none;
 }
 main .courses-section .container .page-numbers .number:hover, main .courses-section .container .page-numbers .arrow:hover {
   background-color: #E2E5F1;
+}
+main .courses-section .container .page-numbers .active {
+  background-color: #6366F1;
+  color: white;
 }
 @media (min-width: 1024px) {
   main .courses-section .container .page-numbers {
