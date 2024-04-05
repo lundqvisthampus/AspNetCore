@@ -75,14 +75,34 @@
                 }
             }
         </div>
-        <div class="page-numbers">
-            <button class="arrow"><</button>
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="number">4</button>
-            <button class="arrow">></button>
-        </div>
+        @{
+            int pageSize = 9; 
+            int totalCourses = Model.totalCourses;
+            int totalPages = (int)Math.Ceiling(totalCourses / (double)pageSize);
+            int currentPage = !string.IsNullOrEmpty(ViewContext.HttpContext.Request.Query["pageNumber"]) ? Convert.ToInt32(ViewContext.HttpContext.Request.Query["pageNumber"]) : 1;
+        }
+
+        @if (Model.Courses.Any())
+        {
+            <div class="page-numbers">
+                @if (currentPage == 1)
+                {
+                    <a asp-action="Index" asp-controller="Courses" asp-route-pageNumber="1" class="number">1</a>
+                    <a asp-action="Index" asp-controller="Courses" asp-route-pageNumber="@(currentPage + 1)" class="arrow">&gt;</a>
+                }
+                @if (currentPage > 1)
+                {
+                    <a asp-action="Index" asp-controller="Courses" asp-route-pageNumber="@(currentPage - 1)" class="arrow">&lt;</a>
+                    <a asp-action="Index" asp-controller="Courses" asp-route-pageNumber="@(currentPage - 1)" class="number">@(currentPage - 1)</a>
+                    <a asp-action="Index" asp-controller="Courses" asp-route-pageNumber="@currentPage" class="number">@currentPage</a>
+                    @if (currentPage < totalPages)
+                    {
+                        <a asp-action="Index" asp-controller="Courses" asp-route-pageNumber="@(currentPage + 1)" class="number">@(currentPage + 1)</a>
+                        <a asp-action="Index" asp-controller="Courses" asp-route-pageNumber="@(currentPage + 1)" class="arrow">&gt;</a>
+                    }
+                }
+            </div>
+        }
     </div>
 </section>
 

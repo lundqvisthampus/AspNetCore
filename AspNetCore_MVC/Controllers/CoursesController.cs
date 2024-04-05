@@ -23,7 +23,7 @@ public class CoursesController(SignInManager<ApplicationUser> signInManager, Dat
     private readonly CourseManager _courseManager = courseManager;
 
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 9)
     {
         ViewData["Title"] = "All Our Courses";
 
@@ -31,29 +31,42 @@ public class CoursesController(SignInManager<ApplicationUser> signInManager, Dat
         {
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await client.GetAsync("https://localhost:7023/api/Course/all?key=44ee639f-12d8-4847-a560-0604cc38cd57");
-            var json = await response.Content.ReadAsStringAsync();
-            var coursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
+            var response = await client.GetAsync($"https://localhost:7023/api/Course/take?key=44ee639f-12d8-4847-a560-0604cc38cd57&pageNumber={pageNumber}&pageSize={pageSize}");
 
-            var viewModel = new CoursesIndexViewModel();
-            if (coursesList!.Any())
+            if (response.IsSuccessStatusCode) 
             {
-                viewModel.Courses = coursesList!;
+                var json = await response.Content.ReadAsStringAsync();
+                var coursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
+
+                var allCourses = await client.GetAsync($"https://localhost:7023/api/Course/all?key=44ee639f-12d8-4847-a560-0604cc38cd57");
+                var allCoursesJson = await allCourses.Content.ReadAsStringAsync();
+                var allCoursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(allCoursesJson);
+                var totalCount = allCoursesList.Count();
+                var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+
+                var viewModel = new CoursesIndexViewModel();
+                if (coursesList!.Any())
+                {
+                    viewModel.Courses = coursesList!;
+                }
+
+                var user = await _signInManager.UserManager.GetUserAsync(User);
+                var result = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
+                var courseList = new List<CourseModel>();
+
+                foreach (var course in result)
+                {
+                    var getcourse = await _courseManager.GetOneAsync(course.CourseId);
+                    courseList.Add(getcourse);
+                }
+
+                viewModel.SavedCourses = courseList;
+                viewModel.totalCourses = totalCount;
+
+                return View(viewModel);
             }
-
-            var user = await _signInManager.UserManager.GetUserAsync(User);
-            var result = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
-            var courseList = new List<CourseModel>();
-
-            foreach (var course in result)
-            {
-                var getcourse = await _courseManager.GetOneAsync(course.CourseId);
-                courseList.Add(getcourse);
-            }
-
-            viewModel.SavedCourses = courseList;
-
-            return View(viewModel);
+            
+            return RedirectToAction("error", "home");
         }
 
         return View();

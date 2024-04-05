@@ -67,6 +67,20 @@ public class CourseController(CourseManager courseManager) : ControllerBase
         return NotFound();
     }
 
+    [HttpGet("take")]
+    [Authorize]
+
+    public async Task<IActionResult> Take(int pageNumber = 1, int pageSize = 9)
+    {
+        var courses = await _courseManager.GetAll(pageNumber, pageSize);
+        if (courses.Any())
+        {
+            return Ok(courses);
+        }
+
+        return NotFound();
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetOne(int id)
     {

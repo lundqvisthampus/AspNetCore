@@ -40,6 +40,14 @@ public class CourseManager(DataContext context)
         return courses;
     }
 
+    public async Task<IEnumerable<CourseModel>> GetAll(int pageNumber, int pageSize)
+    {
+        int skipCount = (pageNumber - 1) * pageSize;
+
+        var courses = await _context.Courses.Skip(skipCount).Take(pageSize).ToListAsync();
+        return courses;
+    }
+
     public async Task<CourseModel> CreateAsync(CourseDto dto)
     {
         var exists = await _context.Courses.FirstOrDefaultAsync(x => x.Title == dto.Title);
