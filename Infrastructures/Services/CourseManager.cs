@@ -1,6 +1,7 @@
 ﻿using Infrastructures.Contexts;
 using Infrastructures.Dto;
 using Infrastructures.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,19 @@ public class CourseManager(DataContext context)
 
         var courses = await _context.Courses.Skip(skipCount).Take(pageSize).ToListAsync();
         return courses;
+    }
+
+    public async Task<IEnumerable<CourseModel>> GetSaved(ApplicationUser user)
+    {
+        var result = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
+        var courseList = new List<CourseModel>();
+
+        foreach (var course in result)
+        {
+            var getcourse = await GetOneAsync(course.CourseId);
+            courseList.Add(getcourse);
+        }
+        return courseList;
     }
 
     public async Task<CourseModel> CreateAsync(CourseDto dto)
