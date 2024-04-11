@@ -1911,6 +1911,7 @@ main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-
 }
 main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .prices .reducedPrice {
   color: #9397AD;
+  text-decoration: line-through;
 }
 main .courses-section .container .courses-all .oneCourse .oneCourseLink .course-info .hours-and-rating {
   border-top: 2px solid #E2E5F1;
@@ -2220,6 +2221,7 @@ main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .
 }
 main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .prices .reducedPrice {
   color: #9397AD;
+  text-decoration: line-through;
 }
 main .saved-courses .container .right-aside .courses .oneCourse .oneCourseLink .course-info .hours-and-rating {
   border-top: 2px solid #E2E5F1;

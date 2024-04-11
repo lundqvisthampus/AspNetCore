@@ -24,7 +24,7 @@ public class ContactController : Controller
             var json = JsonConvert.SerializeObject(dto);
             var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
 
-            var response = await http.PostAsync("https://localhost:7023/api/Contact", content);
+            var response = await http.PostAsync("https://localhost:7023/api/Contact?key=44ee639f-12d8-4847-a560-0604cc38cd57", content);
 
             if (response.IsSuccessStatusCode)
             {
