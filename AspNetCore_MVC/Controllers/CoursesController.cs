@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
@@ -16,61 +17,88 @@ using System.Text.Json.Nodes;
 namespace AspNetCore_MVC.Controllers;
 
 [Authorize]
-public class CoursesController(SignInManager<ApplicationUser> signInManager, DataContext context, CourseManager courseManager) : Controller
+public class CoursesController(SignInManager<ApplicationUser> signInManager, DataContext context, CourseManager courseManager, CourseJsonManager courseJsonManager) : Controller
 {
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
     private readonly DataContext _context = context;
     private readonly CourseManager _courseManager = courseManager;
+    private readonly CourseJsonManager _courseJsonManager = courseJsonManager;
 
 
-    public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 9)
+    public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 9, string? search = null, string? select = null)
     {
         ViewData["Title"] = "All Our Courses";
 
         if (HttpContext.Request.Cookies.TryGetValue("AccessToken", out var token))
         {
-            using var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await client.GetAsync($"https://localhost:7023/api/Course/take?key=44ee639f-12d8-4847-a560-0604cc38cd57&pageNumber={pageNumber}&pageSize={pageSize}");
+            var fewCoursesList = await _courseJsonManager.TakeFew(pageNumber, pageSize, token);
+            var allCoursesList = await _courseJsonManager.TakeAll(token);
 
-            if (response.IsSuccessStatusCode) 
+
+            var viewModel = new CoursesIndexViewModel();
+            var user = await _signInManager.UserManager.GetUserAsync(User);
+            viewModel.SavedCourses = await _courseManager.GetSaved(user);
+            viewModel.totalCourses = allCoursesList.Count();
+
+            if (search != null || select != null)
             {
-                var json = await response.Content.ReadAsStringAsync();
-                var coursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
+                var searchList = new List<CourseModel>();
 
-                var allCourses = await client.GetAsync($"https://localhost:7023/api/Course/all?key=44ee639f-12d8-4847-a560-0604cc38cd57");
-                var allCoursesJson = await allCourses.Content.ReadAsStringAsync();
-                var allCoursesList = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(allCoursesJson);
-                var totalCount = allCoursesList.Count();
-                var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
-
-                var viewModel = new CoursesIndexViewModel();
-                if (coursesList!.Any())
+                if (search != null)
                 {
-                    viewModel.Courses = coursesList!;
+                    foreach (var course in allCoursesList)
+                    {
+                        if (course.Title.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                            course.Author.Contains(search, StringComparison.OrdinalIgnoreCase))
+                        {
+                            searchList.Add(course);
+                        }
+                    }
+                    viewModel.Courses = searchList;
                 }
-
-                var user = await _signInManager.UserManager.GetUserAsync(User);
-                var result = await _context.SavedCourses.Where(x => x.UserId == user!.Id).ToListAsync();
-                var courseList = new List<CourseModel>();
-
-                foreach (var course in result)
+                else if (select != null)
                 {
-                    var getcourse = await _courseManager.GetOneAsync(course.CourseId);
-                    courseList.Add(getcourse);
+                    foreach (var course in allCoursesList)
+                    {
+                        switch (select)
+                        {
+                            case "Best seller":
+                                if (course.IsBestSeller == true)
+                                    searchList.Add(course);
+                                break;
+
+                            case "Reduced price":
+                                if (course.DiscountPrice != null && course.DiscountPrice != "string" && course.DiscountPrice != "0")
+                                    searchList.Add(course);
+                                break;
+
+                            case "Saved courses":
+                                searchList = viewModel.SavedCourses.ToList();
+                                break;
+
+                            default:
+                                searchList = fewCoursesList.ToList();
+                                break;
+                        }
+                    }
+                    viewModel.Courses = searchList;
                 }
-
-                viewModel.SavedCourses = courseList;
-                viewModel.totalCourses = totalCount;
-
                 return View(viewModel);
+
             }
-            
-            return RedirectToAction("error", "home");
+            else
+            {
+                if (fewCoursesList!.Any())
+                {
+                    viewModel.Courses = fewCoursesList!;
+                    return View(viewModel);
+                }
+            }
         }
 
         return View();
     }
+
 
     public async Task<IActionResult> SingleCourse(int id)
     {
