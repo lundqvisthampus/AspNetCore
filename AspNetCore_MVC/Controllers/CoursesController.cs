@@ -113,6 +113,8 @@ public class CoursesController(SignInManager<ApplicationUser> signInManager, Dat
         var course = JsonConvert.DeserializeObject<CourseModel>(json);
 
         var viewModel = new CoursesIndexViewModel();
+        var user = await _signInManager.UserManager.GetUserAsync(User);
+        viewModel.SavedCourses = await _courseManager.GetSaved(user);
 
         if (course != null)
         {

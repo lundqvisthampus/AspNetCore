@@ -20,6 +20,29 @@
     }
 }
 
+.theme-btn-red {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 500;
+    padding: 0.7rem 1.4rem;
+    background-color: $danger;
+    border-radius: 6px;
+    transition: opacity 0.2s, background-color 0.2s, box-shadow 0.2s ease-in-out;
+
+
+    i {
+        margin-right: 0.5rem;
+        margin-left: 0;
+        font-size: 1rem;
+    }
+
+    &:hover {
+        background-color: $danger;
+        opacity: 0.6;
+        box-shadow: 3px 3px 6px 1px rgba($color: black, $alpha: 0.3);
+    }
+}
+
 
 .gray-btn {
     text-decoration: none;

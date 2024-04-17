@@ -54,8 +54,6 @@ public class CourseController(CourseManager courseManager) : ControllerBase
 
     #region READ
     [HttpGet("all")]
-    [Authorize]
-
     public async Task<IActionResult> GetAll()
     {
         var courses = await _courseManager.GetAll();
@@ -97,6 +95,7 @@ public class CourseController(CourseManager courseManager) : ControllerBase
 
     #region UPDATE
     [HttpPut]
+    [Authorize]
     public async Task<IActionResult> UpdateOne(CourseDto dto, int id)
     {
         var exists = await _courseManager.GetOneAsync(id);
@@ -119,6 +118,7 @@ public class CourseController(CourseManager courseManager) : ControllerBase
 
     #region DELETE
     [HttpDelete]
+    [Authorize]
     public async Task<IActionResult> DeleteOne(int id)
     {
         var exists = await _courseManager.GetOneAsync(id);

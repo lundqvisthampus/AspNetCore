@@ -1,4 +1,4 @@
-﻿@model CourseModel
+﻿@model CoursesIndexViewModel
 
 @{
     var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
@@ -20,20 +20,34 @@
     </div>
     <div class="course-includes">
         <h4 class="header4">This course includes</h4>
-        <p class="m-text"><i class="fa-light fa-tv-retro"></i> @Model.CourseHours hours on-demand video</p>
+        <p class="m-text"><i class="fa-light fa-tv-retro"></i> @Model.SingleCourse.CourseHours hours on-demand video</p>
         <p class="m-text"><i class="fa-light fa-book"></i> 18 articles</p>
         <p class="m-text"><i class="fa-sharp fa-regular fa-download"></i> 25 downloadable resources</p>
         <p class="m-text"><i class="fa-solid fa-infinity"></i> Full lifetime access</p>
         <p class="m-text"><i class="fa-regular fa-trophy"></i> Certificate of completion</p>
 
         <div class="course-price">
-            <p class="header2">$@Model.Price</p>
-            @if(Model.DiscountPrice != null && (Model.DiscountPrice != "0") && (Model.DiscountPrice != "string"))
+            <p class="header2">$@Model.SingleCourse.Price</p>
+            @if (Model.SingleCourse.DiscountPrice != null && (Model.SingleCourse.DiscountPrice != "0") && (Model.SingleCourse.DiscountPrice != "string"))
             {
-                <p class="xl-text">$@Model.DiscountPrice</p>
+                <p class="xl-text">$@Model.SingleCourse.DiscountPrice</p>
             }
         </div>
-        <button class="theme-btn">Join course</button>
+        <form method="post">
+            @{
+                var isSaved = Model.SavedCourses.FirstOrDefault(x => x.Id == Model.SingleCourse.Id);
+                if (isSaved == null)
+                {
+                    <input type="hidden" name="courseId" value="@Model.SingleCourse.Id" />
+                    <button asp-action="SaveCourse" asp-controller="Courses" class="theme-btn">Join course</button>
+                }
+                else
+                {
+                    <input type="hidden" name="courseId" value="@Model.SingleCourse.Id" />
+                    <button asp-action="DeleteCourse" asp-controller="Courses" class="theme-btn-red">Remove from saved</button>
+                }
+            }
+        </form>
     </div>
 </div>
 
